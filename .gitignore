@@ -1,0 +1,7 @@
+
+*.log
+*.pyc
+*.log
+*.pyc
+/solid_server/FotSolid/Sensor2Gateway/node_modules
+/solid_server/FotSolid/Sensor2Gateway/dist

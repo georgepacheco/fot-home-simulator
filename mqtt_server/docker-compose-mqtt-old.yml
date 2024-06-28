@@ -1,0 +1,79 @@
+version: '3.9'
+services:
+  GATEWAY_H1:
+    image: eclipse-mosquitto:2
+    container_name: GATEWAY_H1
+    hostname: H1
+    expose:
+      - "1883"
+      - "9001"
+    networks:
+      comm-mqtt:
+        aliases:
+          - server1.mqtt
+      mqtt-mininet:
+        ipv4_address: 222.222.222.4 
+        aliases:
+          - server1.mqtt  
+    #entrypoint: mosquitto -c /mosquitto-no-auth.conf
+    entrypoint: ["/bin/sh","-c"]
+    command:
+    - |      
+      mosquitto -c /mosquitto-no-auth.conf &       
+      mosquitto_sub -h 222.222.222.4 -t "#" >> sensorData.json      
+            
+  GATEWAY_H2:
+    image: eclipse-mosquitto:2
+    container_name: GATEWAY_H2
+    expose:
+      - "1883"
+      - "9001"
+    networks:
+      comm-mqtt:
+        aliases:
+          - server2.mqtt
+      mqtt-mininet:
+        ipv4_address: 222.222.222.5 
+        aliases:
+          - server2.mqtt
+    #entrypoint: mosquitto -c /mosquitto-no-auth.conf
+    entrypoint: ["/bin/sh","-c"]
+    command:
+    - |      
+      mosquitto -c /mosquitto-no-auth.conf & 
+      mosquitto_sub -h 222.222.222.5 -t "#" >> sensorData.json
+
+  GATEWAY_H3:
+    image: eclipse-mosquitto:2
+    container_name: GATEWAY_H3
+    expose:
+      - "1883"
+      - "9001"
+    networks:
+      comm-mqtt:
+        aliases:
+          - server3.mqtt
+      mqtt-mininet:
+        ipv4_address: 222.222.222.6
+        aliases:
+          - server3.mqtt
+    #entrypoint: mosquitto -c /mosquitto-no-auth.conf 
+    entrypoint: ["/bin/sh","-c"]
+    command:
+    - |      
+      mosquitto -c /mosquitto-no-auth.conf & 
+      mosquitto_sub -h 222.222.222.6 -t "#" >> sensorData.json      
+      
+
+networks:
+  comm-mqtt:
+    name: comm-mqtt
+    driver: bridge
+  mqtt-mininet:
+    name: mqtt-mininet
+    ipam:
+      driver: default
+      config:
+        - subnet: "222.222.222.0/24"
+  
+  

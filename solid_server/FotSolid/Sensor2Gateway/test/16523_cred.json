@@ -1,0 +1,11 @@
+{
+    "user_id": "16523",
+    "solid_localId": "http://localhost:3000/Home/profile/card#me",
+    "solid_webId": "http://localhost:3000/Home/profile/card#me",
+    "idp": "http://localhost:3000/",
+    "name": "home",
+    "email": "home@test.com",
+    "podname": "Home",
+    "password": "1234",
+    "auth": "true"
+}

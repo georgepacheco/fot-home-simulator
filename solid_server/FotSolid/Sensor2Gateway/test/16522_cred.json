@@ -1,0 +1,11 @@
+{
+    "user_id": "16522",
+    "solid_localId": "http://localhost:3000/Boteco/profile/card#me",
+    "solid_webId": "http://localhost:3000/Boteco/profile/card#me",
+    "idp": "http://localhost:3000/",
+    "name": "boteco",
+    "email": "boteco@test.com",
+    "podname": "Boteco",
+    "password": "1234",
+    "auth": "true"
+}

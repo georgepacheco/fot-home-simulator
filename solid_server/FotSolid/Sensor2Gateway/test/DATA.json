@@ -1,0 +1,77 @@
+{"method":"flow", "sensor":"heartRateSensor", "time":{"collect":10000,"publish":10000}}
+{"code": "post", "method": "flow", "header": {"sensor": "heartRateSensor", "device": "sc05", "time": {"collect": 10000, "publish": 10000}}, "data": ["63", "63"]}
+{"method":"flow", "sensor":"environmentTemperatureSensor", "time":{"collect":10000,"publish":10000}}
+{"code": "post", "method": "flow", "header": {"sensor": "environmentTemperatureSensor", "device": "sc06", "time": {"collect": 10000, "publish": 10000}}, "data": ["25", "25"]}
+{"method":"flow", "sensor":"heartRateSensor", "time":{"collect":10000,"publish":10000}}
+{"code": "post", "method": "flow", "header": {"sensor": "heartRateSensor", "device": "sc08", "time": {"collect": 10000, "publish": 10000}}, "data": ["55", "55"]}
+{"method":"flow", "sensor":"heartRateSensor", "time":{"collect":10000,"publish":10000}}
+{"code": "post", "method": "flow", "header": {"sensor": "heartRateSensor", "device": "sc09", "time": {"collect": 10000, "publish": 10000}}, "data": ["158", "158"]}
+{"method":"flow", "sensor":"bloodGlucoseSensor", "time":{"collect":10000,"publish":10000}}
+{"code": "post", "method": "flow", "header": {"sensor": "bloodGlucoseSensor", "device": "sc10", "time": {"collect": 10000, "publish": 10000}}, "data": ["367", "367"]}
+{"method":"flow", "sensor":"bodyTemperatureSensor", "time":{"collect":10000,"publish":10000}}
+{"code": "post", "method": "flow", "header": {"sensor": "bodyTemperatureSensor", "device": "sc16", "time": {"collect": 10000, "publish": 10000}}, "data": ["104", "104"]}
+{"method":"flow", "sensor":"heartRateSensor", "time":{"collect":10000,"publish":10000}}
+{"code": "post", "method": "flow", "header": {"sensor": "heartRateSensor", "device": "sc17", "time": {"collect": 10000, "publish": 10000}}, "data": ["133", "133"]}
+{"code": "post", "method": "flow", "header": {"sensor": "heartRateSensor", "device": "sc05", "time": {"collect": 10000, "publish": 10000}}, "data": ["58", "58"]}
+{"code": "post", "method": "flow", "header": {"sensor": "environmentTemperatureSensor", "device": "sc06", "time": {"collect": 10000, "publish": 10000}}, "data": ["21", "21"]}
+{"code": "post", "method": "flow", "header": {"sensor": "heartRateSensor", "device": "sc08", "time": {"collect": 10000, "publish": 10000}}, "data": ["160", "160"]}
+{"code": "post", "method": "flow", "header": {"sensor": "heartRateSensor", "device": "sc09", "time": {"collect": 10000, "publish": 10000}}, "data": ["158", "158"]}
+{"code": "post", "method": "flow", "header": {"sensor": "bloodGlucoseSensor", "device": "sc10", "time": {"collect": 10000, "publish": 10000}}, "data": ["93", "93"]}
+{"code": "post", "method": "flow", "header": {"sensor": "bodyTemperatureSensor", "device": "sc16", "time": {"collect": 10000, "publish": 10000}}, "data": ["102", "102"]}
+{"code": "post", "method": "flow", "header": {"sensor": "heartRateSensor", "device": "sc17", "time": {"collect": 10000, "publish": 10000}}, "data": ["134", "134"]}
+{"code": "post", "method": "flow", "header": {"sensor": "heartRateSensor", "device": "sc05", "time": {"collect": 10000, "publish": 10000}}, "data": ["96", "96"]}
+{"code": "post", "method": "flow", "header": {"sensor": "environmentTemperatureSensor", "device": "sc06", "time": {"collect": 10000, "publish": 10000}}, "data": ["33", "33"]}
+{"code": "post", "method": "flow", "header": {"sensor": "heartRateSensor", "device": "sc08", "time": {"collect": 10000, "publish": 10000}}, "data": ["145", "145"]}
+{"code": "post", "method": "flow", "header": {"sensor": "heartRateSensor", "device": "sc09", "time": {"collect": 10000, "publish": 10000}}, "data": ["169", "169"]}
+{"code": "post", "method": "flow", "header": {"sensor": "bloodGlucoseSensor", "device": "sc10", "time": {"collect": 10000, "publish": 10000}}, "data": ["91", "91"]}
+{"code": "post", "method": "flow", "header": {"sensor": "bodyTemperatureSensor", "device": "sc16", "time": {"collect": 10000, "publish": 10000}}, "data": ["93", "93"]}
+{"code": "post", "method": "flow", "header": {"sensor": "heartRateSensor", "device": "sc17", "time": {"collect": 10000, "publish": 10000}}, "data": ["86", "86"]}
+{"code": "post", "method": "flow", "header": {"sensor": "heartRateSensor", "device": "sc05", "time": {"collect": 10000, "publish": 10000}}, "data": ["112", "112"]}
+{"code": "post", "method": "flow", "header": {"sensor": "environmentTemperatureSensor", "device": "sc06", "time": {"collect": 10000, "publish": 10000}}, "data": ["8", "8"]}
+{"code": "post", "method": "flow", "header": {"sensor": "heartRateSensor", "device": "sc08", "time": {"collect": 10000, "publish": 10000}}, "data": ["146", "146"]}
+{"code": "post", "method": "flow", "header": {"sensor": "heartRateSensor", "device": "sc09", "time": {"collect": 10000, "publish": 10000}}, "data": ["96", "96"]}
+{"code": "post", "method": "flow", "header": {"sensor": "bloodGlucoseSensor", "device": "sc10", "time": {"collect": 10000, "publish": 10000}}, "data": ["187", "187"]}
+{"code": "post", "method": "flow", "header": {"sensor": "bodyTemperatureSensor", "device": "sc16", "time": {"collect": 10000, "publish": 10000}}, "data": ["103", "103"]}
+{"code": "post", "method": "flow", "header": {"sensor": "heartRateSensor", "device": "sc17", "time": {"collect": 10000, "publish": 10000}}, "data": ["167", "167"]}
+{"code": "post", "method": "flow", "header": {"sensor": "heartRateSensor", "device": "sc05", "time": {"collect": 10000, "publish": 10000}}, "data": ["81", "81"]}
+{"code": "post", "method": "flow", "header": {"sensor": "environmentTemperatureSensor", "device": "sc06", "time": {"collect": 10000, "publish": 10000}}, "data": ["27", "27"]}
+{"code": "post", "method": "flow", "header": {"sensor": "heartRateSensor", "device": "sc08", "time": {"collect": 10000, "publish": 10000}}, "data": ["182", "182"]}
+{"code": "post", "method": "flow", "header": {"sensor": "heartRateSensor", "device": "sc09", "time": {"collect": 10000, "publish": 10000}}, "data": ["110", "110"]}
+{"code": "post", "method": "flow", "header": {"sensor": "bloodGlucoseSensor", "device": "sc10", "time": {"collect": 10000, "publish": 10000}}, "data": ["208", "208"]}
+{"code": "post", "method": "flow", "header": {"sensor": "bodyTemperatureSensor", "device": "sc16", "time": {"collect": 10000, "publish": 10000}}, "data": ["89", "89"]}
+{"code": "post", "method": "flow", "header": {"sensor": "heartRateSensor", "device": "sc17", "time": {"collect": 10000, "publish": 10000}}, "data": ["147", "147"]}
+{"code": "post", "method": "flow", "header": {"sensor": "heartRateSensor", "device": "sc05", "time": {"collect": 10000, "publish": 10000}}, "data": ["141", "141"]}
+{"code": "post", "method": "flow", "header": {"sensor": "environmentTemperatureSensor", "device": "sc06", "time": {"collect": 10000, "publish": 10000}}, "data": ["29", "29"]}
+{"code": "post", "method": "flow", "header": {"sensor": "heartRateSensor", "device": "sc08", "time": {"collect": 10000, "publish": 10000}}, "data": ["94", "94"]}
+{"code": "post", "method": "flow", "header": {"sensor": "heartRateSensor", "device": "sc09", "time": {"collect": 10000, "publish": 10000}}, "data": ["82", "82"]}
+{"code": "post", "method": "flow", "header": {"sensor": "bloodGlucoseSensor", "device": "sc10", "time": {"collect": 10000, "publish": 10000}}, "data": ["157", "157"]}
+{"code": "post", "method": "flow", "header": {"sensor": "bodyTemperatureSensor", "device": "sc16", "time": {"collect": 10000, "publish": 10000}}, "data": ["99", "99"]}
+{"code": "post", "method": "flow", "header": {"sensor": "heartRateSensor", "device": "sc17", "time": {"collect": 10000, "publish": 10000}}, "data": ["61", "61"]}
+{"code": "post", "method": "flow", "header": {"sensor": "heartRateSensor", "device": "sc05", "time": {"collect": 10000, "publish": 10000}}, "data": ["151", "151"]}
+{"code": "post", "method": "flow", "header": {"sensor": "environmentTemperatureSensor", "device": "sc06", "time": {"collect": 10000, "publish": 10000}}, "data": ["26", "26"]}
+{"code": "post", "method": "flow", "header": {"sensor": "heartRateSensor", "device": "sc08", "time": {"collect": 10000, "publish": 10000}}, "data": ["80", "80"]}
+{"code": "post", "method": "flow", "header": {"sensor": "heartRateSensor", "device": "sc09", "time": {"collect": 10000, "publish": 10000}}, "data": ["88", "88"]}
+{"code": "post", "method": "flow", "header": {"sensor": "bloodGlucoseSensor", "device": "sc10", "time": {"collect": 10000, "publish": 10000}}, "data": ["480", "480"]}
+{"code": "post", "method": "flow", "header": {"sensor": "bodyTemperatureSensor", "device": "sc16", "time": {"collect": 10000, "publish": 10000}}, "data": ["94", "94"]}
+{"code": "post", "method": "flow", "header": {"sensor": "heartRateSensor", "device": "sc17", "time": {"collect": 10000, "publish": 10000}}, "data": ["136", "136"]}
+{"code": "post", "method": "flow", "header": {"sensor": "heartRateSensor", "device": "sc05", "time": {"collect": 10000, "publish": 10000}}, "data": ["111", "111"]}
+{"code": "post", "method": "flow", "header": {"sensor": "environmentTemperatureSensor", "device": "sc06", "time": {"collect": 10000, "publish": 10000}}, "data": ["8", "8"]}
+{"code": "post", "method": "flow", "header": {"sensor": "heartRateSensor", "device": "sc08", "time": {"collect": 10000, "publish": 10000}}, "data": ["154", "154"]}
+{"code": "post", "method": "flow", "header": {"sensor": "heartRateSensor", "device": "sc09", "time": {"collect": 10000, "publish": 10000}}, "data": ["111", "111"]}
+{"code": "post", "method": "flow", "header": {"sensor": "bloodGlucoseSensor", "device": "sc10", "time": {"collect": 10000, "publish": 10000}}, "data": ["248", "248"]}
+{"code": "post", "method": "flow", "header": {"sensor": "bodyTemperatureSensor", "device": "sc16", "time": {"collect": 10000, "publish": 10000}}, "data": ["95", "95"]}
+{"code": "post", "method": "flow", "header": {"sensor": "heartRateSensor", "device": "sc17", "time": {"collect": 10000, "publish": 10000}}, "data": ["162", "162"]}
+{"code": "post", "method": "flow", "header": {"sensor": "heartRateSensor", "device": "sc05", "time": {"collect": 10000, "publish": 10000}}, "data": ["85", "85"]}
+{"code": "post", "method": "flow", "header": {"sensor": "environmentTemperatureSensor", "device": "sc06", "time": {"collect": 10000, "publish": 10000}}, "data": ["10", "10"]}
+{"code": "post", "method": "flow", "header": {"sensor": "heartRateSensor", "device": "sc08", "time": {"collect": 10000, "publish": 10000}}, "data": ["200", "200"]}
+{"code": "post", "method": "flow", "header": {"sensor": "heartRateSensor", "device": "sc09", "time": {"collect": 10000, "publish": 10000}}, "data": ["156", "156"]}
+{"code": "post", "method": "flow", "header": {"sensor": "bloodGlucoseSensor", "device": "sc10", "time": {"collect": 10000, "publish": 10000}}, "data": ["124", "124"]}
+{"code": "post", "method": "flow", "header": {"sensor": "bodyTemperatureSensor", "device": "sc16", "time": {"collect": 10000, "publish": 10000}}, "data": ["106", "106"]}
+{"code": "post", "method": "flow", "header": {"sensor": "heartRateSensor", "device": "sc17", "time": {"collect": 10000, "publish": 10000}}, "data": ["69", "69"]}
+{"code": "post", "method": "flow", "header": {"sensor": "heartRateSensor", "device": "sc05", "time": {"collect": 10000, "publish": 10000}}, "data": ["93", "93"]}
+{"code": "post", "method": "flow", "header": {"sensor": "environmentTemperatureSensor", "device": "sc06", "time": {"collect": 10000, "publish": 10000}}, "data": ["20", "20"]}
+{"code": "post", "method": "flow", "header": {"sensor": "heartRateSensor", "device": "sc08", "time": {"collect": 10000, "publish": 10000}}, "data": ["68", "68"]}
+{"code": "post", "method": "flow", "header": {"sensor": "heartRateSensor", "device": "sc09", "time": {"collect": 10000, "publish": 10000}}, "data": ["119", "119"]}
+{"code": "post", "method": "flow", "header": {"sensor": "bloodGlucoseSensor", "device": "sc10", "time": {"collect": 10000, "publish": 10000}}, "data": ["194", "194"]}
+{"code": "post", "method": "flow", "header": {"sensor": "bodyTemperatureSensor", "device": "sc16", "time": {"collect": 10000, "publish": 10000}}, "data": ["100", "100"]}
+{"code": "post", "method": "flow", "header": {"sensor": "heartRateSensor", "device": "sc17", "time": {"collect": 10000, "publish": 10000}}, "data": ["59", "59"]}

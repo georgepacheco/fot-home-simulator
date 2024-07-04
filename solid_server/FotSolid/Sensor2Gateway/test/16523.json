@@ -1,0 +1,296 @@
+[
+    {
+        "code": "post",
+        "method": "flow",
+        "header": {
+            "sensor": "environmentTemperatureSensor",
+            "device": "sc18",
+            "time": {
+                "collect": 10000,
+                "publish": 10000
+            },
+            "location": {
+                "lat": -12.9999101198,
+                "long": -38.5072755132
+            }
+        },
+        "data": [
+            "8",
+            "8"
+        ],
+        "datetime_pub": "2023-07-13 17:29:45"
+    },
+    {
+        "code": "post",
+        "method": "flow",
+        "header": {
+            "sensor": "environmentTemperatureSensor",
+            "device": "sc18",
+            "time": {
+                "collect": 10000,
+                "publish": 10000
+            },
+            "location": {
+                "lat": -12.9999001113,
+                "long": -38.507254041
+            }
+        },
+        "data": [
+            "30",
+            "30"
+        ],
+        "datetime_pub": "2023-07-13 17:29:45"
+    },
+    {
+        "code": "post",
+        "method": "flow",
+        "header": {
+            "sensor": "glucometerSensor",
+            "device": "sc19",
+            "time": {
+                "collect": 10000,
+                "publish": 10000
+            },
+            "location": {
+                "lat": -12.9998837869,
+                "long": -38.5072748978
+            }
+        },
+        "data": [
+            "358",
+            "358"
+        ],
+        "datetime_pub": "2023-07-13 17:29:46"
+    },
+    {
+        "code": "post",
+        "method": "flow",
+        "header": {
+            "sensor": "glucometerSensor",
+            "device": "sc19",
+            "time": {
+                "collect": 10000,
+                "publish": 10000
+            },
+            "location": {
+                "lat": -12.9998837869,
+                "long": -38.5072748978
+            }
+        },
+        "data": [
+            "338",
+            "338"
+        ],
+        "datetime_pub": "2023-07-15 17:29:46"
+    },
+    {
+        "code": "post",
+        "method": "flow",
+        "header": {
+            "sensor": "bloodPressureSensor",
+            "device": "sc20",
+            "time": {
+                "collect": 10000,
+                "publish": 10000
+            },
+            "location": {
+                "lat": -12.9999101198,
+                "long": -38.5072755132
+            }
+        },
+        "data": [
+            "140",
+            "70"
+        ],
+        "datetime_pub": "2023-07-10 15:29:42"
+    },
+    {
+        "code": "post",
+        "method": "flow",
+        "header": {
+            "sensor": "bloodPressureSensor",
+            "device": "sc20",
+            "time": {
+                "collect": 10000,
+                "publish": 10000
+            },
+            "location": {
+                "lat": -12.9999101198,
+                "long": -38.5072755132
+            }
+        },
+        "data": [
+            "150",
+            "76"
+        ],
+        "datetime_pub": "2023-03-10 14:29:21"
+    },
+    {
+        "code": "post",
+        "method": "flow",
+        "header": {
+            "sensor": "bodytemperatureSensor",
+            "device": "sc21",
+            "time": {
+                "collect": 10000,
+                "publish": 10000
+            },
+            "location": {
+                "lat": -12.9999001113,
+                "long": -38.507254041
+            }
+        },
+        "data": [
+            "36",
+            "36"
+        ],
+        "datetime_pub": "2023-06-13 11:20:48"
+    },
+    {
+        "code": "post",
+        "method": "flow",
+        "header": {
+            "sensor": "bodytemperatureSensor",
+            "device": "sc21",
+            "time": {
+                "collect": 10000,
+                "publish": 10000
+            },
+            "location": {
+                "lat": -12.9999001113,
+                "long": -38.507254041
+            }
+        },
+        "data": [
+            "36.3",
+            "36.3"
+        ],
+        "datetime_pub": "2023-06-13 10:20:48"
+    },
+    {
+        "code": "post",
+        "method": "flow",
+        "header": {
+            "sensor": "ecgmonitor",
+            "device": "sc22",
+            "time": {
+                "collect": 10000,
+                "publish": 10000
+            },
+            "location": {
+                "lat": -12.9999001113,
+                "long": -38.507254041
+            }
+        },
+        "data": [
+            "145",
+            "145"
+        ],
+        "datetime_pub": "2023-06-12 22:20:37"
+    },
+    {
+        "code": "post",
+        "method": "flow",
+        "header": {
+            "sensor": "ecgmonitor",
+            "device": "sc22",
+            "time": {
+                "collect": 10000,
+                "publish": 10000
+            },
+            "location": {
+                "lat": -12.9999001113,
+                "long": -38.507254041
+            }
+        },
+        "data": [
+            "85",
+            "85"
+        ],
+        "datetime_pub": "2023-06-12 23:40:37"
+    },
+    {
+        "code": "post",
+        "method": "flow",
+        "header": {
+            "sensor": "oxymeterSensor",
+            "device": "sc23",
+            "time": {
+                "collect": 10000,
+                "publish": 10000
+            },
+            "location": {
+                "lat": -12.9998837869,
+                "long": -38.5072748978
+            }
+        },
+        "data": [
+            "94",
+            "94"
+        ],
+        "datetime_pub": "2023-07-13 17:29:46"
+    },
+    {
+        "code": "post",
+        "method": "flow",
+        "header": {
+            "sensor": "oxymeterSensor",
+            "device": "sc23",
+            "time": {
+                "collect": 10000,
+                "publish": 10000
+            },
+            "location": {
+                "lat": -12.9998837869,
+                "long": -38.5072748978
+            }
+        },
+        "data": [
+            "96",
+            "96"
+        ],
+        "datetime_pub": "2023-07-13 16:09:32"
+    },
+    {
+        "code": "post",
+        "method": "flow",
+        "header": {
+            "sensor": "humiditySensor",
+            "device": "sc24",
+            "time": {
+                "collect": 10000,
+                "publish": 10000
+            },
+            "location": {
+                "lat": -12.9998837869,
+                "long": -38.5072748978
+            }
+        },
+        "data": [
+            "85",
+            "85"
+        ],
+        "datetime_pub": "2023-07-12 13:29:46"
+    },
+    {
+        "code": "post",
+        "method": "flow",
+        "header": {
+            "sensor": "humiditySensor",
+            "device": "sc24",
+            "time": {
+                "collect": 10000,
+                "publish": 10000
+            },
+            "location": {
+                "lat": -12.9998837869,
+                "long": -38.5072748978
+            }
+        },
+        "data": [
+            "80",
+            "80"
+        ],
+        "datetime_pub": "2023-07-13 17:29:46"
+    }
+]

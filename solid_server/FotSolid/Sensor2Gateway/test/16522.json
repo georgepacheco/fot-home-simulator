@@ -1,0 +1,111 @@
+[
+    {
+        "code": "post",
+        "method": "flow",
+        "header": {
+            "sensor": "environmentTemperatureSensor",
+            "device": "sc18",
+            "time": {
+                "collect": 10000,
+                "publish": 10000
+            },
+            "location": {
+                "lat": -12.9999101198,
+                "long": -38.5072755132
+            }
+        },
+        "data": [
+            "8",
+            "8"
+        ],
+        "datetime_pub": "2023-07-13 17:29:45"
+    }, 
+
+    {
+        "code": "post",
+        "method": "flow",
+        "header": {
+            "sensor": "environmentTemperatureSensor",
+            "device": "sc18",
+            "time": {
+                "collect": 10000,
+                "publish": 10000
+            },
+            "location": {
+                "lat": -12.9999101198,
+                "long": -38.5072755132
+            }
+        },
+        "data": [
+            "9",
+            "9"
+        ],
+        "datetime_pub": "2023-07-13 13:21:41"
+    },
+
+    {
+        "code": "post",
+        "method": "flow",
+        "header": {
+            "sensor": "bloodGlucoseSensor",
+            "device": "sc20",
+            "time": {
+                "collect": 10000,
+                "publish": 10000
+            },
+            "location": {
+                "lat": -12.9998837869,
+                "long": -38.5072748978
+            }
+        },
+        "data": [
+            "99",
+            "54"
+        ],
+        "datetime_pub": "2023-07-13 17:29:46"
+    },
+
+    {
+        "code": "post",
+        "method": "flow",
+        "header": {
+            "sensor": "bloodGlucoseSensor",
+            "device": "sc20",
+            "time": {
+                "collect": 10000,
+                "publish": 10000
+            },
+            "location": {
+                "lat": -12.9998837869,
+                "long": -38.5072748978
+            }
+        },
+        "data": [
+            "89",
+            "34"
+        ],
+        "datetime_pub": "2023-07-13 17:29:46"
+    },
+
+    {
+        "code": "post",
+        "method": "flow",
+        "header": {
+            "sensor": "bloodGlucoseSensor",
+            "device": "sc21",
+            "time": {
+                "collect": 10000,
+                "publish": 10000
+            },
+            "location": {
+                "lat": -12.9998837869,
+                "long": -38.5072748978
+            }
+        },
+        "data": [
+            "99",
+            "54"
+        ],
+        "datetime_pub": "2023-07-13 17:29:46"
+    }
+]

@@ -1,0 +1,1 @@
+A imagem é gerada a partir do dockerfile disponível no código fonte do community solid server. Necessitei alterar a versão da imagem base do Node para uma que tivesse o python instalado.

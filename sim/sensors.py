@@ -9,18 +9,6 @@ import random
 
 # The name of sensors functions should be exactly the same as in config.json
 
-# temperature in °F
-def bodyTemperatureSensor ():
-	return random.randint (86, 107)
-
-def environmentTemperatureSensor ():
-	return random.randint (0, 40)
-	
-def bloodGlucoseSensor ():
-	return random.randint (0, 500)
-	
-def heartRateSensor ():
-	return random.randint (50, 200)
 
 def humiditySensor():
     return random.randint(10, 70)
@@ -28,10 +16,31 @@ def humiditySensor():
 def temperatureSensor():
     return random.randint(25, 38)
 
+def environmentTemperatureSensor ():
+	return random.randint (0, 40)
+
 def soilmoistureSensor():
     return random.randint(0,1023)
+
+def heartRateSensor ():
+	return random.randint (50, 200)
+
+def bloodPressureSensor ():
+	return random.randint (33, 41)
+
+def bodyTemperatureSensor ():
+	return random.randint (33, 41)
+
+def ecgmonitor ():
+	return random.randint (33, 41)
+
+def glucometerSensor ():
+	return random.randint (0, 500)
+
+def oxymeterSensor ():
+	return random.randint (0, 500)
 	
-def solarradiationSensor():
+def smokeSensor():
     return random.randint(300, 3000)
 
 def ledActuator(s = None):

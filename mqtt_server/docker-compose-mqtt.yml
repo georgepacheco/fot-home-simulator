@@ -22,27 +22,6 @@ services:
     #entrypoint: bash -c "mosquitto -c code/mosquitto-no-auth.conf & sleep 5 && mosquitto_sub -t '#' > DATA.json"
     stdin_open: true 
   
-  GATEWAY_H2:
-    image: georgepacheco/mqtt:0.1
-    container_name: GATEWAY_H2
-    volumes:
-      - .:/mqtt-server/code
-    working_dir: /mqtt-server
-    hostname: g02
-    expose:
-      - "1883"
-      - "9001"
-    networks:
-      comm-mqtt:
-        aliases:
-          - server2.mqtt
-      mqtt-mininet:
-        ipv4_address: 222.222.222.5
-        aliases:
-          - server2.mqtt          
-    #entrypoint: bash -c "mosquitto -c code/mosquitto-no-auth.conf & sleep 5 && mosquitto_sub -t '#' > data.json & sleep 5 && python3 code/send_data_server.py 222.222.222.10"
-    entrypoint: bash -c "mosquitto -c code/mosquitto-no-auth.conf & sleep 5 && pip install paho-mqtt==1.6.1 && sleep 10 && python3 code/mqtt-client.py 222.222.222.5 222.222.222.10"
-    stdin_open: true 
 
   GATEWAY_H3:
     image: georgepacheco/mqtt:0.1
@@ -64,49 +43,7 @@ services:
           - server3.mqtt          
     entrypoint: bash -c "mosquitto -c code/mosquitto-no-auth.conf & sleep 5 && pip install paho-mqtt==1.6.1 && sleep 10 && python3 code/mqtt-client.py 222.222.222.6 222.222.222.9"
     stdin_open: true  
-
-  GATEWAY_H4:
-    image: georgepacheco/mqtt:0.1
-    container_name: GATEWAY_H4
-    volumes:
-      - .:/mqtt-server/code
-    working_dir: /mqtt-server
-    hostname: g04
-    expose:
-      - "1883"
-      - "9001"
-    networks:
-      comm-mqtt:
-        aliases:
-          - server4.mqtt
-      mqtt-mininet:
-        ipv4_address: 222.222.222.7
-        aliases:
-          - server4.mqtt          
-    entrypoint: bash -c "mosquitto -c code/mosquitto-no-auth.conf & sleep 5 && pip install paho-mqtt==1.6.1 && sleep 10 && python3 code/mqtt-client.py 222.222.222.7 222.222.222.10"
-    stdin_open: true 
-
-  GATEWAY_H5:
-    image: georgepacheco/mqtt:0.1
-    container_name: GATEWAY_H5
-    volumes:
-      - .:/mqtt-server/code
-    working_dir: /mqtt-server
-    hostname: g05
-    expose:
-      - "1883"
-      - "9001"
-    networks:
-      comm-mqtt:
-        aliases:
-          - server5.mqtt
-      mqtt-mininet:
-        ipv4_address: 222.222.222.8
-        aliases:
-          - server5.mqtt          
-    entrypoint: bash -c "mosquitto -c code/mosquitto-no-auth.conf & sleep 5 && pip install paho-mqtt==1.6.1 && sleep 10 && python3 code/mqtt-client.py 222.222.222.8 222.222.222.9"
-    stdin_open: true 
-
+    
 networks:
   comm-mqtt:
     name: comm-mqtt

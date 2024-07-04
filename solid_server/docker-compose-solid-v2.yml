@@ -1,14 +1,15 @@
 version: '1.0'
 services:
   SOLID_SERVER_S1:
-    image: georgepacheco/solid-server:1.1
+    # image: georgepacheco/solid-server:1.1
+    image: georgepacheco/solid-server:1.2
     container_name: SOLID_SERVER_S1
     volumes:
       - .:/solid-server
     expose:
       - "3000"
-    #ports:
-    #  - "3000:3000"
+    ports:
+     - "3000:3000"
     networks:
       comm-mqtt:
         aliases:
@@ -19,24 +20,7 @@ services:
           - server1.solid
     #entrypoint: npm start -- -c config/file.json -f .data
     entrypoint: bash -c "npm start -- -c config/file.json -f .data & sleep 20 && python3 ../solid-server/server.py"
-
-  SOLID_SERVER_S2:
-     image: georgepacheco/solid-server:1.1
-     container_name: SOLID_SERVER_S2
-     volumes:
-       - .:/solid-server
-     expose:
-       - "3000"
-     networks:
-       comm-mqtt:
-         aliases:
-           - server2.solid
-       mqtt-mininet:
-         ipv4_address: 222.222.222.10
-         aliases:
-           - server2.solid
-     entrypoint: bash -c "npm start -- -c config/file.json -f .data & sleep 20 && python3 ../solid-server/server.py"
-
+    #entrypoint: /bin/sh -c "npm start -- -c config/file.json -f .data"
 networks:
   comm-mqtt:
     name: comm-mqtt

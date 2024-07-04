@@ -21,7 +21,7 @@ def receive_file():
                 s.listen()
                 logging.info("Waiting for a connection...")
                 conn, addr = s.accept()
-                logging.info("Connection established with:", addr)
+                logging.info("Connection established with: %s", addr)
                 try:
                     with open(file_path, 'wb') as file:
                         while True:
@@ -31,13 +31,13 @@ def receive_file():
                                 break
                             file.write(data)
                     users_id = separate_data.separate_data(file_path, user_data_file_path)
-                    logging.info(users_id)
+                    logging.info("%s",users_id)
                     for user in users_id:
                         save_to_solid(user)
                 except Exception as err:
-                    logging.info(err)
+                    logging.info("%s", err)
         except Exception as err:
-            logging.info(err)
+            logging.info("%s",err)
 
     # while True:
     #     try:
@@ -95,19 +95,29 @@ def save_to_solid(user):
         js_file = ts_file.replace(".ts", ".js")
         js_file = js_file.replace(src_dir, out_dir)
         logging.info("ponto 4")
-        logging.info(js_file)
+        logging.info("%s", js_file)
 
         data_file = "../community-server/" + user + ".json"
         credential_file = "../community-server/" + user + "_cred.json"
         result = subprocess.run(['node', js_file, data_file, credential_file], capture_output=True, text=True)
+
+        stdout = result.stdout
+        logging.info("%s", stdout)
+
+        stderr = result.stderr
+        logging.info("%s", stderr)
+
         # cwd='../solid-server/FotSolid/Sensor2Gateway')
         logging.info("ponto 5")
-        logging.info("Result: " + str(result))
+        logging.info("Result: %s" + str(result))
     except Exception as err:
-        logging.info(err)
+        logging.info("%s", err)
 
 
 if __name__ == '__main__':
-    logging.basicConfig(filename='./python.log', level=logging.INFO)
+    logging.basicConfig(filename='./python.log', 
+                        level=logging.INFO,
+                        format='%(asctime)s %(levelname)s %(message)s')
+    logger = logging.getLogger(__name__)
 
     receive_file()

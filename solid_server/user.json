@@ -2,90 +2,13 @@
   "users": [
     {
       "user_id": "48439",
-      "solid_localId": "https://fotsimulator/john/profile/card#me",
-      "solid_webId": "",
+      "solid_localId": "http://localhost:3000/Home/profile/card#me",
+      "solid_webId": "http://localhost:3000/Home/profile/card#me",
       "idp": "http://localhost:3000/",
-      "name": "John",
-      "email": "john@fotsimulator.com",
-      "podname": "john",
+      "name": "home",
+      "email": "home@test.com",
+      "podname": "Home",
       "password": "1234",
-      "auth": "true"
-    },
-    {
-      "user_id": "26586",
-      "solid_localId": "https://fotsimulator/mary/profile/card#me",
-      "solid_webId": "",
-      "idp": "http://localhost:3000/",
-      "name": "Mary",
-      "email": "mary@fotsimulator.com",
-      "podname": "mary",
-      "password": "5678",
-      "auth": "true"
-    },
-    {
-      "user_id": "22819",
-      "solid_localId": "https://fotsimulator/george/profile/card#me",
-      "solid_webId": "",
-      "idp": "http://localhost:3000/",
-      "name": "George",
-      "email": "george@fotsimulator.com",
-      "podname": "george",
-      "password": "9012",
-      "auth": "true"
-    },
-    {
-      "user_id": "66638",
-      "solid_localId": "https://fotsimulator/elena/profile/card#me",
-      "solid_webId": "",
-      "idp": "http://localhost:3000/",
-      "name": "Elena",
-      "email": "elena@fotsimulator.com",
-      "podname": "elena",
-      "password": "9012",
-      "auth": "true"
-    },
-    {
-      "user_id": "73578",
-      "solid_localId": "https://fotsimulator/sarah/profile/card#me",
-      "solid_webId": "",
-      "idp": "http://localhost:3000/",
-      "name": "Sarah",
-      "email": "sarah@fotsimulator.com",
-      "podname": "sarah",
-      "password": "9012",
-      "auth": "true"
-    },
-    {
-      "user_id": "36650",
-      "solid_localId": "https://fotsimulator/blake/profile/card#me",
-      "solid_webId": "",
-      "idp": "http://localhost:3000/",
-      "name": "Blake",
-      "email": "blake@fotsimulator.com",
-      "podname": "blake",
-      "password": "9012",
-      "auth": "true"
-    },
-    {
-      "user_id": "45164",
-      "solid_localId": "https://fotsimulator/lilly/profile/card#me",
-      "solid_webId": "",
-      "idp": "http://localhost:3000/",
-      "name": "Lilly",
-      "email": "lilly@fotsimulator.com",
-      "podname": "lilly",
-      "password": "9012",
-      "auth": "true"
-    },
-    {
-      "user_id": "16523",
-      "solid_localId": "https://fotsimulator/alex/profile/card#me",
-      "solid_webId": "",
-      "idp": "http://localhost:3000/",
-      "name": "Alex",
-      "email": "alex@fotsimulator.com",
-      "podname": "alex",
-      "password": "9012",
       "auth": "true"
     }
   ]

@@ -28,7 +28,7 @@ const save = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
                 console.error('Error parsing existing JSON file:', parseErr);
             }
         }
-        const userExists = jsonData.some((old_user) => old_user.solid_webId === user.solid_webId);
+        const userExists = jsonData.some((old_user) => old_user.webId === user.webId);
         if (userExists) {
             return res.status(409).send('User already exists');
         }
@@ -44,27 +44,5 @@ const save = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         });
     });
     return res;
-    // const reqData: Array<IData> | undefined = req.body.data;
-    // if (user != undefined) {
-    //     if (reqData != undefined) {
-    //         let data = await preprocess(reqData);
-    //         let rdfFile = await mapper(JSON.stringify(data), RML_LOCAL);
-    //         const authFetch = await login(user, res);
-    //         const sourcePath = user.idp + user.podname + "/private/store.ttl";
-    //         const myEngine = new QueryEngine();
-    //         let query = await queryInsertData(rdfFile);
-    //         try {
-    //             await myEngine.queryVoid(query,
-    //                 {
-    //                     sources: [sourcePath],
-    //                     fetch: authFetch,
-    //                     //destination: { type: 'patchSparqlUpdate', value: sourcePath }
-    //                 });
-    //             return res.status(StatusCodes.OK).send("save");        
-    //         } catch (error) {
-    //             return res.status(StatusCodes.INTERNAL_SERVER_ERROR).send(error);
-    //         }                        
-    //     }        
-    // }
 });
 exports.save = save;

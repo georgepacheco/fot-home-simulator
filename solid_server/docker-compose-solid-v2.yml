@@ -21,8 +21,8 @@ services:
         aliases:
           - server1.solid
     #entrypoint: npm start -- -c config/file.json -f .data
-    # entrypoint: bash -c "npm start -- -c config/file.json -f .data & sleep 20 && python3 ../solid-server/server.py"
-    entrypoint: bash -c "npm start -- -c config/file.json -f .data & sleep 20 && node ../solid-server/FotSolid/backend/dist/index.js && python3 ../solid-server/server.py"
+    entrypoint: bash -c "npm start -- -c config/file.json -f .data & sleep 20 && python3 ../solid-server/server.py"
+    # entrypoint: bash -c "npm start -- -c config/file.json -f .data & sleep 20 && node ../solid-server/FotSolid/backend/dist/index.js && python3 ../solid-server/server.py"
 networks:
   comm-mqtt:
     name: comm-mqtt

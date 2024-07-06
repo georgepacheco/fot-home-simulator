@@ -4,15 +4,16 @@ import path from 'path';
 import { StatusCodes } from "http-status-codes";
 
 interface IDataUser {
-    user_id: string,
-    solid_localId: string,
-    solid_webId: string,
-    idp: string,
-    name: string,
-    email: string,
-    podname: string,
-    password: string,
-    auth: string
+    webId: string,
+    // user_id: string,
+    // solid_localId: string,
+    // solid_webId: string,
+    // idp: string,
+    // name: string,
+    // email: string,
+    // podname: string,
+    // password: string,
+    // auth: string
 
 }
 
@@ -34,7 +35,7 @@ export const save = async (req: Request<{}, {}, IDataUser>, res: Response) => {
             }
         }
 
-        const userExists = jsonData.some((old_user: { solid_webId: string }) => old_user.solid_webId === user.solid_webId);
+        const userExists = jsonData.some((old_user: { webId: string }) => old_user.webId === user.webId);
 
         if (userExists) {
             return res.status(409).send('User already exists');
@@ -53,35 +54,4 @@ export const save = async (req: Request<{}, {}, IDataUser>, res: Response) => {
     });
 
     return res;
-
-    // const reqData: Array<IData> | undefined = req.body.data;
-
-    // if (user != undefined) {
-
-    //     if (reqData != undefined) {
-
-    //         let data = await preprocess(reqData);
-
-    //         let rdfFile = await mapper(JSON.stringify(data), RML_LOCAL);
-
-    //         const authFetch = await login(user, res);
-
-    //         const sourcePath = user.idp + user.podname + "/private/store.ttl";
-
-    //         const myEngine = new QueryEngine();
-
-    //         let query = await queryInsertData(rdfFile);
-    //         try {
-    //             await myEngine.queryVoid(query,
-    //                 {
-    //                     sources: [sourcePath],
-    //                     fetch: authFetch,
-    //                     //destination: { type: 'patchSparqlUpdate', value: sourcePath }
-    //                 });
-    //             return res.status(StatusCodes.OK).send("save");        
-    //         } catch (error) {
-    //             return res.status(StatusCodes.INTERNAL_SERVER_ERROR).send(error);
-    //         }                        
-    //     }        
-    // }
 };

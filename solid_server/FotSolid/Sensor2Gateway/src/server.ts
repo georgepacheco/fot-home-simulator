@@ -2,11 +2,17 @@ import { createInterface } from "readline";
 import * as fs from "fs";
 import { Sensor2Json } from "./Sensor2Json";
 import { Mapper } from "./Mapper";
-import { SaveData } from "./QueryData";
+import { SaveData, SaveDataSim } from "./QueryData";
 import { Preprocess } from "./Preprocess";
 import { json } from "stream/consumers";
 import { User } from "./model/user";
 import { IDataEntry } from "./model/IData";
+import { Login } from "./Login";
+import { USERS_FILE } from "./Config";
+import * as dotenv from 'dotenv';
+import { Environment } from "./Environment";
+
+dotenv.config();
 
 // const fileName = "./test/message.txt";
 
@@ -24,7 +30,8 @@ const credentialFile = process.argv[3];
 async function doService() {
 
 
-    let user = await load_user_credential()
+    // let user = await load_user_credential()
+    let sim_user = await load_sim_credentials();
 
     let data = await parseDataFile(dataFile);
     if (!(data instanceof Error)) {
@@ -36,10 +43,29 @@ async function doService() {
         const separatedData: { [key: string]: IDataEntry[] } = await separateDataBySensorType(data);
         console.log('Step 3. Separate Data Ok.')
 
+        const users: User[] = await load_users();
+
+        console.log("Sim User:");
+        console.log(sim_user);
+        const authFetch = await Login(sim_user);
+
+
         for (const sensorType in separatedData) {
             let rdfFile = await Mapper(JSON.stringify(separatedData[sensorType]));
-            await SaveData(rdfFile, sensorType, user);
+            for (const user of users) {
+                user.idp = splitUrl(user.webId, 0, 3) + "/";
+                user.podname = splitUrl(user.webId, 3, 4);
+
+                await SaveDataSim(rdfFile, sensorType, user, authFetch);
+            }
         }
+
+
+        // for (const sensorType in separatedData) {
+        //     let rdfFile = await Mapper(JSON.stringify(separatedData[sensorType]));
+        //     // await SaveData(rdfFile, sensorType, user);
+        //     await SaveData(rdfFile, sensorType, sim_user);
+        // }
         console.log('Step 4. Save data process complete.');
     }
 }
@@ -80,19 +106,47 @@ async function parseDataFile(fileName: string) {
  */
 async function load_user_credential() {
 
-    const jsonString = fs.readFileSync(credentialFile, 'utf-8');
+    const jsonString = fs.readFileSync(USERS_FILE, 'utf-8');
     const credentials = JSON.parse(jsonString);
 
     let user = new User();
 
     user.local_webid = credentials["solid_localId"];
-    user.webid = credentials["solid_webId"];
+    user.webId = credentials["solid_webId"];
     user.idp = credentials["idp"];
     user.password = credentials["password"];
     user.username = credentials["email"]
     user.podname = credentials["podname"]
 
     return user;
+}
+
+const load_sim_credentials = async () => {
+
+    let sim = new User();
+
+    sim.webId = Environment.WEBID;
+    sim.username = Environment.LOGIN || '';
+    sim.password = Environment.PASSWORD || '';
+    sim.idp = Environment.IDP || '';
+    sim.podname = Environment.PODNAME || '';
+
+    return sim;
+}
+
+const load_users = async () => {
+    const jsonString = fs.readFileSync(USERS_FILE, 'utf-8');
+    const users: User[] = JSON.parse(jsonString);
+
+    return users;
+}
+
+export const splitUrl = (webid: string, initial: number, final: number) => {
+
+    const parts = webid.split('/'); // Divide a string em partes usando '/' como delimitador
+    const baseUrl = parts.slice(initial, final).join('/');
+
+    return baseUrl;
 }
 
 doService();

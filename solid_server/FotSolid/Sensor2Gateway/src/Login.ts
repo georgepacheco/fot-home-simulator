@@ -61,7 +61,7 @@ async function generateToken(authorization: any, user: User) {
         // The name field will be used when generating the ID of your token.
         // The WebID field determines which WebID you will identify as when using the token.
         // Only WebIDs linked to your account can be used.
-        body: JSON.stringify({ name: 'my-token', webId: user.webid }),
+        body: JSON.stringify({ name: 'my-token', webId: user.webId }),
     });
 
     // These are the identifier and secret of your token.

@@ -5,10 +5,15 @@ import multiprocessing
 import logging
 from datetime import datetime
 import os
+import pytz
 
 # You don't need to change this file. Just change sensors.py and config.json
 
 from time import sleep
+
+
+# Definindo o fuso horário local
+local_timezone = pytz.timezone('America/Sao_Paulo')
 
 procs = []
 pub_client = pub.Client(client_id='', clean_session=True, userdata=None, protocol=pub.MQTTv31)
@@ -77,6 +82,7 @@ def buildFlowAnwserDevice(deviceName, sensorName, topic, topicError, pub_client,
         while True:
             listValues.append(str(methodFLOW()))
             t = t + collectTime + 1000
+            datetime_pub =  datetime.now(local_timezone).strftime('%Y-%m-%d %H:%M:%S')
             # Request: {"method":"FLOW", "sensor":"sensorName", "time":{"collect":collectTime,"publish":publishTime}}
             responseModel = {"code": "post", "method": "flow", "header": {"sensor": sensorName, "device": deviceName,
                                                                           "time": {"collect": collectTime,

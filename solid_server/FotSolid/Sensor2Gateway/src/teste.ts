@@ -25,7 +25,7 @@ async function load_user_credential() {
     let user = new User();
 
     user.local_webid = credentials["solid_localId"];
-    user.webid = credentials["solid_webId"];
+    user.webId = credentials["solid_webId"];
     user.idp = credentials["idp"];
     user.password = credentials["password"];
     user.username = credentials["email"]

@@ -39,6 +39,30 @@ type AccessToken = {
     expires: number
 }
 
+export async function SaveDataSim(rdfFile: string, sensorType: string, user: User, authFetch: any) {
+    try {        
+
+        const sourcePath = user.idp + user.podname + `/private/sensors/${sensorType}.ttl`;
+        console.log(sourcePath);
+
+        const myEngine = new QueryEngine();
+        let query = await generateInsertQuery(rdfFile);
+
+        try {
+            await myEngine.queryVoid(query,
+                {
+                    sources: [sourcePath],
+                    fetch: authFetch,
+                    //destination: { type: 'patchSparqlUpdate', value: sourcePath }
+                });
+        } catch (error) {
+            return new Error('Failed while inserting data.\n' + (error as { message: string }).message);
+        }
+    } catch (error) {
+        return new Error('Failed while logging.\n' + (error as { message: string }).message);
+    }
+}
+
 export async function SaveData(rdfFile: string, sensorType: string, user: User) {
 
     try {

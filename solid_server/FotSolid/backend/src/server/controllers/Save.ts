@@ -18,7 +18,7 @@ interface IDataUser {
 }
 
 // const filePath = path.join(__dirname, 'user_.json');
-const filePath = '../solid-server/user_.json';
+const filePath = '../solid-server/users_.json';
 
 export const save = async (req: Request<{}, {}, IDataUser>, res: Response) => {
 

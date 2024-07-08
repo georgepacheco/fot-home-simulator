@@ -3,7 +3,7 @@ export class User {
     // Properties
     public userid: string  = '';
     public local_webid: string = '';
-    public webid: string = '';
+    public webId: string = '';
     public idp: string = '';
     public username: string = '';
     public password: string = '';
@@ -17,7 +17,7 @@ export class User {
 
     // Method to display information about the User
     displayInfo() {
-        console.log(`UserId: ${this.userid}, Local WebId: ${this.local_webid}, WebId: ${this.webid}`);
+        console.log(`UserId: ${this.userid}, Local WebId: ${this.local_webid}, WebId: ${this.webId}`);
     }
 }
 

@@ -2,7 +2,7 @@ version: '1.0'
 services:
   SOLID_SERVER_S1:
     # image: georgepacheco/solid-server:1.1
-    image: georgepacheco/solid-server:1.2
+    image: georgepacheco/solid-server:1.3
     container_name: SOLID_SERVER_S1
     volumes:
       - .:/solid-server
@@ -21,8 +21,8 @@ services:
         aliases:
           - server1.solid
     #entrypoint: npm start -- -c config/file.json -f .data
-    entrypoint: bash -c "npm start -- -c config/file.json -f .data & sleep 20 && python3 ../solid-server/server.py"
-    # entrypoint: bash -c "npm start -- -c config/file.json -f .data & sleep 20 && node ../solid-server/FotSolid/backend/dist/index.js && python3 ../solid-server/server.py"
+    # entrypoint: bash -c "npm start -- -c config/file.json -f .data & sleep 20 && python3 ../solid-server/server.py"
+    entrypoint: bash -c "npm start -- -c config/file.json -f .data & sleep 20 & python3 ../solid-server/server.py & node ../solid-server/FotSolid/backend/dist/index.js"
 networks:
   comm-mqtt:
     name: comm-mqtt

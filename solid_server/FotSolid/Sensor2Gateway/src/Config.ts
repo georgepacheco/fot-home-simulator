@@ -7,11 +7,14 @@
  * Para execução local
  */
 // export const RML_FILE = './src/rml/rml_lite.ttl';
+// export const USERS_FILE = './test/users_.json';
 
 /**
  * Receive file from Python script
  */
 export const RML_FILE = '../solid-server/FotSolid/Sensor2Gateway/src/rml/rml_lite.ttl'; 
+export const USERS_FILE =  '../solid-server/users_.json';
+
 
 export const RML_OPTIONS = {
     toRDF: true,

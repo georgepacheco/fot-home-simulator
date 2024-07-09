@@ -21,29 +21,7 @@ services:
     entrypoint: bash -c "mosquitto -c code/mosquitto-no-auth.conf & sleep 5 && pip install paho-mqtt==1.6.1 && sleep 10 && python3 code/mqtt-client.py 222.222.222.4 222.222.222.9"
     #entrypoint: bash -c "mosquitto -c code/mosquitto-no-auth.conf & sleep 5 && mosquitto_sub -t '#' > DATA.json"
     stdin_open: true 
-  
-
-  GATEWAY_H3:
-    image: georgepacheco/mqtt:0.1
-    container_name: GATEWAY_H3
-    volumes:
-      - .:/mqtt-server/code
-    working_dir: /mqtt-server
-    hostname: g03
-    expose:
-      - "1883"
-      - "9001"
-    networks:
-      comm-mqtt:
-        aliases:
-          - server3.mqtt
-      mqtt-mininet:
-        ipv4_address: 222.222.222.6
-        aliases:
-          - server3.mqtt          
-    entrypoint: bash -c "mosquitto -c code/mosquitto-no-auth.conf & sleep 5 && pip install paho-mqtt==1.6.1 && sleep 10 && python3 code/mqtt-client.py 222.222.222.6 222.222.222.9"
-    stdin_open: true  
-    
+      
 networks:
   comm-mqtt:
     name: comm-mqtt

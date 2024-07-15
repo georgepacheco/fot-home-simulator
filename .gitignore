@@ -4,6 +4,6 @@
 *.log
 *.pyc
 /solid_server/FotSolid/backend/node_modules
-/solid_server/FotSolid/backend/dist
+
 /solid_server/FotSolid/Sensor2Gateway/node_modules
-/solid_server/FotSolid/Sensor2Gateway/dist
+

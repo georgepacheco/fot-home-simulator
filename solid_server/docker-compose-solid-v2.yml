@@ -20,8 +20,7 @@ services:
         ipv4_address: 222.222.222.9
         aliases:
           - server1.solid        
-    # entrypoint: bash -c "npm start -- -c config/file.json -f .data & sleep 20 & python3 ../solid-server/server.py & node ../solid-server/FotSolid/backend/dist/index.js"
-    entrypoint: bash -c "npm start -- -b http://54.87.49.71:3000/ -c config/file.json -f .data & sleep 20 & python3 ../solid-server/server.py & node ../solid-server/FotSolid/backend/dist/index.js"
+    entrypoint: bash -c "npm start -- -c config/file.json -f .data & sleep 20 & python3 ../solid-server/server.py & node ../solid-server/FotSolid/backend/dist/index.js"    
     
 networks:
   comm-mqtt:

@@ -1,6 +1,7 @@
 import { Router } from "express";
 import { save } from "../controllers/Save";
 import cors from 'cors';
+import { loginWeb } from "../controllers/Login";
 
 const router = Router();
 
@@ -10,5 +11,8 @@ router.get('/', (req, res) => {
 
 // router.options('/save', cors());
 router.post('/save', save);
+
+router.get ('/login', loginWeb);
+
 
 export { router };

@@ -1,0 +1,13 @@
+version: '3.8'
+services: 
+  HEALTH-APPLICATION:
+    image: node:lts
+    container_name: HEALTH
+    volumes:
+      - .:/health-application
+    expose:
+      - "3002"
+    ports:
+      - "3002:3002"
+    working_dir: /health-application
+    entrypoint: ["bash", "-c", "npm start"]

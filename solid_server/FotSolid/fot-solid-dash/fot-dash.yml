@@ -1,0 +1,22 @@
+version: '3.8'
+services:
+  DASHBOARD:
+    image: georgepacheco/dash_solid:1.0
+    container_name: DASHBOARD
+    # build:
+    #   context: .
+    #   dockerfile: Dockerfile
+    ports:
+      - 3001:3001
+    expose:
+      - "3001"
+    # restart: always
+    # networks:
+    #   - health-application-network    
+    volumes:
+      - ./nginx/conf/:/etc/nginx/conf.d/:ro
+      # - ./fot-solid-dash/build:/usr/share/nginx/html
+    entrypoint: bash -c "nginx -c /etc/nginx/nginx.conf -g 'daemon off;'"
+# networks:
+#   health-application-network:
+#     external: true

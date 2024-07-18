@@ -8,6 +8,11 @@
 /solid_server/FotSolid/health-application/node_modules
 /solid_server/FotSolid/fot-solid-dash/node_modules
 
+/solid_server/FotSolid/backend/dist
+/solid_server/FotSolid/Sensor2Gateway/dist
+/solid_server/FotSolid/health-application/build
+/solid_server/FotSolid/fot-solid-dash/build
+
 /solid_server/FotSolid/fot-solid-dash/.pnp
 /solid_server/FotSolid/health-application/.pnp
 

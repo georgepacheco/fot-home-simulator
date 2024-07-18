@@ -25,14 +25,14 @@ services:
     environment:
       - BASE_URL=http://localhost:3000/
       - PORT=3000
-    networks:
-      comm-mqtt:
-        aliases:
-          - server1.solid
-      mqtt-mininet:
-        ipv4_address: 222.222.222.9
-        aliases:
-          - server1.solid        
+    # networks:
+    #   comm-mqtt:
+    #     aliases:
+    #       - server1.solid
+    #   mqtt-mininet:
+    #     ipv4_address: 222.222.222.9
+    #     aliases:
+    #       - server1.solid        
     entrypoint: bash -c "npm start -- -c config/file.json -f .data & sleep 20 & python3 ../solid-server/server.py & node ../solid-server/FotSolid/backend/dist/index.js & nginx -c /etc/nginx/nginx.conf -g 'daemon off;'"    
     
 networks:

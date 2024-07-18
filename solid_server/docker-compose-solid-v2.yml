@@ -21,6 +21,10 @@ services:
      - "3002:3002"
      - "3030:3030"
     # restart: always
+    network_mode: host
+    environment:
+      - BASE_URL=http://localhost:3000/
+      - PORT=3000
     networks:
       comm-mqtt:
         aliases:
@@ -29,7 +33,7 @@ services:
         ipv4_address: 222.222.222.9
         aliases:
           - server1.solid        
-    entrypoint: bash -c "npm start -- -b http://10.27.0.62:3000 -c config/file.json -f .data & sleep 20 & python3 ../solid-server/server.py & node ../solid-server/FotSolid/backend/dist/index.js & nginx -c /etc/nginx/nginx.conf -g 'daemon off;'"    
+    entrypoint: bash -c "npm start -- -c config/file.json -f .data & sleep 20 & python3 ../solid-server/server.py & node ../solid-server/FotSolid/backend/dist/index.js & nginx -c /etc/nginx/nginx.conf -g 'daemon off;'"    
     
 networks:
   comm-mqtt:

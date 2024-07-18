@@ -27,9 +27,9 @@ const loginCredentials = async (): Promise<typeof fetch | Error> => {
 
   const user: IUser = {
     "userid": "1652322",
-    "local_webid": "http://localhost:3000/Health/profile/card#me",
-    "webid": "http://localhost:3000/Health/profile/card#me",
-    "idp": "http://localhost:3000/",
+    "local_webid": "http://10.27.0.62:3000/Health/profile/card#me",
+    "webid": "http://10.27.0.62:3000/Health/profile/card#me",
+    "idp": "http://10.27.0.62:3000/",
     "username": "health@example.com",
     "podname": "Health",
     "password": "12345",

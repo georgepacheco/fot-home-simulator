@@ -1,4 +1,4 @@
-version: '1.0'
+version: '3'
 services:
   SOLID_SERVER_S1:
     # image: georgepacheco/solid-server:1.1

@@ -22,6 +22,7 @@
 /solid_server/FotSolid/fot-solid-dash/coverage
 /solid_server/FotSolid/health-application/coverage
 
+acesso_server
 
 # misc
 .DS_Store

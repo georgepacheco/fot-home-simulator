@@ -9,7 +9,7 @@ RUN useradd -r -d /var/cache/nginx/ -s /sbin/nologin -U nginx
 
 # Remova o site padrão do Nginx e copie a configuração personalizada
 RUN rm /etc/nginx/sites-enabled/default
-COPY nginx.conf /etc/nginx/nginx.conf
+# COPY nginx.conf /etc/nginx/nginx.conf
 
 # # Crie os diretórios necessários para o Nginx
 # RUN mkdir -p /run/nginx

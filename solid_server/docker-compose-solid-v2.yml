@@ -38,7 +38,8 @@ services:
         aliases:
           - server1.solid        
     # entrypoint: bash -c "npm start -- -b http://10.27.0.62:3000 -c config/file.json -f .data & sleep 20 & python3 ../solid-server/server.py & node ../solid-server/FotSolid/backend/dist/index.js & nginx -c /etc/nginx/nginx.conf -g 'daemon off;'"    
-    entrypoint: bash -c "npm start -- -b http://10.27.0.62:3000 -c config/file.json -f .data & sleep 20 & python3 ../solid-server/server.py & node ../solid-server/FotSolid/backend/dist/index.js"    
+    # entrypoint: bash -c "npm start -- -b http://10.27.0.62:3000 -c config/file.json -f .data & sleep 20 & python3 ../solid-server/server.py & node ../solid-server/FotSolid/backend/dist/index.js"    
+    entrypoint: bash -c "npm start -- -b http://52.205.162.5:3000 -c config/file.json -f .data & sleep 20 & python3 ../solid-server/server.py"    
     
 networks:
   comm-mqtt:

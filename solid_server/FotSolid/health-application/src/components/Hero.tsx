@@ -9,7 +9,7 @@ import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 import { AlignHorizontalRight, Title } from '@mui/icons-material';
 import { ConsentService } from '../shared/services/api/consent/ConsentService';
-import { getDefaultSession, handleIncomingRedirect } from '@inrupt/solid-client-authn-browser';
+import { getDefaultSession, handleIncomingRedirect, login } from '@inrupt/solid-client-authn-browser';
 import { useAuthContext } from '../shared/contexts/AuthContext';
 import { AuthService } from '../shared/services/api/auth/AuthService';
 import { CheckedItems, CheckTreeView } from '../shared/components/tree-view/CheckTreeView';
@@ -46,6 +46,11 @@ export default function Hero() {
   const [isLoading, setIsLoading] = useState(true);
   const [isLoadingButton, setIsLoadingButton] = useState(true);
   const [sensors, setSensors] = useState<ISensor[]>([]);
+
+  const [openTerms, setOpenTerms] = useState(false);
+
+  const handleOpenTerms = () => setOpenTerms(true);
+  const handleCloseTerms = () => setOpenTerms(false);
 
   const initialCheckedItems: CheckedItems = {
     BloodPressureSensor: { checked: false, read: false, write: false, append: false },
@@ -120,16 +125,36 @@ export default function Hero() {
   }
 
   const startNow = async () => {
-    const sensorsGranted = await SensorServices.getAllSensors(getBaseUrl(webId, 4));
-    localStorage.setItem('webId', webId);
+    if (webId.trim() === '') {
+      alert('Enter your WebId.');
+    } else {
+      const sensorsGranted = await SensorServices.getAllSensors(getBaseUrl(webId, 4));
+      localStorage.setItem('webId', webId);
 
 
-    if (!(sensorsGranted instanceof Error)) {
-      if (sensorsGranted.length === 0) {
-        handleOpen();
-      } else {
-        setSensors(sensorsGranted);
+      if (!(sensorsGranted instanceof Error)) {
+        if (sensorsGranted.length === 0) {
+          handleOpen();
+        } else {
+          setSensors(sensorsGranted);
+        }
       }
+    }
+  }
+
+  const loginteste = async () => {
+    try {
+      await login({
+        // oidcIssuer: "http://10.27.0.62:3000",
+        oidcIssuer: "http://54.210.40.21:3000",
+        // oidcIssuer: "http://localhost:3000",
+        // redirectUrl: new URL("/", "http://10.27.0.62:3001").toString(),
+        // redirectUrl: new URL("/", "http://3.86.13.252:3001").toString(),
+        redirectUrl: new URL(window.location.href).toString(),
+        clientName: "Fot Solid",
+      });
+    } catch (error) {
+      console.error('Login error:', error);
     }
   }
 
@@ -138,6 +163,7 @@ export default function Hero() {
     const initialize = async () => {
 
       const info = await handleIncomingRedirect();
+      console.log(getDefaultSession());
 
       if (info && info.isLoggedIn) {
         setLogin();
@@ -272,6 +298,10 @@ export default function Hero() {
               Start now
             </Button>)}
 
+            {/* <Button variant="contained" color="primary" onClick={loginteste}>
+              Login
+            </Button> */}
+
 
             <Modal
               open={open}
@@ -306,13 +336,70 @@ export default function Hero() {
 
           <Typography variant="caption" textAlign="center" sx={{ opacity: 0.8 }}>
             By clicking &quot;Start now&quot; you agree to our&nbsp;
-            <Link href="#" color="primary">
+            <Link href="#" color="primary" onClick={handleOpenTerms}>
               Terms & Conditions
             </Link>
             .
           </Typography>
 
 
+          <Modal
+            open={openTerms}
+            onClose={handleCloseTerms}
+            aria-labelledby="modal-modal-title"
+            aria-describedby="modal-modal-description"
+          >
+            <Box sx={
+              {
+                position: 'absolute' as 'absolute',
+                top: '50%',
+                left: '50%',
+                transform: 'translate(-50%, -50%)',
+                width: 700,
+                height: 635,
+                bgcolor: 'background.paper',
+                border: '2px solid #000',
+                boxShadow: 24,
+                p: 4,
+              }
+            }>
+              <Typography variant="h5" gutterBottom sx={{ fontWeight: 'bold', textAlign: 'center' }}>
+                Termo de Concordância para Acesso a Dados de Sensores do PDS
+              </Typography>
+
+              <Typography variant="body1" paragraph>
+                Ao utilizar esta aplicação médica, você concorda com os seguintes termos:
+              </Typography>
+
+              <Typography variant="body2" paragraph>
+                <strong>1. Acesso a Dados:</strong> Esta aplicação não coleta dados diretamente do seu dispositivo. Ela solicita acesso aos dados de seus sensores que estão armazenados no seu Personal Data Store (PDS). 
+              </Typography>
+
+              <Typography variant="body2" paragraph>
+                <strong>2. Finalidade do Acesso:</strong> Os dados serão acessados exclusivamente para permitir que o seu médico pessoal avalie sua saúde e tome decisões informadas sobre seu tratamento.
+              </Typography>
+
+              <Typography variant="body2" paragraph>
+                <strong>3. Compartilhamento de Dados:</strong> Os seus dados não serão compartilhados com terceiros sem o seu consentimento explícito.
+              </Typography>
+
+              <Typography variant="body2" paragraph>
+                <strong>4. Armazenamento de Dados:</strong> Esta aplicação não armazena seus dados. Todos os dados acessados permanecem em seu PDS e só são utilizados enquanto você estiver utilizando a aplicação.
+              </Typography>
+
+              <Typography variant="body2" paragraph>
+                <strong>5. Revogação de Consentimento:</strong> Você pode cancelar a qualquer momento o consentimento dado para o acesso aos seus dados de sensores através das configurações do seu PDS. Após a revogação, a aplicação deixará de acessar os seus dados.
+              </Typography>
+
+              <Typography variant="body1" paragraph>
+                Ao clicar em "<strong>Start Now</strong>", você concorda com os termos acima e autoriza o acesso aos dados de sensores.
+              </Typography>
+
+              <Button onClick={handleCloseTerms} variant="contained" color="primary" sx={{ mt: 2, display: 'flex', justifyContent: 'center' }}>
+                Fechar
+              </Button>
+            </Box>
+          </Modal>
         </Stack>
 
         {!isLoadingButton && (

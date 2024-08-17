@@ -7,7 +7,7 @@ services:
     # essa imagem já copiava o nginx.conf 
     # image: georgepacheco/dash_solid:1.0
 
-    image: georgepacheco/dash_solid:1.2
+    image: georgepacheco/dash_solid:1.2.1
 
     container_name: SOLID_SERVER_S1
     # env_file:
@@ -15,6 +15,8 @@ services:
     volumes:
       - .:/solid-server
       - ./nginx.conf:/etc/nginx/nginx.conf
+      - ./FotSolid/fot-solid-dash/build:/usr/share/nginx/html/fot-solid-dash
+      - ./FotSolid/health-application/build:/usr/share/nginx/html/health-application
       # - ./nginx/conf/:/etc/nginx/conf.d/:ro
     expose:
       - "3000"    
@@ -37,7 +39,8 @@ services:
         ipv4_address: 222.222.222.9
         aliases:
           - server1.solid        
-    entrypoint: bash -c "npm start -- -c config/file.json -f .data & sleep 20 & python3 ../solid-server/server.py & node ../solid-server/FotSolid/backend/dist/index.js & nginx -c /etc/nginx/nginx.conf -g 'daemon off;'"    
+    entrypoint: bash -c "npm start -- -b http://192.168.0.111:3000 -c config/file.json -f .data & sleep 20 & python3 ../solid-server/server.py & node ../solid-server/FotSolid/backend/dist/index.js & nginx -c /etc/nginx/nginx.conf -g 'daemon off;'"    
+    # entrypoint: bash -c "npm start -- -c config/file.json -f .data & sleep 20 & python3 ../solid-server/server.py & node ../solid-server/FotSolid/backend/dist/index.js & nginx -c /etc/nginx/nginx.conf -g 'daemon off;'"    
     # entrypoint: bash -c "npm start -- -c config/file.json -f .data & sleep 20 & python3 ../solid-server/server.py & node ../solid-server/FotSolid/backend/dist/index.js"    
     
 networks:

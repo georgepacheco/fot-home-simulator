@@ -5,12 +5,14 @@ export const Environment = {
     /**
      * @description The agent's webId
      */
-    AGENT_WEBID: "http://localhost:3000/Health/profile/card#me",
+    // AGENT_WEBID: "http://localhost:3000/Health/profile/card#me",
+    AGENT_WEBID: "http://192.168.0.111:3000/Health/profile/card#me",
     
     /**
      * URL of the file with data on resources with guaranteed access
      */
-    URL_FILE_RESOURCE_GRANTED: "http://localhost:3000/Health/private/resource_granted.json",
+    // URL_FILE_RESOURCE_GRANTED: "http://localhost:3000/Health/private/resource_granted.json",
+    URL_FILE_RESOURCE_GRANTED: "http://192.168.0.111:3000/Health/private/resource_granted.json",
 
     FILE_RESOURCE_GRANTED_NAME: "resource_granted.json",
 

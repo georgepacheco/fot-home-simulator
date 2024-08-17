@@ -20,8 +20,8 @@ RUN mkdir -p /run/nginx && chown -R nginx:nginx /run/nginx
 RUN mkdir -p /var/www/html && chown -R nginx:nginx /var/www/html
 
 # Copiar arquivos de construção para o diretório do Nginx
-COPY ./fot-solid-dash/build /usr/share/nginx/html/fot-solid-dash
-COPY ./health-application/build /usr/share/nginx/html/health-application
+# COPY ./fot-solid-dash/build /usr/share/nginx/html/fot-solid-dash
+# COPY ./health-application/build /usr/share/nginx/html/health-application
 
 WORKDIR /community-server
 

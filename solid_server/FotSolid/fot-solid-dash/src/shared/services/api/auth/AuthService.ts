@@ -8,6 +8,7 @@ const auth = async (idp: string) => {
         await login({
             oidcIssuer: idp,
             redirectUrl: new URL(window.location.href).toString(),            
+            // redirectUrl: "https://192.168.0.111:3001/home",
             clientName: "Fot Solid",             
         });
     } catch (error) {

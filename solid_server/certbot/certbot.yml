@@ -1,0 +1,5 @@
+
+./certbot/certificates:/etc/letsencrypt
+/certbot/webroot:/var/www/certbot
+
+docker-compose run --rm certbot certonly --webroot -w /var/www/certbot -d 192.168.0.111

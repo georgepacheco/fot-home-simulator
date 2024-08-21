@@ -67,24 +67,28 @@ export const Dashboard = () => {
           })
             .then((info) => {
                 if (info && info.isLoggedIn) {
-                    console.log("logado");
+                    console.log("logado");                    
                     // setSessionInfo(info as ISessionInfo);
                     ConsentService.grantAccess2Simulation(getDefaultSession().info.webId);
                     setLogin();
                 } else {
+                    console.log(info);
                     console.log("nao logado");
                     // setSessionInfo(null);
                 }
             });
+
+        // console.log('qualquer coisa')
             
     }, []);
 
     const connectPod = () => {
+        // alert("idp: " + idp);
         if (idp !== ""){
             AuthService.auth(idp);
             
         } else {
-            alert ("Preencha o endereço do seu servidor de Pod.");
+            alert ("Necessário preencher o endereço do seu servidor de Pod.");
         }
     }
 

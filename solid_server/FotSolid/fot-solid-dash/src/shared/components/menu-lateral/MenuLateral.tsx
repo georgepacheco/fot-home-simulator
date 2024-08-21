@@ -54,7 +54,7 @@ export const MenuLateral: React.FC<IDrawerProps> = ({ children }) => {
     }
 
     useEffect(() => {
-        console.log('Use Effect Menu Lateral');
+        // console.log('Use Effect Menu Lateral');
         if (isLoggedIn) {
             ProfileServices.getProfile()
                 .then((result) => {

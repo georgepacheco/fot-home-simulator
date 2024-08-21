@@ -14,7 +14,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.save = void 0;
 const fs_1 = __importDefault(require("fs"));
-// const filePath = path.join(__dirname, 'user_.json');
+// const filePath = path.join(__dirname, 'user2_.json');
 const filePath = '../solid-server/users_.json';
 const save = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const user = req.body;

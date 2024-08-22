@@ -69,6 +69,7 @@ export const Dashboard = () => {
                 if (info && info.isLoggedIn) {
                     console.log("logado");                    
                     // setSessionInfo(info as ISessionInfo);
+                    
                     ConsentService.grantAccess2Simulation(getDefaultSession().info.webId);
                     setLogin();
                 } else {

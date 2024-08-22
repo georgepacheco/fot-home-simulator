@@ -1,5 +1,5 @@
 # Estágio de produção
-FROM georgepacheco/solid-server:1.3.1
+FROM georgepacheco/solid-server:1.3.2
 
 # Instale o Nginx
 RUN apt-get update && apt-get install -y nginx

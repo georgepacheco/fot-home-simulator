@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@comunica/query-sparql": "^3.1.2",
     "@comunica/query-sparql-solid": "^3.1.0",
     "@emotion/react": "^11.11.4",

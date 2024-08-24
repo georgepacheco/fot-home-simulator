@@ -118,12 +118,12 @@ const grantAccess2Simulation = async (webId: string | undefined) => {
         const baseUrl = getBaseUrl(webId, 0, 4);
         for (const key of Object.values(SensorType)) {
             const sourcePath: string = `${baseUrl}/private/sensors/${key}`;
-
+            console.log(sourcePath);
             const myEngine = new QueryEngine();
             let query = `
             PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>  
             INSERT DATA {
-                <http://fotsimulator/${key}> a rdfs:Resource ;    
+                <https://fotsimulator/${key}> a rdfs:Resource ;    
             }`;
 
             try {
@@ -137,12 +137,16 @@ const grantAccess2Simulation = async (webId: string | undefined) => {
                 return new Error('Failed while inserting data.\n' + (error as { message: string }).message);
             }
 
-            await universalAccess.setAgentAccess(
-                sourcePath,         // Resource
-                Environment.SIM_WEBID,     // Simulator Agent
-                { read: true, write: true, append: true },          // Access object
-                { fetch: getDefaultSession().fetch }
-            );
+            try {
+                await universalAccess.setAgentAccess(
+                    sourcePath,         // Resource
+                    Environment.SIM_WEBID,     // Simulator Agent
+                    { read: true, write: true, append: true },          // Access object
+                    { fetch: getDefaultSession().fetch }
+                );
+            } catch (error) {
+                return new Error('Failed while granting access to simulator.\n' + (error as { message: string }).message);
+            }
         }
 
         addWebId2Sim(getDefaultSession().info.webId);
@@ -162,10 +166,10 @@ const addWebId2Sim = async (webId: string | undefined) => {
                     'Content-Type': 'application/json'
                 }
             });
-        } catch (error) {            
-            if ((error as AxiosError).response?.status !== 409){
+        } catch (error) {
+            if ((error as AxiosError).response?.status !== 409) {
                 console.log(error as AxiosError);
-            }            
+            }
         }
     }
 }

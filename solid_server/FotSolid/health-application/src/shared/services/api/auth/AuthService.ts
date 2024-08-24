@@ -26,13 +26,13 @@ interface IUser {
 const loginCredentials = async (): Promise<typeof fetch | Error> => {
 
   const user: IUser = {
-    "userid": "1652322",
-    "local_webid": "http://192.168.0.111:3000/Health/profile/card#me",
-    "webid": "http://192.168.0.111:3000/Health/profile/card#me",
-    "idp": "http://192.168.0.111:3000/",
-    "username": "health@example.com",
-    "podname": "Health",
-    "password": "12345",
+    "userid": Environment.USER_ID,
+    "local_webid": Environment.LOCAL_WEBID,
+    "webid": Environment.WEBID,
+    "idp": Environment.IDP,
+    "username": Environment.USERNAME,
+    "podname": Environment.PODNAME,
+    "password": Environment.PASSWORD,
   }
 
   // const token = await getAuthorization(user);

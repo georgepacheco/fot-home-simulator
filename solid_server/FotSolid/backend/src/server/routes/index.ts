@@ -9,7 +9,8 @@ router.get('/', (req, res) => {
     return res.send('Hello API Node for Community Solid Server!');
 });
 
-// router.options('/save', cors());
+router.options('/save', cors());
+
 router.post('/save', save);
 
 router.get ('/login', loginWeb);

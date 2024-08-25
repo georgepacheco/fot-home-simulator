@@ -45,7 +45,8 @@ export const Environment = {
     SIM_WEBID: "https://192.168.0.111:3000/HomeSimulator/profile/card#me",
 
     // SIM_API_URL: "http://localhost:3030/save",
-    SIM_API_URL: "https://192.168.0.111:3030/save",
+    // SIM_API_URL: "https://192.168.0.111:3030/save",
+    SIM_API_URL: "https://192.168.0.111/api/save"
 
 
 };

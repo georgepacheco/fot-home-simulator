@@ -9,7 +9,8 @@ import sys
 #server_ip = sys.argv[1]
 server_port = 1234
 
-
+# O server_ip é recebido via argmento pelo mqtt_client.py
+# file_path recebido no mqqt_client.py é o "send-data.json"
 def send_file(server_ip, file_path):
     #while True:
         #time.sleep(20)

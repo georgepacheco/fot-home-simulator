@@ -47,14 +47,14 @@ def separate_data(file_path, user_data_file_path):
 
     for user in users:
         user_file_name = "../community-server/" + user['user_id'] + ".json"
-        if not exist_file(user_file_name):
-            with open(user_file_name, 'w') as file:
-                file.write(json.dumps(user['sensing_data']))
+        #if not exist_file(user_file_name):
+        with open(user_file_name, 'w') as file:
+            file.write(json.dumps(user['sensing_data']))
         cred_file_name = "../community-server/" + user['user_id'] + "_cred.json"
-        if not exist_file(cred_file_name):
-            with open(cred_file_name, 'w') as file:
-                del user['sensing_data']
-                file.write(json.dumps(user))
+        #if not exist_file(cred_file_name):
+        with open(cred_file_name, 'w') as file:
+            del user['sensing_data']
+            file.write(json.dumps(user))
     return users_id
 
 

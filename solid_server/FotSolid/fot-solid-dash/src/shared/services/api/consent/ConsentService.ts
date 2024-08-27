@@ -66,23 +66,35 @@ const getAllGrantedAccessByResource = async (resourceUrl: string): Promise<IAgen
 
 }
 
-const getAllGrantAccess = async (baseUrl: string): Promise<IResource[]> => {
+const getAllGrantAccess = async (baseUrl: string): Promise<IResource[] | Error> => {
 
     let resources: IResource[] = [];
-
     let result: any;
-    for (const key of Object.values(SensorType)) {
-        const sourcePath: string = `${baseUrl}/private/sensors/${key}`
-        result = await getAllGrantedAccessByResource(sourcePath);
-        if (!(result instanceof Error)) {
-            let resource: IResource = {
-                agent: result,
-                resourceUrl: sourcePath
+    try {
+        if (getDefaultSession().info.isLoggedIn) {
+            if (getDefaultSession().info.webId !== undefined) {
+                for (const key of Object.values(SensorType)) {
+                    const sourcePath: string = `${baseUrl}/private/sensors/${key}`
+                    result = await getAllGrantedAccessByResource(sourcePath);
+                    if (!(result instanceof Error)) {
+                        let resource: IResource = {
+                            agent: result,
+                            resourceUrl: sourcePath
+                        }
+                        resources.push(resource);
+                    }
+                }
+            } else {
+                return new Error(Environment.WEB_ID_ERROR);
             }
-            resources.push(resource);
+        } else {
+            return new Error(Environment.USER_NOT_LOGGED);
         }
+        return resources;
+    } catch (error) {
+        return new Error((error as { message: string }).message || 'Error while querying granted consent.');
     }
-    return resources;
+
 }
 
 const updateAccess = async (resources: IResource[]) => {

@@ -11,13 +11,13 @@ import random
 
 
 def humiditySensor():
-    return random.randint(10, 70)
+    return random.randint(10, 90)
 
 def temperatureSensor():
-    return random.randint(25, 38)
+    return random.randint(20, 45)
 
-def environmentTemperatureSensor ():
-	return random.randint (0, 40)
+def environmentTemperatureSensor():
+	return random.randint (20, 45)
 
 def soilmoistureSensor():
     return random.randint(0,1023)
@@ -32,13 +32,13 @@ def bodyTemperatureSensor ():
 	return random.randint (33, 41)
 
 def ecgmonitor ():
-	return random.randint (33, 41)
+	return random.randint (50, 200)
 
 def glucometerSensor ():
-	return random.randint (0, 500)
+	return random.randint (100, 500)
 
 def oxymeterSensor ():
-	return random.randint (0, 500)
+	return random.randint (0, 100)
 	
 def smokeSensor():
     return random.randint(300, 3000)

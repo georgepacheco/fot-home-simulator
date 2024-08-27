@@ -105,9 +105,9 @@ export const ListagemSensores = () => {
                                     <IconButton size="small" onClick={() => navigate(`/sensors/details/${splitString(row.sensor)}`, { state: { data: row } })}>
                                         <Icon>visibility</Icon>
                                     </IconButton >
-                                    <IconButton size="small">
+                                    {/* <IconButton size="small">
                                         <Icon>delete</Icon>
-                                    </IconButton >
+                                    </IconButton > */}
                                     {/* <IconButton size="small">
                                         <Icon>edit</Icon>
                                     </IconButton> */}

@@ -32,12 +32,12 @@ export const AppRoutes = () => {
             },
             {
                 icon: 'cloud',
-                path: 'cloud',
+                path: '/cloud',
                 label: 'Cloud'
             },
             {
                 icon: 'assignment-turnedin',
-                path: 'consent',
+                path: '/consent',
                 label: 'Consent'
             },
         ]);

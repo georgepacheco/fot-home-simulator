@@ -164,7 +164,7 @@ export const Dashboard = () => {
                         lineHeight: 1.5,         // Aumenta o espaçamento entre as linhas
                         marginBottom: 2          // Espaço entre parágrafos
                     }}>
-                    As depicted in Figure x, our proposed scenario encompasses a monitored building and apartments through smart devices. The generated and collected data from devices are stored in your PDS, and you maintain control over the dissemination, storage, and usage.
+                    As depicted in Figure 1, our proposed scenario encompasses a monitored building and apartments through smart devices. The generated and collected data from devices are stored in your PDS, and you maintain control over the dissemination, storage, and usage.
                 </Typography>
 
                 <Box

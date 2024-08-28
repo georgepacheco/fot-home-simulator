@@ -135,7 +135,21 @@ Steps to install and run the simulator. Follow the steps in the order indicated.
 
 ## Appendix I
 
-Any additional information goes here
+Change the server IP address in these files.
+
+1. Docker compose [file from solid_server](https://github.com/georgepacheco/fot-home-simulator/blob/master/solid_server/docker-compose-solid-v2-local.yml).
+
+    - Change the IP address in the **entrypoint** directive.
+
+2. Index.ts file in the [solid_server/FotSolid/fot-solid-dash/src/shared/environment/index.ts](https://github.com/georgepacheco/fot-home-simulator/blob/master/solid_server/FotSolid/fot-solid-dash/src/shared/environment/index.ts)
+
+    - Change the IP address in the constants **SIM_WEBID** and **SIM_API_URL**
+
+3. Index.ts file in the [solid_server/FotSolid/health-application/src/shared/environment](https://github.com/georgepacheco/fot-home-simulator/blob/master/solid_server/FotSolid/health-application/src/shared/environment/index.ts) path
+
+    - Change the IP in the constants **AGENT_WEBID**, **URL_FILE_RESOURCE_GRANTED**, **LOCAL_WEBID**, **WEBID** and **IDP**.
+
+4. .env file in the [solid_server/FotSolid/Sensor2Gateway/.env]()
 
 ## Appendix II
 

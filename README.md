@@ -40,29 +40,103 @@ $-> docker-compose version
 
 ### NVM
 ```bash
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+$-> curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
 ```
 
 ### Node V20 or later
 
 ```bash
 # intall node
-nvm install 20
+$-> nvm install 20
 
-# verifies the right Node.js version is in the environment
-node -v 
+# verifies the Node.js version
+$-> node -v 
 
-# verifies the right NPM version is in the environment
-npm -v 
+# verifies the NPM version
+$-> npm -v 
 ```
 
 ## Installation
 
-Install my-project with npm
+Steps to install and run the simulator. Follow the steps in the order indicated.
 
-```bash
-  npm install my-project
-  cd my-project
-```
+1. Configure the server machine's firewall to allow external connections. In terminal:
+    
+    ```bash
+    # verify the firewall open ports
+    $-> sudo ufw status
 
- 
+    # open specific firewall ports
+    $-> sudo ufw allow 3000/tcp
+
+    # enable the firewall
+    $-> sudo ufw enable 
+    ```
+
+2. Clone the project.
+
+3. Change the server IP in indicated files (see [Appendix I](#appendix-i)).
+
+4.  After changing the IP address, go to the root folder of each project bellow and run the code to install and compile.
+    ```bash
+    # install dependencies
+    $-> npm install
+
+    # compile project
+    $-> npm run build
+    ```
+    a. [Backend ](https://github.com/georgepacheco/fot-home-simulator/tree/master/solid_server/FotSolid/backend)
+        
+    b. [Sensor2Gateway](https://github.com/georgepacheco/fot-home-simulator/tree/master/solid_server/FotSolid/Sensor2Gateway)
+
+    c. [fot-solid-dash](https://github.com/georgepacheco/fot-home-simulator/tree/master/solid_server/FotSolid/fot-solid-dash)
+
+    d. [health-application](https://github.com/georgepacheco/fot-home-simulator/tree/master/solid_server/FotSolid/health-application)
+
+5. Start the Server
+    
+    a. Go to [solid_server](https://github.com/georgepacheco/fot-home-simulator/tree/master/solid_server) folder.
+    
+    b. Run to start the Solid Server
+    ```bash    
+    $-> docker compose -f docker-compose-solid-v2-local.yml up -d
+    ```
+
+6. Create the simulator user on the Solid Server ([Appendix II](#appendix-ii)). It is necessary to use the following credentials:
+
+    - **email**: home_simulator@fotsimulator.com
+    - **password**: simulator2024
+    - **podname**: HomeSimulator
+
+7. Create the Health application user on the Solid Server ([Appendix II](#appendix-ii)). It is necessary to use the following credentials:
+
+    - **email**: health@example.com
+    - **password**: 12345
+    - **podname**: Health
+
+8. Start Gateway
+
+    a. Go to [mqqt_server](https://github.com/georgepacheco/fot-home-simulator/tree/master/mqtt_server) folder.
+
+    b. Run to start the Gateway.
+    ```bash    
+    $-> docker compose -f docker-compose-mqtt.yml up -d
+    ```
+
+9. Start the Sensors Simulation
+
+    a. Go to [root](https://github.com/georgepacheco/fot-home-simulator/tree/master) folder.
+
+    b. Run to start the Gateway.
+    ```bash    
+    $-> docker compose -f docker-compose-local_docker.yml up -d
+
+    ```
+
+## Appendix I
+
+Any additional information goes here
+
+## Appendix II
+
+Any additional information goes here

@@ -16,6 +16,8 @@
 /solid_server/FotSolid/fot-solid-dash/.pnp
 /solid_server/FotSolid/health-application/.pnp
 
+/solid_server/docker-compose-solid-v2-local_comments.yml
+
 .pnp.js
 
 # testing

@@ -61,7 +61,7 @@ export const LayoutBasePagina: React.FC<ILayoutBaseProps> = ({ children, title, 
                 
                 <IconButton
                     color="inherit"
-                    href="https://github.com/georgepacheco/fot-solid-dash.git"
+                    href="https://github.com/georgepacheco/fot-home-simulator"
                     aria-label="GitHub"
                     sx={{ alignSelf: 'center' }}
                 >

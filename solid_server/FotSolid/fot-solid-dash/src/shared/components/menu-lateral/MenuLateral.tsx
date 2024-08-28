@@ -50,7 +50,7 @@ export const MenuLateral: React.FC<IDrawerProps> = ({ children }) => {
     const [profile, setProfile] = useState<IUserProfile>();
 
     const teste = async () => {
-        
+
     }
 
     useEffect(() => {
@@ -74,10 +74,18 @@ export const MenuLateral: React.FC<IDrawerProps> = ({ children }) => {
 
                     <Box width='100%' height={theme.spacing(20)} display='flex' alignItems='center' justifyContent='center' flexDirection='column'>
                         {/* <Avatar src='' sx={{ height: theme.spacing(8), width: theme.spacing(8) }} /> */}
-                        {(isLoggedIn) && (
+                        {/* {(isLoggedIn) && (
                             <Typography align="center" variant="h6" padding={1}> Welcome <br /> {profile?.firstName + " " + profile?.lastName} </Typography>
+                        )} */}
+                        {isLoggedIn ? (
+                            <Typography align="center" variant="h6" padding={1}>
+                                Welcome <br /> {profile?.firstName + " " + profile?.lastName}
+                            </Typography>
+                        ) : (
+                            <Typography align="center" variant="h6" padding={1}>
+                                Welcome
+                            </Typography>
                         )}
-
                     </Box>
 
                     <Divider />

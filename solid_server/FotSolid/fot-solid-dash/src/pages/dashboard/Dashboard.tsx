@@ -18,48 +18,6 @@ export const Dashboard = () => {
 
     const { setLogin } = useAuthContext();
 
-    // // Function to handle incoming authentication redirect
-    // async function handleRedirect() {
-    //     // Check if there is an incoming authentication redirect
-    //     if (!getDefaultSession().info.isLoggedIn) {
-    //         const incomingRedirect = await handleIncomingRedirect();
-    //         if (incomingRedirect) {
-    //             console.log('Redirect completed successfully!');
-    //         }
-    //         console.log(getDefaultSession().info.webId);
-    //     }
-    //     // console.log(getDefaultSession().info);
-    // }
-
-    // // Check if the user is already logged in
-    // async function checkLoggedIn() {
-
-    //     if (getDefaultSession().info.isLoggedIn) {
-    //         console.log('User is already logged in.');
-    //         const webId = getDefaultSession().info.webId;
-
-    //         // getSensors()
-
-
-
-    //         // console.log(await getPodUrlAll(webId || '', { fetch: fetch }));
-    //         // // mypods.forEach((mypod) => {
-    //         // //     console.log(mypod);
-    //         // // });
-
-    //         // // Optionally, fetch the user's profile data
-    //         // const profileResponse = await fetch(webId || '');
-    //         // if (profileResponse.ok) {
-    //         //     const profileData = await profileResponse.text();
-    //         //     console.log('User profile data:', profileData);
-    //         // }
-    //         return true;
-    //     } else {
-    //         console.log('User is not logged in.');
-    //         return false;
-    //     }
-    // }
-
     useEffect(() => {
 
         handleIncomingRedirect({
@@ -95,11 +53,11 @@ export const Dashboard = () => {
 
     return (
         <LayoutBasePagina
-            title="FoT Solid Dashboard"
+            title="FoT-PDS Proposal"
             toolsBar={(
                 <FerramentasListagem
                     mostrarInputBusca
-                    placeHolder="http://localhost:3000"
+                    placeHolder="https://localhost:3000"
                     textoBotaoNovo="Connect Pod"
                     aoMudarTextoBusca={texto => setIdp(texto)}
                     aoClicarNovo={connectPod}
@@ -164,7 +122,7 @@ export const Dashboard = () => {
                         lineHeight: 1.5,         // Aumenta o espaçamento entre as linhas
                         marginBottom: 2          // Espaço entre parágrafos
                     }}>
-                    As depicted in Figure 1, our proposed scenario encompasses a monitored building and apartments through smart devices. The generated and collected data from devices are stored in your PDS, and you maintain control over the dissemination, storage, and usage.
+                    As depicted in Figure 1, our proposed scenario encompasses a monitored building and apartments through smart devices. The generated and collected data from devices are stored in your PDS (we are using the <a href="https://github.com/CommunitySolidServer/CommunitySolidServer" target="_blank">Community Solid Server</a>), and you maintain control over the dissemination, storage, and usage.
                 </Typography>
 
                 <Box
@@ -225,7 +183,7 @@ export const Dashboard = () => {
                         </li>
                         <li>
                             <Typography variant="body2">
-                                Your granted consent;
+                                Your granted consent.
                             </Typography>
                         </li>
                     </ol>

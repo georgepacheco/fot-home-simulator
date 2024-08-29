@@ -84,7 +84,7 @@ export const ListagemConsentimento = () => {
     const [totalCount, setTotalCount] = useState(0);
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        const [index, webId, permission] = event.target.name.split('.');
+        const [index, webId, permission] = event.target.name.split('__');
         const newRows = rows.map((row, i) => {
             if (i.toString() === index) {
                 const newAgents = row.agent.map(agent => {
@@ -189,7 +189,7 @@ export const ListagemConsentimento = () => {
                                         </TableHead>
                                         <TableBody>
                                             <TableRow
-                                                key={agent.webId}
+                                                key={`${index}.${agent.webId}`}
                                                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                                             >
                                                 <TableCell>
@@ -198,7 +198,7 @@ export const ListagemConsentimento = () => {
                                                             <Checkbox
                                                                 checked={agent.read}
                                                                 onChange={handleChange}
-                                                                name={`${index}.${agent.webId}.read`}
+                                                                name={`${index}__${agent.webId}__read`}
                                                             />
                                                         }
                                                         label="Read"
@@ -210,7 +210,7 @@ export const ListagemConsentimento = () => {
                                                             <Checkbox
                                                                 checked={agent.write}
                                                                 onChange={handleChange}
-                                                                name={`${index}.${agent.webId}.write`}
+                                                                name={`${index}__${agent.webId}__write`}
                                                             />
                                                         }
                                                         label="Write"
@@ -222,7 +222,7 @@ export const ListagemConsentimento = () => {
                                                             <Checkbox
                                                                 checked={agent.append}
                                                                 onChange={handleChange}
-                                                                name={`${index}.${agent.webId}.append`}
+                                                                name={`${index}__${agent.webId}__append`}
                                                             />
                                                         }
                                                         label="Append"

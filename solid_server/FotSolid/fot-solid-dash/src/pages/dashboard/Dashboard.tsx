@@ -158,36 +158,27 @@ export const Dashboard = () => {
                     Here, you can find and manage:
                 </Typography>
 
-                <Typography
-                    variant="body2"
+                <Box
+
                     sx={{
-                        textAlign: 'justify',    // Alinhamento justificado
-                        lineHeight: 1.5,         // Aumenta o espaçamento entre as linhas
-                        marginBottom: 2          // Espaço entre parágrafos
-                    }}>
+                        textAlign: 'justify',           // Alinhamento justificado
+                        lineHeight: 1.5,                // Aumenta o espaçamento entre as linhas
+                        marginBottom: 2,                // Espaço entre parágrafos
+                        fontSize: '0.875rem',           // Tamanho de fonte de body2
+                        fontFamily: 'Roboto, Arial, sans-serif', // Font family padrão do MUI
+                        fontWeight: 400,                // Peso de fonte de body2
+                        letterSpacing: '0.01071em',     // Espaçamento entre letras de body2
+                        color: 'rgba(0, 0, 0, 0.87)'    // Cor de texto de body2
+                    }}
+                >
+
                     <ol>
-                        <li>
-                            <Typography variant="body2">
-                                Your data profile;
-                            </Typography>
-                        </li>
-                        <li>
-                            <Typography variant="body1">
-                                Your sensor's data;
-                            </Typography>
-                        </li>
-                        <li>
-                            <Typography variant="body2">
-                                Your clouds' repositories;
-                            </Typography>
-                        </li>
-                        <li>
-                            <Typography variant="body2">
-                                Your granted consent.
-                            </Typography>
-                        </li>
+                        <li>Your data profile;</li>
+                        <li>Your sensor's data;</li>
+                        <li>Your clouds' repositories;</li>
+                        <li>Your granted consent.</li>
                     </ol>
-                </Typography>
+                </Box>
 
             </Box>
 

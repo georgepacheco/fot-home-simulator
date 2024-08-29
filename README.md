@@ -163,9 +163,7 @@ Steps to create a user and Pod on Solid Server.
 
 1. Access https://IPSERVER (Example: https://192.168.0.111)
 
-    <img src="create_user_step1.png" alt="Step 1" style="border: 2px solid #000; border-radius: 8px;">
-
-    
+    ![Step 1](/create_user_step1.png)
 
 2. Fill out the form and click on **Register**.
 

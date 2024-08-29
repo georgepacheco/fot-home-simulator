@@ -112,34 +112,39 @@ export const FerramentasDetalhe: React.FC<IFerramentasDetalheProps> = ({
             )}
 
             {(mostrarBotaoEnviarCloud && !mostrarBotaoEnviarCloudCarregando) && (
-                <Button
-                    color='primary'
-                    disableElevation
-                    variant='outlined'
-                    onClick={aoClicarEnviar}
-                    startIcon={<Icon>save</Icon>}
-                >
-                    <Typography variant="button" whiteSpace='nowrap' textOverflow='ellipsis' overflow='hidden'>
-                        Send
-                    </Typography>
-                </Button>
+                <Tooltip title="Send the data to your Pod in the Cloud and keep a copy here.">
+                    <Button
+                        color='primary'
+                        disableElevation
+                        variant='outlined'
+                        onClick={aoClicarEnviar}
+                        startIcon={<Icon>send</Icon>}
+                    >
+                        <Typography variant="button" whiteSpace='nowrap' textOverflow='ellipsis' overflow='hidden'>
+                            Send
+                        </Typography>
+                    </Button>
+                </Tooltip>
             )}
             {mostrarBotaoEnviarCloudCarregando && (
                 <Skeleton width={110} height={60} />
             )}
 
             {(mostrarBotaoEnviarCloudEApagar && !mostrarBotaoEnviarCloudEApagarCarregando) && (
-                <Button
-                    color='primary'
-                    disableElevation
-                    variant='outlined'
-                    onClick={aoClicarEnviarEApagar}
-                    startIcon={<Icon>save</Icon>}
-                >
-                    <Typography variant="button" whiteSpace='nowrap' textOverflow='ellipsis' overflow='hidden'>
-                        Send & Delete
-                    </Typography>
-                </Button>
+
+                <Tooltip title="Send the data to your Pod in the Cloud and delete it from here.">
+                    <Button
+                        color='primary'
+                        disableElevation
+                        variant='outlined'
+                        onClick={aoClicarEnviarEApagar}
+                        startIcon={<Icon>send_and_archive</Icon>}
+                    >
+                        <Typography variant="button" whiteSpace='nowrap' textOverflow='ellipsis' overflow='hidden'>
+                            Send & Delete
+                        </Typography>
+                    </Button>
+                </Tooltip>
             )}
             {mostrarBotaoEnviarCloudEApagarCarregando && (
                 <Skeleton width={110} height={60} />
@@ -203,11 +208,11 @@ export const FerramentasDetalhe: React.FC<IFerramentasDetalheProps> = ({
                 <Skeleton width={110} height={60} />
             )}
 
-            <Tooltip title={toolTipText}>
+            {/* <Tooltip title={toolTipText}>
                 <IconButton aria-label="help" color="primary">
                     <Icon>help</Icon>
                 </IconButton>
-            </Tooltip>
+            </Tooltip> */}
         </Box>
 
     );

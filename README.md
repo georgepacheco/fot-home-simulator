@@ -137,7 +137,7 @@ Steps to install and run the simulator. Follow the steps in the order indicated.
 
 Change the server IP address in these files.
 
-1. Docker compose [file from solid_server](https://github.com/georgepacheco/fot-home-simulator/blob/master/solid_server/docker-compose-solid-v2-local.yml).
+1. Docker compose file from [solid_server](https://github.com/georgepacheco/fot-home-simulator/blob/master/solid_server/docker-compose-solid-v2-local.yml).
 
     - Change the IP address in the **entrypoint** directive.
 
@@ -163,7 +163,9 @@ Steps to create a user and Pod on Solid Server.
 
 1. Access https://IPSERVER (Example: https://192.168.0.111)
 
-    ![Step 1](/create_user_step1.png)
+    <img src="create_user_step1.png" alt="Step 1" style="border: 2px solid #000; border-radius: 8px;">
+
+    
 
 2. Fill out the form and click on **Register**.
 

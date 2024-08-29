@@ -143,14 +143,36 @@ Change the server IP address in these files.
 
 2. Index.ts file in the [solid_server/FotSolid/fot-solid-dash/src/shared/environment/index.ts](https://github.com/georgepacheco/fot-home-simulator/blob/master/solid_server/FotSolid/fot-solid-dash/src/shared/environment/index.ts)
 
-    - Change the IP address in the constants **SIM_WEBID** and **SIM_API_URL**
+    - Change the IP address in the constants: **SIM_WEBID** and **SIM_API_URL**
 
 3. Index.ts file in the [solid_server/FotSolid/health-application/src/shared/environment](https://github.com/georgepacheco/fot-home-simulator/blob/master/solid_server/FotSolid/health-application/src/shared/environment/index.ts) path
 
-    - Change the IP in the constants **AGENT_WEBID**, **URL_FILE_RESOURCE_GRANTED**, **LOCAL_WEBID**, **WEBID** and **IDP**.
+    - Change the IP in the constants: **AGENT_WEBID**, **URL_FILE_RESOURCE_GRANTED**, **LOCAL_WEBID**, **WEBID** and **IDP**.
 
-4. .env file in the [solid_server/FotSolid/Sensor2Gateway/.env]()
+4. .env file in the [solid_server/FotSolid/Sensor2Gateway/.env](https://github.com/georgepacheco/fot-home-simulator/blob/master/solid_server/FotSolid/Sensor2Gateway/.env)
+
+    - Change the IP in the constants: **WEBID** and **IDP**.
+
+4. Environment.ts file in the [solid_server/FotSolid/Sensor2Gateway/src/Environment.ts](https://github.com/georgepacheco/fot-home-simulator/blob/master/solid_server/FotSolid/Sensor2Gateway/src/Environment.ts)
+
+    - Change the IP in the constants: **WEBID** and **IDP**.
 
 ## Appendix II
 
-Any additional information goes here
+Steps to create a user and Pod on Solid Server.
+
+1. Access https://IPSERVER (Example: https://192.168.0.111)
+
+    ![Step 1](/create_user_step1.png)
+
+2. Fill out the form and click on **Register**.
+
+    ![Step 2](/create_user_step2.png)
+
+3. Click on **Create Pod**.
+
+    ![Step 3](/create_user_step3.png)
+
+4. Fill out the name and click on **Create Pod**.
+
+    ![Step 4](/create_user_step4.png)

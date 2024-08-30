@@ -154,7 +154,7 @@ export const SensorDetail: React.FC = () => {
             }
             const result = await SensorServices.sendData2Cloud(s);
             if (result instanceof Error) {
-                alert(result.message);
+                alert("Note: The 'Send' option will only work if you have a valid Pod server in the cloud.");
             } else {
                 navigate('/sensors')
             }
@@ -164,6 +164,9 @@ export const SensorDetail: React.FC = () => {
         }
     }
 
+    /**
+     * @description use the solid-api
+     */
     const handleSendRemove = async () => {
         if (checked.length > 0) {
             const s: ISensor = location.state.data;
@@ -179,7 +182,7 @@ export const SensorDetail: React.FC = () => {
             }
             const result = await SensorServices.sendData2CloudDelete(s, checked);
             if (result instanceof Error) {
-                alert(result.message);
+                alert("Note: The 'Send and Delele' option will only work if you have a valid Pod server in the cloud.");
             } else {
                 const newItems = items.map(item => ({
                     ...item,

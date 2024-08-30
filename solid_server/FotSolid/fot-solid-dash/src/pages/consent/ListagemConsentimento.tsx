@@ -1,4 +1,4 @@
-import { Accordion, AccordionDetails, AccordionSummary, Button, Checkbox, FormControlLabel, Grid, Icon, IconButton, LinearProgress, Pagination, Paper, Table, TableBody, TableCell, tableCellClasses, TableContainer, TableFooter, TableHead, TableRow, Typography, useTheme } from "@mui/material";
+import { Accordion, AccordionDetails, AccordionSummary, Button, Checkbox, FormControlLabel, Grid, Icon, IconButton, LinearProgress, Pagination, Paper, Table, TableBody, TableCell, tableCellClasses, TableContainer, TableFooter, TableHead, TableRow, Tooltip, Typography, useTheme } from "@mui/material";
 import { LayoutBasePagina } from "../../shared/layouts";
 import { FerramentaLogado, FerramentasDetalhe, FerramentasListagem } from "../../shared/components";
 import { getDefaultSession } from "@inrupt/solid-client-authn-browser";
@@ -179,6 +179,7 @@ export const ListagemConsentimento = () => {
                     <AccordionDetails key={`panel-detail${index}`}>
 
                         {row.agent.map((agent) => {
+                            const isSimulator = agent.webId === Environment.SIM_WEBID;
                             return (
                                 <TableContainer component={Paper} sx={{ mb: 2 }}>
                                     <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
@@ -193,40 +194,49 @@ export const ListagemConsentimento = () => {
                                                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                                             >
                                                 <TableCell>
-                                                    <FormControlLabel
-                                                        control={
-                                                            <Checkbox
-                                                                checked={agent.read}
-                                                                onChange={handleChange}
-                                                                name={`${index}__${agent.webId}__read`}
-                                                            />
-                                                        }
-                                                        label="Read"
-                                                    />
+                                                    <Tooltip title={isSimulator ? "You cannot modify the consent to the simulator." : ""}>
+                                                        <FormControlLabel
+                                                            control={
+                                                                <Checkbox
+                                                                    checked={agent.read}
+                                                                    onChange={handleChange}
+                                                                    name={`${index}__${agent.webId}__read`}
+                                                                    disabled={isSimulator} // Desabilita se for o Simulator
+                                                                />
+                                                            }
+                                                            label="Read"
+                                                        />
+                                                    </Tooltip>
                                                 </TableCell>
                                                 <TableCell>
-                                                    <FormControlLabel
-                                                        control={
-                                                            <Checkbox
-                                                                checked={agent.write}
-                                                                onChange={handleChange}
-                                                                name={`${index}__${agent.webId}__write`}
-                                                            />
-                                                        }
-                                                        label="Write"
-                                                    />
+                                                    <Tooltip title={isSimulator ? "You cannot modify the consent to the simulator." : ""}>
+                                                        <FormControlLabel
+                                                            control={
+                                                                <Checkbox
+                                                                    checked={agent.write}
+                                                                    onChange={handleChange}
+                                                                    name={`${index}__${agent.webId}__write`}
+                                                                    disabled={isSimulator} // Desabilita se for o Simulator
+                                                                />
+                                                            }
+                                                            label="Write"
+                                                        />
+                                                    </Tooltip>
                                                 </TableCell>
                                                 <TableCell>
-                                                    <FormControlLabel
-                                                        control={
-                                                            <Checkbox
-                                                                checked={agent.append}
-                                                                onChange={handleChange}
-                                                                name={`${index}__${agent.webId}__append`}
-                                                            />
-                                                        }
-                                                        label="Append"
-                                                    />
+                                                    <Tooltip title={isSimulator ? "You cannot modify the consent to the simulator." : ""}>
+                                                        <FormControlLabel
+                                                            control={
+                                                                <Checkbox
+                                                                    checked={agent.append}
+                                                                    onChange={handleChange}
+                                                                    name={`${index}__${agent.webId}__append`}
+                                                                    disabled={isSimulator} // Desabilita se for o Simulator
+                                                                />
+                                                            }
+                                                            label="Append"
+                                                        />
+                                                    </Tooltip>
                                                 </TableCell>
                                             </TableRow>
 

@@ -223,6 +223,12 @@ const deleteObservations = async (session: Session, observations: string[], sens
     }
 }
 
+/**
+ * 
+ * @description Send data to the cloud and maintain a copy in the FoT using my Solid-API.
+ * @param sensor 
+ * @returns server response (success or error)
+ */
 const sendData2Cloud = async (sensor: ISensor) => {
     try {
         const urlRelativa = `/savefot`;
@@ -240,7 +246,7 @@ const sendData2Cloud = async (sensor: ISensor) => {
 }
 
 /**
- * @description Send data to cloud and remove from FoT
+ * @description Send data to the cloud and remove from FoT using the Solid API.
  */
 const sendData2CloudDelete = async (sensor: ISensor, checked: string[]) => {
     try {

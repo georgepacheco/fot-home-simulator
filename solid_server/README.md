@@ -1,1 +1,4 @@
-A imagem é gerada a partir do dockerfile disponível no código fonte do community solid server. Necessitei alterar a versão da imagem base do Node para uma que tivesse o python instalado.
+# Solid Server
+
+Our server is based on Community Solid Server V7.0.5. We use the Dockerfile from the V7.0.5 project folder to generate our server image. We need to update the Node image from Build and Runtime stages.
+

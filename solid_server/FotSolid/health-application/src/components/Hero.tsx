@@ -142,21 +142,21 @@ export default function Hero() {
     }
   }
 
-  const loginteste = async () => {
-    try {
-      await login({
-        // oidcIssuer: "http://10.27.0.62:3000",
-        oidcIssuer: "http://54.210.40.21:3000",
-        // oidcIssuer: "http://localhost:3000",
-        // redirectUrl: new URL("/", "http://10.27.0.62:3001").toString(),
-        // redirectUrl: new URL("/", "http://3.86.13.252:3001").toString(),
-        redirectUrl: new URL(window.location.href).toString(),
-        clientName: "Fot Solid",
-      });
-    } catch (error) {
-      console.error('Login error:', error);
-    }
-  }
+  // const loginteste = async () => {
+  //   try {
+  //     await login({
+  //       // oidcIssuer: "http://10.27.0.62:3000",
+  //       oidcIssuer: "http://54.210.40.21:3000",
+  //       // oidcIssuer: "http://localhost:3000",
+  //       // redirectUrl: new URL("/", "http://10.27.0.62:3001").toString(),
+  //       // redirectUrl: new URL("/", "http://3.86.13.252:3001").toString(),
+  //       redirectUrl: new URL(window.location.href).toString(),
+  //       clientName: "Fot Solid",
+  //     });
+  //   } catch (error) {
+  //     console.error('Login error:', error);
+  //   }
+  // }
 
   useEffect(() => {
 
@@ -252,7 +252,7 @@ export default function Hero() {
             You need to provide access to your data. It is your choice.
             You will decide which data we will have access to.
             <br />
-            You need to log in your Pod and grant us access to you data. Let's start.
+            You need to log in your PDS and grant us access to you data. Let's start.
           </Typography>
 
           <Typography

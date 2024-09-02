@@ -10,7 +10,7 @@
 
     3.1. Inform the POD server address. Ex: https://ipserver
 
-    3.2. If you don't have an account, follow the steps to create a new account and a new pod. Save your WebId (you will need it later).
+    3.2. If you don't have an account, follow the steps ([Appendix I](#appendix-i)) to create a new account and a new pod. Save your WebId (you will need it later).
 
     obs: After registration, the simulation starts, and the sensors' data are saved in your POD. You can verify all the data in the Sensors menu.
 

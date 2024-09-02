@@ -97,19 +97,20 @@ const getAllGrantAccess = async (baseUrl: string): Promise<IResource[] | Error> 
 
 }
 
-const updateAccess = async (resources: IResource[]) => {
+const updateAccess = async (resources: IResource[]) => {    
     try {
         if (getDefaultSession().info.isLoggedIn) {
             if (getDefaultSession().info.webId !== undefined) {
                 for (const resource of resources) {
                     for (const agent of resource.agent) {
+                        // console.log(agent);
                         await universalAccess.setAgentAccess(
                             resource.resourceUrl,         // Resource
                             agent.webId,     // Agent
                             { read: agent.read, write: agent.write, append: agent.append },          // Access object
                             { fetch: getDefaultSession().fetch }                         // fetch function from authenticated session
-                        ).then((newAccess) => {
-                            console.log(JSON.stringify(newAccess));
+                        ).then((newAccess) => {                            
+                            // console.log(JSON.stringify(newAccess));
                         });
                     }
                 }

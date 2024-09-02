@@ -36,7 +36,7 @@ export const Environment = {
     /**
      * URL base do servidor de pods na cloud. 
      */
-    URL_BASE_CLOUD: 'http://localhost:3333',
+    URL_BASE_CLOUD: 'https://192.168.0.112:3333',
 
     /**
      * @description The simulator webId

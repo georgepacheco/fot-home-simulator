@@ -255,6 +255,15 @@ export default function Hero() {
             You need to log in your Pod and grant us access to you data. Let's start.
           </Typography>
 
+          <Typography
+            fontWeight='bold'
+            textAlign="center"
+            color="text.secondary"
+            sx={{ alignSelf: 'center', width: { sm: '100%', md: '80%' } }}
+          >
+            This is not a real application. Our sole purpose here is to simulate how a real application would proceed to use your data and how we can act in this context.
+          </Typography>
+
 
           <Stack
             direction={{ xs: 'column', sm: 'row' }}
@@ -355,8 +364,8 @@ export default function Hero() {
                 top: '50%',
                 left: '50%',
                 transform: 'translate(-50%, -50%)',
-                width: 700,
-                height: 635,
+                width: 750,
+                height: 700,
                 bgcolor: 'background.paper',
                 border: '2px solid #000',
                 boxShadow: 24,
@@ -372,11 +381,11 @@ export default function Hero() {
               </Typography>
 
               <Typography variant="body2" paragraph>
-                <strong>1. Acesso a Dados:</strong> Esta aplicação não coleta dados diretamente do seu dispositivo. Ela solicita acesso aos dados de seus sensores que estão armazenados no seu Personal Data Store (PDS). 
+                <strong>1. Acesso a Dados:</strong> Esta aplicação não coleta dados diretamente do seu dispositivo. Ela solicita acesso aos dados de seus sensores que estão armazenados no seu Personal Data Store (PDS).
               </Typography>
 
               <Typography variant="body2" paragraph>
-                <strong>2. Finalidade do Acesso:</strong> Os dados serão acessados exclusivamente para permitir que o seu médico pessoal avalie sua saúde e tome decisões informadas sobre seu tratamento.
+                <strong>2. Finalidade do Acesso:</strong> Os dados serão acessados exclusivamente para permitir que o seu médico pessoal avalie sua saúde e tome decisões informadas sobre seu tratamento. A partir da análise de padrões anormais de dados coletados por sensores, como variações súbitas de temperatura corporal, podemos detectar doenças infecciosas antes que os sintomas se agravem. Ou a partir dos dados de batimentos cardíacos e níveis de oxigênio no sangue, podemos monitorar o coração em tempo real e alertar para anomalias antes que um ataque cardíaco ocorra.
               </Typography>
 
               <Typography variant="body2" paragraph>
@@ -384,7 +393,7 @@ export default function Hero() {
               </Typography>
 
               <Typography variant="body2" paragraph>
-                <strong>4. Armazenamento de Dados:</strong> Esta aplicação não armazena seus dados. Todos os dados acessados permanecem em seu PDS e só são utilizados enquanto você estiver utilizando a aplicação.
+                <strong>4. Armazenamento de Dados:</strong> Esta aplicação não armazena seus dados. Todos os dados acessados permanecem em seu PDS e só são utilizados enquanto você mantiver o consentimento.
               </Typography>
 
               <Typography variant="body2" paragraph>
@@ -410,102 +419,6 @@ export default function Hero() {
             sensorData={sensors}
           ></SensorBoxView>
         )}
-
-        {/* {(sensors.length > 0 || isLoggedIn) && (<Box
-          id="image"
-          sx={(theme) => ({
-            mt: { xs: 8, sm: 10 },
-            alignSelf: 'center',
-            height: { xs: 200, sm: 700 },
-            width: '100%',
-            backgroundImage:
-              theme.palette.mode === 'light'
-                ? 'url("/static/images/templates/templates-images/hero-light.png")'
-                : 'url("/static/images/templates/templates-images/hero-dark.png")',
-            backgroundSize: 'cover',
-            borderRadius: '10px',
-            outline: '1px solid',
-            outlineColor:
-              theme.palette.mode === 'light'
-                ? alpha('#BFCCD9', 0.5)
-                : alpha('#9CCCFC', 0.1),
-            boxShadow:
-              theme.palette.mode === 'light'
-                ? `0 0 12px 8px ${alpha('#9CCCFC', 0.2)}`
-                : `0 0 24px 12px ${alpha('#033363', 0.2)}`,
-          })}
-        >
-          {sensors.map((row, index) => (
-            <Accordion
-              key={`panel${index}`}
-              expanded={expanded === `panel${index}`}
-              onChange={handleChangeAccordion(`panel${index}`, index)}>
-              <AccordionSummary
-                expandIcon={<Icon>expand_more</Icon>}
-                aria-controls="panel1bh-content"
-                id={`panel1bh-header${index}`}
-                key={`panel1bh-header${index}`}
-              >
-                <Typography variant="h6" sx={{ width: '33%', flexShrink: 0 }}>
-                  Sensor Information
-                </Typography>
-                <Typography sx={{ color: 'text.secondary' }}>
-                  {row.sensor}
-                </Typography>
-              </AccordionSummary>
-              <AccordionDetails key={`panel-detail${index}`}>
-                <Grid key={`panel-grid${index}`} container spacing={0.5} flexDirection={'column'}>
-                  <Typography>
-                    <b>Sensor Type: </b> {row.sensorType}
-                  </Typography>
-                  <Typography>
-                    <b>Unity Type: </b> {row.unitType}
-                  </Typography>
-                  <Typography>
-                    <b>Data: </b>
-                  </Typography>
-                  <TableContainer component={Paper}>
-                    <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
-                      <TableHead>
-                        <TableRow>
-                          <TableCell>Value</TableCell>
-                          <TableCell>Date</TableCell>
-                          <TableCell>Time</TableCell>
-                        </TableRow>
-                      </TableHead>
-                      <TableBody>
-                        {row.observation && row.observation.map((obs) => {
-                          const [date, time] = obs.resultTime?.split(' ') ?? [];
-                          return (
-                            <TableRow
-                              key={obs.observationId}
-                              sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-                            >
-                              <TableCell> {obs.resultValue}</TableCell>
-                              <TableCell>{date}</TableCell>
-                              <TableCell>{time}</TableCell>
-
-                            </TableRow>
-                          )
-                        })}
-                      </TableBody>
-                      <TableFooter>
-                        {isLoading && (
-                          <TableRow>
-                            <TableCell colSpan={2}>
-                              <LinearProgress variant="indeterminate" />
-                            </TableCell>
-                          </TableRow>
-                        )}
-                      </TableFooter>
-                    </Table>
-                  </TableContainer>
-
-                </Grid>
-              </AccordionDetails>
-            </Accordion>
-          ))}
-        </Box>)} */}
       </Container>
     </Box>
   );

@@ -101,7 +101,7 @@ export const ListagemConsentimento = () => {
     };
 
 
-    const handleSave = async () => {
+    const handleSave = async () => {        
         await ConsentService.updateAccess(rows);
         navigate('/home');
     }
@@ -178,10 +178,10 @@ export const ListagemConsentimento = () => {
                     </AccordionSummary>
                     <AccordionDetails key={`panel-detail${index}`}>
 
-                        {row.agent.map((agent) => {
+                        {row.agent.map((agent, index2) => {
                             const isSimulator = agent.webId === Environment.SIM_WEBID;
                             return (
-                                <TableContainer component={Paper} sx={{ mb: 2 }}>
+                                <TableContainer component={Paper} sx={{ mb: 2 }} key={index2}>
                                     <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
                                         <TableHead>
                                             <TableRow>

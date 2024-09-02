@@ -1,8 +1,9 @@
-import { Accordion, AccordionDetails, AccordionSummary, alpha, Box, Grid, Icon, LinearProgress, Paper, Table, TableBody, TableCell, TableContainer, TableFooter, TableHead, TableRow, Typography } from "@mui/material";
+import { Accordion, AccordionDetails, AccordionSummary, alpha, Box, Grid, Icon, LinearProgress, Link, Paper, Table, TableBody, TableCell, TableContainer, TableFooter, TableHead, TableRow, Typography } from "@mui/material";
 import { useAuthContext } from "../../contexts/AuthContext";
 import { IObservation, ISensor, SensorServices } from "../../services/api/sensors/SensorsService";
 import { SyntheticEvent, useEffect, useState } from "react";
 import { getBaseUrl } from "../../../components/Hero";
+
 
 
 interface ISensorViewProps {
@@ -59,6 +60,7 @@ export const SensorBoxView: React.FC<ISensorViewProps> = ({ sensorData, webId, i
             {(sensorData.length > 0 || isLoggedIn) && (<Box
                 id="image"
                 sx={(theme) => ({
+                    
                     mt: { xs: 8, sm: 10 },
                     alignSelf: 'center',
                     height: { xs: 200, sm: 700 },
@@ -80,6 +82,21 @@ export const SensorBoxView: React.FC<ISensorViewProps> = ({ sensorData, webId, i
                             : `0 0 24px 12px ${alpha('#033363', 0.2)}`,
                 })}
             >
+                <Box sx={
+                    {
+                        width: '100%',
+                        backgroundColor: '#F0F7FF', // Apenas para visualização
+                        padding: 2
+                    }
+                }
+                >
+                    <Typography alignContent='center' align="center" variant="body1">
+                        <b> You have granted us access to the following data, 
+                        which will be used in strict accordance with the    
+                        terms and conditions.</b>
+                    </Typography>
+                </Box>
+
                 {sensorData.map((row, index) => (
                     <Accordion
                         key={`panel${index}`}
@@ -98,7 +115,13 @@ export const SensorBoxView: React.FC<ISensorViewProps> = ({ sensorData, webId, i
                                 {row.sensor}
                             </Typography>
                         </AccordionSummary>
-                        <AccordionDetails key={`panel-detail${index}`}>
+                        <AccordionDetails
+                            key={`panel-detail${index}`}
+                            sx={{
+                                maxHeight: '300px', // Define a altura máxima do AccordionDetails
+                                overflowY: 'auto'   // Adiciona scroll quando o conteúdo exceder a altura máxima
+                            }}
+                        >
                             <Grid key={`panel-grid${index}`} container spacing={0.5} flexDirection={'column'}>
                                 <Typography>
                                     <b>Sensor Type: </b> {row.sensorType}

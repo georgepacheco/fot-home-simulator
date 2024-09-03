@@ -40,4 +40,36 @@
 
 # Appendix I
 
-Create Solid Account
+Steps to create a Solid account
+
+1. Step 1
+
+    ![Step 1](/experiment/create_user_1.png)
+
+2. Step 2
+
+    ![Step 2](/experiment/create_user_2.png)
+
+3. Step 3
+
+    ![Step 3](/experiment/create_user_3.png)
+
+4. Step 4
+
+    ![Step 4](/experiment/create_user_4.png)
+
+5. Step 5
+
+    ![Step 5](/experiment/create_user_5.png)
+
+6. Step 6
+
+    ![Step 6](/experiment/create_user_6.png)
+
+7. Step 7
+
+    ![Step 7](/experiment/create_user_7.png)
+
+8. Step 8
+
+    ![Step 8](/experiment/create_user_8.png)

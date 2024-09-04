@@ -49,7 +49,7 @@ export const SensorDetail: React.FC = () => {
         };
 
     useEffect(() => {
-        console.log('oi');
+        // console.log('oi');
         if (id !== 'nova') {
             setIsLoading(true);
             setSensor(id);
@@ -154,7 +154,8 @@ export const SensorDetail: React.FC = () => {
             }
             const result = await SensorServices.sendData2Cloud(s);
             if (result instanceof Error) {
-                alert("Note: The 'Send' option will only work if you have a valid Pod server in the cloud.");
+                alert("Note: The 'Send' option will only work if you have a valid Pod server in the cloud.\n\n" + 
+                "The Send and Send-Delete options are part of the FoT-PDS proposal. They aim to allow users to send all or part of their data from local servers to cloud servers, enabling them, for example, to share this data with other applications outside the local network.");
             } else {
                 navigate('/sensors')
             }
@@ -182,7 +183,8 @@ export const SensorDetail: React.FC = () => {
             }
             const result = await SensorServices.sendData2CloudDelete(s, checked);
             if (result instanceof Error) {
-                alert("Note: The 'Send and Delele' option will only work if you have a valid Pod server in the cloud.");
+                alert("Note: The 'Send and Delele' option will only work if you have a valid Pod server in the cloud.\n\n" +
+                "The Send and Send-Delete options are part of the FoT-PDS proposal. They aim to allow users to send all or part of their data from local servers to cloud servers, enabling them, for example, to share this data with other applications outside the local network.");
             } else {
                 const newItems = items.map(item => ({
                     ...item,

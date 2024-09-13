@@ -137,7 +137,7 @@ Steps to install and run the simulator. Follow the steps in the order indicated.
 
 Change the server IP address in these files.
 
-1. Docker compose file from [solid_server](https://github.com/georgepacheco/fot-home-simulator/blob/master/solid_server/docker-compose-solid-v2-local.yml).
+1. Docker compose file from [solid_server/docker-compose-solid-v2-local.yml](https://github.com/georgepacheco/fot-home-simulator/blob/master/solid_server/docker-compose-solid-v2-local.yml).
 
     - Change the IP address in the **entrypoint** directive.
 
@@ -153,9 +153,13 @@ Change the server IP address in these files.
 
     - Change the IP in the constants: **WEBID** and **IDP**.
 
-4. Environment.ts file in the [solid_server/FotSolid/Sensor2Gateway/src/Environment.ts](https://github.com/georgepacheco/fot-home-simulator/blob/master/solid_server/FotSolid/Sensor2Gateway/src/Environment.ts)
+5. Environment.ts file in the [solid_server/FotSolid/Sensor2Gateway/src/Environment.ts](https://github.com/georgepacheco/fot-home-simulator/blob/master/solid_server/FotSolid/Sensor2Gateway/src/Environment.ts)
 
     - Change the IP in the constants: **WEBID** and **IDP**.
+
+6. nginx.conf in the [solid_server/nginx.conf](https://github.com/georgepacheco/fot-home-simulator/blob/master/solid_server/nginx.conf).
+
+    - Change the IP in the: **server_name**, **proxy_pass** and **proxy_set_header**
 
 ## Appendix II
 

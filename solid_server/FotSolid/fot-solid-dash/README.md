@@ -8,3 +8,8 @@ Here, you can find and manage:
 - Your sensor's data;
 - Your clouds' repositories;
 - Your granted consent.
+
+# Steps to create your Pod
+
+
+

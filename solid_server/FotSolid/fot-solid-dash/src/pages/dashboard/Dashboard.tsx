@@ -47,7 +47,7 @@ export const Dashboard = () => {
             AuthService.auth(idp);
 
         } else {
-            alert("Necessário preencher o endereço do seu servidor de Pod.");
+            alert("It is necessary to inform the Pod server.");
         }
     }
 
@@ -173,12 +173,24 @@ export const Dashboard = () => {
                 >
 
                     <ol>
-                        <li>Your data profile;</li>
-                        <li>Your sensor's data;</li>
-                        <li>Your clouds' repositories;</li>
-                        <li>Your granted consent.</li>
+                        <li><a href="/profile">Your data profile;</a></li>
+                        <li><a href="/sensors">Your sensor's data;</a></li>
+                        <li><a href="/cloud">Your clouds' repositories;</a></li>
+                        <li><a href="/consent">Your granted consent.</a></li>
                     </ol>
                 </Box>
+
+                <Typography
+                    variant="body2"
+                    sx={{
+                        textAlign: 'justify',    // Alinhamento justificado
+                        lineHeight: 1.5,         // Aumenta o espaçamento entre as linhas
+                        marginBottom: 2          // Espaço entre parágrafos
+                    }}>
+                    
+                    <a href="https://github.com/georgepacheco/experiment" target="_blank">Steps to create your Pod</a>
+
+                </Typography>
 
             </Box>
 

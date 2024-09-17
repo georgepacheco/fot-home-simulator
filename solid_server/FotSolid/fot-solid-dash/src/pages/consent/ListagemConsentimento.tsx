@@ -1,4 +1,4 @@
-import { Accordion, AccordionDetails, AccordionSummary, Button, Checkbox, FormControlLabel, Grid, Icon, IconButton, LinearProgress, Pagination, Paper, Table, TableBody, TableCell, tableCellClasses, TableContainer, TableFooter, TableHead, TableRow, Tooltip, Typography, useTheme } from "@mui/material";
+import { Accordion, AccordionDetails, AccordionSummary, Box, Button, Checkbox, FormControlLabel, Grid, Icon, IconButton, LinearProgress, Pagination, Paper, Table, TableBody, TableCell, tableCellClasses, TableContainer, TableFooter, TableHead, TableRow, Tooltip, Typography, useTheme } from "@mui/material";
 import { LayoutBasePagina } from "../../shared/layouts";
 import { FerramentaLogado, FerramentasDetalhe, FerramentasListagem } from "../../shared/components";
 import { getDefaultSession } from "@inrupt/solid-client-authn-browser";
@@ -101,7 +101,7 @@ export const ListagemConsentimento = () => {
     };
 
 
-    const handleSave = async () => {        
+    const handleSave = async () => {
         await ConsentService.updateAccess(rows);
         navigate('/home');
     }
@@ -156,101 +156,121 @@ export const ListagemConsentimento = () => {
                 />
             }
         >
+            <Box
+                height={theme.spacing(5)}
+                marginX={1}
+                padding={2}
+                paddingX={2}
+                display='flex'
+                gap={1}
+                alignItems='center'
+                component={Paper}
+            >
+                <Typography variant="h6" sx={{ width: '100%', flexShrink: 0 }} color="#eb5151">
+                    Here, you will find the list of all agents (applications) with access to your sensor data. You can revoke or grant new access permissions.
+                </Typography>
+            </Box>
 
-            {rows.map((row, index) => (
-                <Accordion
-                    key={`panel${index}`}
-                // expanded={expanded === `panel${index}`}
-                // onChange={handleChangeAccordion(`panel${index}`, index)}
-                >
-                    <AccordionSummary
-                        expandIcon={<Icon>expand_more</Icon>}
-                        aria-controls="panel1bh-content"
-                        id={`panel1bh-header${index}`}
-                        key={`panel1bh-header${index}`}
+            <Box sx={{ width: '100%', padding: 1 }}>
+            {
+                rows.map((row, index) => (
+                    <Accordion
+                        key={`panel${index}`}
+                    // expanded={expanded === `panel${index}`}
+                    // onChange={handleChangeAccordion(`panel${index}`, index)}
                     >
-                        <Typography variant="h6" sx={{ width: '33%', flexShrink: 0 }}>
-                            {getSensorType(row.resourceUrl)}
-                        </Typography>
-                        <Typography sx={{ color: 'text.secondary' }}>
-                            {/* {row.resourceUrl} */}
-                        </Typography>
-                    </AccordionSummary>
-                    <AccordionDetails key={`panel-detail${index}`}>
+                        <AccordionSummary
+                            expandIcon={<Icon>expand_more</Icon>}
+                            aria-controls="panel1bh-content"
+                            id={`panel1bh-header${index}`}
+                            key={`panel1bh-header${index}`}
+                        >
+                            <Typography variant="h6" sx={{ width: '33%', flexShrink: 0 }}>
+                                {getSensorType(row.resourceUrl)}
+                            </Typography>
+                            <Typography sx={{ color: 'text.secondary' }}>
+                                {/* {row.resourceUrl} */}
+                            </Typography>
+                        </AccordionSummary>
+                        <AccordionDetails key={`panel-detail${index}`}>
 
-                        {row.agent.map((agent, index2) => {
-                            const isSimulator = agent.webId === Environment.SIM_WEBID;
-                            return (
-                                <TableContainer component={Paper} sx={{ mb: 2 }} key={index2}>
-                                    <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
-                                        <TableHead>
-                                            <TableRow>
-                                                <TableCell style={{ backgroundColor: 'lightgray' }} colSpan={3}>Agent: {agent.webId}</TableCell>
-                                            </TableRow>
-                                        </TableHead>
-                                        <TableBody>
-                                            <TableRow
-                                                key={`${index}.${agent.webId}`}
-                                                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-                                            >
-                                                <TableCell>
-                                                    <Tooltip title={isSimulator ? "You cannot modify the consent to the simulator." : ""}>
-                                                        <FormControlLabel
-                                                            control={
-                                                                <Checkbox
-                                                                    checked={agent.read}
-                                                                    onChange={handleChange}
-                                                                    name={`${index}__${agent.webId}__read`}
-                                                                    disabled={isSimulator} // Desabilita se for o Simulator
-                                                                />
-                                                            }
-                                                            label="Read"
-                                                        />
-                                                    </Tooltip>
-                                                </TableCell>
-                                                <TableCell>
-                                                    <Tooltip title={isSimulator ? "You cannot modify the consent to the simulator." : ""}>
-                                                        <FormControlLabel
-                                                            control={
-                                                                <Checkbox
-                                                                    checked={agent.write}
-                                                                    onChange={handleChange}
-                                                                    name={`${index}__${agent.webId}__write`}
-                                                                    disabled={isSimulator} // Desabilita se for o Simulator
-                                                                />
-                                                            }
-                                                            label="Write"
-                                                        />
-                                                    </Tooltip>
-                                                </TableCell>
-                                                <TableCell>
-                                                    <Tooltip title={isSimulator ? "You cannot modify the consent to the simulator." : ""}>
-                                                        <FormControlLabel
-                                                            control={
-                                                                <Checkbox
-                                                                    checked={agent.append}
-                                                                    onChange={handleChange}
-                                                                    name={`${index}__${agent.webId}__append`}
-                                                                    disabled={isSimulator} // Desabilita se for o Simulator
-                                                                />
-                                                            }
-                                                            label="Append"
-                                                        />
-                                                    </Tooltip>
-                                                </TableCell>
-                                            </TableRow>
+                            {row.agent.map((agent, index2) => {
+                                const isSimulator = agent.webId === Environment.SIM_WEBID;
+                                return (
+                                    <TableContainer component={Paper} sx={{ mb: 2 }} key={index2}>
+                                        <Table sx={{  minWidth: 650, width: '100%' }} size="small" aria-label="a dense table">
+                                            <TableHead>
+                                                <TableRow>
+                                                    <TableCell style={{ backgroundColor: 'lightgray' }} colSpan={3}>Agent: {agent.webId}</TableCell>
+                                                </TableRow>
+                                            </TableHead>
+                                            <TableBody>
+                                                <TableRow
+                                                    key={`${index}.${agent.webId}`}
+                                                    sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                                                >
+                                                    <TableCell>
+                                                        <Tooltip title={isSimulator ? "You cannot modify the consent to the simulator." : ""}>
+                                                            <FormControlLabel
+                                                                control={
+                                                                    <Checkbox
+                                                                        checked={agent.read}
+                                                                        onChange={handleChange}
+                                                                        name={`${index}__${agent.webId}__read`}
+                                                                        disabled={isSimulator} // Desabilita se for o Simulator
+                                                                    />
+                                                                }
+                                                                label="Read"
+                                                            />
+                                                        </Tooltip>
+                                                    </TableCell>
+                                                    <TableCell>
+                                                        <Tooltip title={isSimulator ? "You cannot modify the consent to the simulator." : ""}>
+                                                            <FormControlLabel
+                                                                control={
+                                                                    <Checkbox
+                                                                        checked={agent.write}
+                                                                        onChange={handleChange}
+                                                                        name={`${index}__${agent.webId}__write`}
+                                                                        disabled={isSimulator} // Desabilita se for o Simulator
+                                                                    />
+                                                                }
+                                                                label="Write"
+                                                            />
+                                                        </Tooltip>
+                                                    </TableCell>
+                                                    <TableCell>
+                                                        <Tooltip title={isSimulator ? "You cannot modify the consent to the simulator." : ""}>
+                                                            <FormControlLabel
+                                                                control={
+                                                                    <Checkbox
+                                                                        checked={agent.append}
+                                                                        onChange={handleChange}
+                                                                        name={`${index}__${agent.webId}__append`}
+                                                                        disabled={isSimulator} // Desabilita se for o Simulator
+                                                                    />
+                                                                }
+                                                                label="Append"
+                                                            />
+                                                        </Tooltip>
+                                                    </TableCell>
+                                                </TableRow>
 
-                                        </TableBody>
-                                    </Table>
-                                </TableContainer>
-                            )
-                        })}
-                    </AccordionDetails>
-                </Accordion>
-            ))}
-            {isLoading && (
-                <LinearProgress variant="indeterminate" />
-            )}
-        </LayoutBasePagina>
+                                            </TableBody>
+                                        </Table>
+                                    </TableContainer>
+                                )
+                            })}
+                        </AccordionDetails>
+                    </Accordion>
+                ))
+            }
+            {
+                isLoading && (
+                    <LinearProgress variant="indeterminate" />
+                )
+            }
+            </Box>
+        </LayoutBasePagina >
     );
 }

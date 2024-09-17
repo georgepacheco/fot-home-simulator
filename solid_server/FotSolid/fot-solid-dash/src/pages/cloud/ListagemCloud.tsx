@@ -102,17 +102,17 @@ export const ListagemCloud = () => {
                 onChange={handleChange('panel1')}
             >
                 <AccordionSummary
-                    expandIcon={<Icon>expand_more</Icon>}
+                    // expandIcon={<Icon>expand_more</Icon>}
                     aria-controls="panel1bh-content"
                     id="panel1bh-header"                   
                 >
-                    <Typography variant="h6" sx={{ width: '33%', flexShrink: 0 }}>
-                        Description
+                    <Typography variant="h6" sx={{ width: '100%', flexShrink: 0 }} color="#eb5151">
+                    In our proposal, you can choose to send your local data to a cloud server. This way, you can add your cloud servers here.
                     </Typography>
                 </AccordionSummary>
-                <AccordionDetails>
-                    Explicar o objetivo
-                </AccordionDetails>
+                {/* <AccordionDetails>
+                    In our proposal, you can choose to send your local data to a cloud server. This way, we can add your cloud servers here.
+                </AccordionDetails> */}
             </Accordion>
             <TableContainer component={Paper} variant="outlined" sx={{ m: 1, width: 'auto' }}>
                 <Table>

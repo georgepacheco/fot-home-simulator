@@ -20,7 +20,7 @@ export const FerramentaLogado: React.FC<IFerramentaLogadoProps> = ({information}
             component={Paper}
         >
             <Box flex={5} display='flex'>
-                <Typography variant="h6" color='red' whiteSpace='nowrap' textOverflow='ellipsis' overflow='hidden'>
+                <Typography variant="h6" color='#eb5151' whiteSpace='nowrap' textOverflow='ellipsis' overflow='hidden'>
                     {information}
                 </Typography>
             </Box>

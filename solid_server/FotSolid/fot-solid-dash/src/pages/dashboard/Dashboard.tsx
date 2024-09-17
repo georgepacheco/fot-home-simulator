@@ -173,10 +173,10 @@ export const Dashboard = () => {
                 >
 
                     <ol>
-                        <li><a href="/profile">Your data profile;</a></li>
-                        <li><a href="/sensors">Your sensor's data;</a></li>
-                        <li><a href="/cloud">Your clouds' repositories;</a></li>
-                        <li><a href="/consent">Your granted consent.</a></li>
+                        <li>Your data profile;</li>
+                        <li>Your sensor's data;</li>
+                        <li>Your clouds' repositories;</li>
+                        <li>Your granted consent.</li>
                     </ol>
                 </Box>
 

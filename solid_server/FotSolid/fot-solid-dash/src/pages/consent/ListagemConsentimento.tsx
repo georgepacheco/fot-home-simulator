@@ -188,9 +188,7 @@ export const ListagemConsentimento = () => {
                             <Typography variant="h6" sx={{ width: '33%', flexShrink: 0 }}>
                                 {getSensorType(row.resourceUrl)}
                             </Typography>
-                            <Typography sx={{ color: 'text.secondary' }}>
-                                {/* {row.resourceUrl} */}
-                            </Typography>
+                       
                         </AccordionSummary>
                         <AccordionDetails key={`panel-detail${index}`}>
 

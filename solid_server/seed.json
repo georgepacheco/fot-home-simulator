@@ -1,0 +1,17 @@
+[    
+    {
+      "email": "home_simulator@fotsimulator.com",
+      "password": "simulator2024",
+      "pods": [
+        { "name": "HomeSimulator" }
+      ]
+    },
+    {
+        "email": "health@example.com",
+        "password": "12345",
+        "pods": [
+          { "name": "Health" }
+        ]
+      }
+  ]
+  

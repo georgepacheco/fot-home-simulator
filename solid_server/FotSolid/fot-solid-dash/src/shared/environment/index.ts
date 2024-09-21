@@ -36,7 +36,7 @@ export const Environment = {
     /**
      * URL base do servidor de pods na cloud. 
      */
-    URL_BASE_CLOUD: 'https://192.168.0.112:3333',
+    URL_BASE_CLOUD: 'https://192.168.0.111:3333',
 
     /**
      * @description The simulator webId
@@ -44,9 +44,9 @@ export const Environment = {
     // SIM_WEBID: "http://localhost:3000/HomeSimulator/profile/card#me",
     SIM_WEBID: "https://192.168.0.111:3000/HomeSimulator/profile/card#me",
 
-    // SIM_API_URL: "http://localhost:3030/save",
-    // SIM_API_URL: "https://192.168.0.111:3030/save",
-    SIM_API_URL: "https://192.168.0.111/api/save"
+
+    SIM_API_URL: "https://192.168.0.111/api/save",
+    // SIM_API_URL: "https://172.30.41.131/api/save"
 
 
 };

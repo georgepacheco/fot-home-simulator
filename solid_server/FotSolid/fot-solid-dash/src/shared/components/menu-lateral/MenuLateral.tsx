@@ -48,10 +48,13 @@ export const MenuLateral: React.FC<IDrawerProps> = ({ children }) => {
     const { toggleTheme, themeName } = useAppThemeContext();
     const { logout, isLoggedIn } = useAuthContext();
     const [profile, setProfile] = useState<IUserProfile>();
+    const navigate = useNavigate();
 
-    const teste = async () => {
-
+    const logoutSession = () =>{
+        logout();        
+        navigate("/home");
     }
+
 
     useEffect(() => {
         // console.log('Use Effect Menu Lateral');
@@ -61,7 +64,7 @@ export const MenuLateral: React.FC<IDrawerProps> = ({ children }) => {
                     if (!(result instanceof Error)) {
                         setProfile(result);
                     }
-                    console.log(result);
+                    // console.log(result);
                 });
         }
     }, [isLoggedIn]);
@@ -114,7 +117,7 @@ export const MenuLateral: React.FC<IDrawerProps> = ({ children }) => {
                             </ListItemButton>
 
                             {(isLoggedIn) && (
-                                <ListItemButton onClick={logout}>
+                                <ListItemButton onClick={logoutSession}>
                                     <ListItemIcon>
                                         <Icon>logout</Icon>
                                     </ListItemIcon>

@@ -102,18 +102,6 @@ Steps to install and run the simulator. Follow the steps in the order indicated.
     $-> docker compose -f docker-compose-solid-v2-local.yml up -d
     ```
 
-6. Create the simulator user on the Solid Server ([Appendix II](#appendix-ii)). It is necessary to use the following credentials:
-
-    - **email**: home_simulator@fotsimulator.com
-    - **password**: simulator2024
-    - **podname**: HomeSimulator
-
-7. Create the Health application user on the Solid Server ([Appendix II](#appendix-ii)). It is necessary to use the following credentials:
-
-    - **email**: health@example.com
-    - **password**: 12345
-    - **podname**: Health
-
 8. Start Gateway
 
     a. Go to [mqqt_server](https://github.com/georgepacheco/fot-home-simulator/tree/master/mqtt_server) folder.
@@ -165,7 +153,7 @@ Change the server IP address in these files.
 
 Steps to create a user and Pod on Solid Server.
 
-1. Access https://IPSERVER (Example: https://192.168.0.111)
+1. Access https://IPSERVER:3000 (Example: https://192.168.0.111:3000)
 
     ![Step 1](/create_user_step1.png)
 

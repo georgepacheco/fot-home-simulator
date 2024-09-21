@@ -38,7 +38,8 @@ services:
         aliases:
           - server1.solid        
     
-    entrypoint: bash -c "NODE_TLS_REJECT_UNAUTHORIZED=0 npm start -- -b https://192.168.0.111:3000 -c config/file-https.json -f .data --httpsKey config/certs/server.key --httpsCert config/certs/server.crt & sleep 20 & python3 ../solid-server/server.py & node ../solid-server/FotSolid/backend/dist/index.js & nginx -c /etc/nginx/nginx.conf -g 'daemon off;'"    
+    entrypoint: bash -c "NODE_TLS_REJECT_UNAUTHORIZED=0 npm start -- -b https://192.168.0.111:3000 -c config/file-https.json -f .data --seedConfig ../solid-server/seed.json --httpsKey config/certs/server.key --httpsCert config/certs/server.crt & sleep 20 & python3 ../solid-server/server.py & node ../solid-server/FotSolid/backend/dist/index.js & nginx -c /etc/nginx/nginx.conf -g 'daemon off;'"    
+    # entrypoint: bash -c "NODE_TLS_REJECT_UNAUTHORIZED=0 npm start -- -b https://172.30.41.131:3000 -c config/file-https.json -f .data --seedConfig ../solid-server/seed.json --httpsKey config/certs/server.key --httpsCert config/certs/server.crt & sleep 20 & python3 ../solid-server/server.py & node ../solid-server/FotSolid/backend/dist/index.js & nginx -c /etc/nginx/nginx.conf -g 'daemon off;'"    
 
 networks:
   comm-mqtt:

@@ -32,8 +32,13 @@ const addCloud = async (data: ICloudData): Promise<Error | void> => {
                     allData = result;
                 }
 
-                allData.push(data);
-                await saveData(urlFile, allData);
+                const existingRecord = allData.find(existedData => existedData.webId === data.webId);
+
+                if (!existingRecord) {
+                    allData.push(data);
+                    await saveData(urlFile, allData);
+                }
+
             } else {
                 return new Error(Environment.WEB_ID_ERROR);
             }
@@ -64,7 +69,7 @@ const getAllClouds = async (): Promise<ICloudData[] | Error> => {
         }
     } catch (error) {
         const response = (error as any).response;
-        if (response.status === StatusCodes.NOT_FOUND){        
+        if (response.status === StatusCodes.NOT_FOUND) {
             return [];
         }
         return new Error((error as { message: string }).message || 'Error saving cloud list file.');

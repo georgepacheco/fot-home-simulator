@@ -7,6 +7,8 @@ import { useEffect, useState } from "react";
 import { AuthService } from "../../shared/services/api/auth/AuthService";
 import { useAuthContext } from "../../shared/contexts/AuthContext";
 import { ConsentService } from "../../shared/services/api/consent/ConsentService";
+import { CloudServices, ICloudData } from "../../shared/services/api/cloud/CloudServices";
+import { Environment } from "../../shared/environment";
 
 
 
@@ -29,6 +31,16 @@ export const Dashboard = () => {
                     // setSessionInfo(info as ISessionInfo);
 
                     ConsentService.grantAccess2Simulation(getDefaultSession().info.webId);
+
+                    const cloudData: ICloudData = {
+                        cloudPath: Environment.URL_BASE_CLOUD,
+                        webId: Environment.URL_BASE_CLOUD + Environment.CLOUD_WEBID,
+                        email: Environment.CLOUD_USERNAME,
+                        password: Environment.CLOUD_PASSWORD
+                    }
+    
+                    CloudServices.addCloud(cloudData);
+
                     setLogin();
                 } else {
                     console.log(info);

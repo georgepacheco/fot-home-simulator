@@ -33,10 +33,7 @@ export const Environment = {
     ERROR_PROFILE: "Error to retrieve your profile.",
     
     
-    /**
-     * URL base do servidor de pods na cloud. 
-     */
-    URL_BASE_CLOUD: 'https://192.168.0.111:3333',
+    
 
     /**
      * @description The simulator webId
@@ -48,5 +45,17 @@ export const Environment = {
     SIM_API_URL: "https://192.168.0.111/api/save",
     // SIM_API_URL: "https://172.30.41.131/api/save"
 
+    /**
+     * URL base do servidor de pods na cloud. 
+     */
+    URL_BASE_CLOUD: 'https://192.168.0.111:3333/',
+
+    CLOUD_WEBID: "DefaultUser/profile/card#me",
+
+    CLOUD_USERNAME: "default@example.com",
+
+    CLOUD_PASSWORD: "1234",
+
+    CLOUD_PODNAME: "DefaultUser"
 
 };

@@ -152,6 +152,7 @@ export const SensorDetail: React.FC = () => {
                     s.observation?.push(result);
                 }
             }
+            console.log(s);
             const result = await SensorServices.sendData2Cloud(s);
             if (result instanceof Error) {
                 alert("Note: The 'Send' option will only work if you have a valid Pod server in the cloud.\n\n" + 

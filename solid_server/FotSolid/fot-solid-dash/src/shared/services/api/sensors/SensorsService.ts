@@ -6,6 +6,7 @@ import { Environment } from "../../../environment";
 import { StatusCodes } from "http-status-codes";
 import { getFile, universalAccess } from "@inrupt/solid-client";
 import { issueAccessRequest } from "@inrupt/solid-client-access-grants";
+import axios from "axios";
 
 
 export interface IObservation {
@@ -231,9 +232,19 @@ const deleteObservations = async (session: Session, observations: string[], sens
  */
 const sendData2Cloud = async (sensor: ISensor) => {
     try {
-        const urlRelativa = `/savefot`;
+        const url = `https://192.168.0.111:3333/apiCloud/savefot`;
+        // const url = `https://192.168.0.111:3333/apiCloud/getFot`;
 
-        const { data } = await Api.post(urlRelativa, sensor);
+        // const { data } = await Api.post(urlRelativa, sensor);
+
+        // const resp = await axios.get(url);
+        // console.log(resp);
+
+        const { data } = await axios.post(url, sensor, {
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
 
         if (data) {
             return data;

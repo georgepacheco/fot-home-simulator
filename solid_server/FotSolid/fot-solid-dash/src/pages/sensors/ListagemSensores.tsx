@@ -84,7 +84,7 @@ export const ListagemSensores = () => {
             title="Sensors List"
             toolsBar={
                 <FerramentaLogado
-                    information={`Data about me at: ${getDefaultSession().info.webId}.`}                    
+                    information={`Data about me at: ${getDefaultSession().info.webId}`}                    
                 />
             }
         >

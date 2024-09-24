@@ -1,7 +1,5 @@
 import { getDefaultSession } from "@inrupt/solid-client-authn-browser";
-import { Api } from "../axios-config";
 import { Environment } from "../../../environment";
-import { QueryEngine } from "@comunica/query-sparql-solid";
 import { getSolidDataset, getStringNoLocale, getThing, saveSolidDatasetAt, setStringNoLocale, setThing, ThingPersisted } from "@inrupt/solid-client";
 import { FOAF, VCARD } from "@inrupt/vocab-common-rdf";
 

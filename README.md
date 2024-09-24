@@ -115,7 +115,7 @@ Steps to install and run the simulator. Follow the steps in the order indicated.
 
     a. Go to [root](https://github.com/georgepacheco/fot-home-simulator/tree/master) folder.
 
-    b. Run to start the Gateway.
+    b. Run to start the Sensors Simulation.
     ```bash    
     $-> docker compose -f docker-compose-local_docker.yml up -d
 

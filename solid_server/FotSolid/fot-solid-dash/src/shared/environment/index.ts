@@ -48,6 +48,7 @@ export const Environment = {
     /**
      * URL base do servidor de pods na cloud. 
      */
+
     URL_BASE_CLOUD: 'https://192.168.0.111:3333/',
 
     CLOUD_WEBID: "DefaultUser/profile/card#me",

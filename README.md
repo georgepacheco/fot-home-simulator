@@ -73,7 +73,7 @@ Steps to install and run the simulator. Follow the steps in the order indicated.
     $-> sudo ufw enable 
     ```
 
-2. Clone the project.
+2. Clone this project.
 
 3. Change the server IP in indicated files (see [Appendix I](#appendix-i)).
 
@@ -93,7 +93,21 @@ Steps to install and run the simulator. Follow the steps in the order indicated.
 
     d. [health-application](https://github.com/georgepacheco/fot-home-simulator/tree/master/solid_server/FotSolid/health-application)
 
-5. Start the Server
+5. Clone the Cloud Server Project
+
+    [Solid API](https://github.com/georgepacheco/solid-api)
+
+6. Compiple the Cloud Server Project
+
+    ```bash
+    # install dependencies
+    $-> npm install
+
+    # compile project
+    $-> npm run build
+    ```
+
+7. Start the FoT Server
     
     a. Go to [solid_server](https://github.com/georgepacheco/fot-home-simulator/tree/master/solid_server) folder.
     
@@ -102,7 +116,7 @@ Steps to install and run the simulator. Follow the steps in the order indicated.
     $-> docker compose -f docker-compose-solid-v2-local.yml up -d
     ```
 
-8. Start Gateway
+8. Start FoT Gateway
 
     a. Go to [mqqt_server](https://github.com/georgepacheco/fot-home-simulator/tree/master/mqtt_server) folder.
 
@@ -111,13 +125,23 @@ Steps to install and run the simulator. Follow the steps in the order indicated.
     $-> docker compose -f docker-compose-mqtt.yml up -d
     ```
 
-9. Start the Sensors Simulation
+9. Start the FoT Sensors Simulation
 
     a. Go to [root](https://github.com/georgepacheco/fot-home-simulator/tree/master) folder.
 
     b. Run to start the Sensors Simulation.
     ```bash    
     $-> docker compose -f docker-compose-local_docker.yml up -d
+
+    ```
+
+10. Start the Cloud Server
+
+    a. Go to [root](https://github.com/georgepacheco/solid-api) folder.
+
+    b. Run to start the Cloud Server.
+    ```bash    
+    $-> docker compose -f solid-node_new.yml up -d
 
     ```
 

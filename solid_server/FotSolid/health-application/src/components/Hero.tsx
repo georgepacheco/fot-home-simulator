@@ -345,7 +345,12 @@ export default function Hero() {
 
           <Typography variant="caption" textAlign="center" sx={{ opacity: 0.8 }}>
             By clicking &quot;Start now&quot; you agree to our&nbsp;
-            <Link href="#" color="primary" onClick={handleOpenTerms}>
+            <Link href="#" color="primary" onClick={
+              (event) => {
+                event.preventDefault();  // Previne o fragmento de aparecer na URL
+                handleOpenTerms();
+              }
+            }>
               Terms & Conditions
             </Link>
             .

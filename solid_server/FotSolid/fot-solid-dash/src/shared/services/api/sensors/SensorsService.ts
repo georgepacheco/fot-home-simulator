@@ -232,7 +232,7 @@ const deleteObservations = async (session: Session, observations: string[], sens
  */
 const sendData2Cloud = async (sensor: ISensor) => {
     try {
-        const url = `https://192.168.0.111:3333/apiCloud/savefot`;
+        const url = Environment.URL_CLOUD;
         // const url = `https://192.168.0.111:3333/apiCloud/getFot`;
 
         // const { data } = await Api.post(urlRelativa, sensor);

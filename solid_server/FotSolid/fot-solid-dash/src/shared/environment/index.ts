@@ -52,6 +52,9 @@ export const Environment = {
     // URL_BASE_CLOUD: 'https://192.168.0.111:3333/',
     URL_BASE_CLOUD: 'https://147.79.82.127:3333/',
 
+    // URL_CLOUD: 'https://192.168.0.111:3333/apiCloud/savefot',
+    URL_CLOUD: 'https://147.79.82.127:3333/apiCloud/savefot',
+
     CLOUD_WEBID: "DefaultUser/profile/card#me",
 
     CLOUD_USERNAME: "default@example.com",

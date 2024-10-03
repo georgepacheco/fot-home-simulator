@@ -155,7 +155,7 @@ Change the server IP address in these files.
 
 2. Index.ts file in the [solid_server/FotSolid/fot-solid-dash/src/shared/environment/index.ts](https://github.com/georgepacheco/fot-home-simulator/blob/master/solid_server/FotSolid/fot-solid-dash/src/shared/environment/index.ts)
 
-    - Change the IP address in the constants: **SIM_WEBID** and **SIM_API_URL**
+    - Change the IP address in the constants: **SIM_WEBID**, **SIM_API_URL**, **URL_BASE_CLOUD** and **URL_CLOUD**.
 
 3. Index.ts file in the [solid_server/FotSolid/health-application/src/shared/environment](https://github.com/georgepacheco/fot-home-simulator/blob/master/solid_server/FotSolid/health-application/src/shared/environment/index.ts) path
 

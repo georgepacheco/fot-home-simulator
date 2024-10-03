@@ -179,8 +179,7 @@ def buildPostAnwserDevice(deviceName, sensorName, topic, topicError, pub_client,
 # {"method":"STOP", "target": "EVENT", "sensor":"soundSensor"}
 
 def on_disconnect(mqttc, obj, rc):
-    print("disconnected tatu!")
-    mqttc.publish("clientes/desconexao " + str(rc))
+    print("disconnected tatu!")  
 
 
 def main(data, msg):

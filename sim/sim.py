@@ -158,8 +158,8 @@ def init_flow(net):
     g = utils_hosts.return_hosts_per_type('gateway')
     ass = utils_hosts.return_association()
     # 30seg
-    col = 120000
-    pub = 120000
+    col = 90000
+    pub = 90000
     ind = 0
     for i in range(0, len(g)):
         for j in range(0, len(ass)):

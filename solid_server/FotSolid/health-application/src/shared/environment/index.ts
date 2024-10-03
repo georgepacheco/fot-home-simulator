@@ -5,13 +5,13 @@ export const Environment = {
     /**
      * @description The agent's webId
      */
-    AGENT_WEBID: "https://107.23.217.181:3000/Health/profile/card#me",
+    AGENT_WEBID: "https://147.79.82.127:3000/Health/profile/card#me",
     // AGENT_WEBID: "https://192.168.0.111:3000/Health/profile/card#me",
     
     /**
      * URL of the file with data on resources with guaranteed access
      */
-    URL_FILE_RESOURCE_GRANTED: "https://107.23.217.181:3000/Health/private/resource_granted.json",
+    URL_FILE_RESOURCE_GRANTED: "https://147.79.82.127:3000/Health/private/resource_granted.json",
     // URL_FILE_RESOURCE_GRANTED: "https://192.168.0.111:3000/Health/private/resource_granted.json",
 
 
@@ -19,9 +19,9 @@ export const Environment = {
     // LOCAL_WEBID: "https://192.168.0.111:3000/Health/profile/card#me",
     // WEBID: "https://192.168.0.111:3000/Health/profile/card#me",
     // IDP: "https://192.168.0.111:3000/",
-    LOCAL_WEBID: "https://107.23.217.181:3000/Health/profile/card#me",
-    WEBID: "https://107.23.217.181:3000/Health/profile/card#me",
-    IDP: "https://107.23.217.181:3000/",
+    LOCAL_WEBID: "https://147.79.82.127:3000/Health/profile/card#me",
+    WEBID: "https://147.79.82.127:3000/Health/profile/card#me",
+    IDP: "https://147.79.82.127:3000/",
     USERNAME: "health@example.com",
     PODNAME: "Health",
     PASSWORD: "12345",

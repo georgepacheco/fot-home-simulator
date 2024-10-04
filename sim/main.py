@@ -51,7 +51,7 @@ while True:
 	
 	
 	try:
-		sub_client.connect(mqttBroker, int(mqttPort), 1800000)
+		sub_client.connect(mqttBroker, int(mqttPort), 1800)
 		sub_client.loop_forever()
 	except :
 		#print("Deu"+str(e))

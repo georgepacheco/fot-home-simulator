@@ -208,7 +208,7 @@ def main(data, msg):
     # pub_client.username_pw_set(mqttUsername, mqttPassword)
     # pub_client.user_data_set(data)
     pub_client.on_disconnect = on_disconnect
-    pub_client.connect(mqttBroker, int(mqttPort), 60)
+    pub_client.connect(mqttBroker, int(mqttPort), 300)
     print("chamad")
 
     if (met == "STOP"):

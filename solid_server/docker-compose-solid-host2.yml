@@ -1,0 +1,50 @@
+services:
+  SOLID_SERVER_S1:
+    
+    image: georgepacheco/dash-solid:1.2.3
+
+    container_name: SOLID_SERVER_S2
+    
+    volumes:
+      - .:/solid-server
+      - ./nginx.conf:/etc/nginx/nginx.conf
+      - ./FotSolid/fot-solid-dash/build:/usr/share/nginx/html/fot-solid-dash
+      - ./FotSolid/health-application/build:/usr/share/nginx/html/health-application
+      
+      - ./FotSolid/certs/server.crt:/etc/nginx/ssl/server.crt
+      - ./FotSolid/certs/server.key:/etc/nginx/ssl/server.key
+    
+    expose:
+      - "3003"    
+      - "3030"
+      - "3001"
+      - "3002"
+      - "80"
+      - "443"
+    ports:
+     - "3003:3003"     
+     - "3001:3001"
+     - "3002:3002"
+     - "3030:3030"
+     - "80:80"
+     - "443:443"
+    
+    networks:
+      comm-mqtt:
+        aliases:
+          - server2.solid
+      mqtt-mininet:
+        ipv4_address: 222.222.222.9
+        aliases:
+          - server2.solid        
+    
+    entrypoint: bash -c "NODE_TLS_REJECT_UNAUTHORIZED=0 npm start -- -b https://147.79.82.127:3003 -c config/file-https.json -f .data --seedConfig ../solid-server/seed.json --httpsKey config/certs/server.key --httpsCert config/certs/server.crt & sleep 20 & python3 ../solid-server/server.py & node ../solid-server/FotSolid/backend/dist/index.js & nginx -c /etc/nginx/nginx.conf -g 'daemon off;'"    
+    # entrypoint: bash -c "NODE_TLS_REJECT_UNAUTHORIZED=0 npm start -- -b https://172.30.41.131:3000 -c config/file-https.json -f .data --seedConfig ../solid-server/seed.json --httpsKey config/certs/server.key --httpsCert config/certs/server.crt & sleep 20 & python3 ../solid-server/server.py & node ../solid-server/FotSolid/backend/dist/index.js & nginx -c /etc/nginx/nginx.conf -g 'daemon off;'"    
+
+networks:
+  comm-mqtt:
+    name: comm-mqtt
+    external: true
+  mqtt-mininet:
+    name: mqtt-mininet
+    external: true

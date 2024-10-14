@@ -38,7 +38,8 @@ export const Environment = {
     /**
      * @description The simulator webId
      */
-    SIM_WEBID: "https://147.79.82.127:3000/HomeSimulator/profile/card#me",
+    SIM_WEBID: "https://147.79.82.127:3003/HomeSimulator/profile/card#me",
+    // SIM_WEBID: "https://147.79.82.127:3000/HomeSimulator/profile/card#me",
     // SIM_WEBID: "https://192.168.0.111:3000/HomeSimulator/profile/card#me",
 
 

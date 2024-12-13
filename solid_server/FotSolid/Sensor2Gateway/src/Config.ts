@@ -6,14 +6,14 @@
 /**
  * Para execução local
  */
-// export const RML_FILE = './src/rml/rml_lite.ttl';
-// export const USERS_FILE = './test/users_.json';
+export const RML_FILE = './src/rml/rml_lite.ttl';
+export const USERS_FILE = './test/users_.json';
 
 /**
  * Receive file from Python script
  */
-export const RML_FILE = '../solid-server/FotSolid/Sensor2Gateway/src/rml/rml_lite.ttl'; 
-export const USERS_FILE =  '../solid-server/users_.json';
+// export const RML_FILE = '../solid-server/FotSolid/Sensor2Gateway/src/rml/rml_lite.ttl'; 
+// export const USERS_FILE =  '../solid-server/users_.json';
 
 
 export const RML_OPTIONS = {
@@ -33,6 +33,10 @@ export const SENSORTYPES = {
     SOIL: "soilmoistureSensor",
     HEART_RATE: "heartrateSensor",
     BLOOD_PRESSURE: "bloodPressureSensor",
+    DIASTOLIC_BLOOD_PRESSURE: "diastolicBloodPressureSensor",
+    SYSTOLIC_BLOOD_PRESSURE: "systolicBloodPressureSensor",
+    SWEATING: "sweatingSensor",
+    SHIVERING: "shiveringSensor",
     BODY_TEMPERATURE: "bodyTemperatureSensor",
     ECG: "ecgmonitor",
     GLUCOMETER: "glucometerSensor",
@@ -54,6 +58,8 @@ export const M3_SENSORTYPES = {
     GLUCOMETER: "Glucometer",
     OXYMETER: "PulseOxymeter",
     SMOKE: "SmokeDetector",
+    SWEATING: "SkinConductanceSensor",
+    SHIVERING: "Accelerometer"
 }
 
 /**
@@ -88,6 +94,10 @@ export const M3_UNITS = {
 
     "PPM": "PPM"
 
+}
+
+export const RDF_UNITS= {
+    "boolean":"boolean"
 }
 
 /**
@@ -143,6 +153,15 @@ export const M3_QU = {
      * @description Chemical Agent Atmospheric Concentration
      */
     "ParticleConcentration": "ChemicalAgentAtmosphericConcentration",
+
+
+    "DiastolicBloodPressure":"DiastolicBloodPressure",
+
+    "SystolicBloodPressure":"SystolicBloodPressure",
+
+    "SkinConductance": "SkinConductance",
+
+    "Acceleration": "Acceleration"
 }
 
 

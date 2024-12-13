@@ -1,4 +1,4 @@
-import { URI, SENSORTYPES, M3_SENSORTYPES, M3_UNITS, M3_QU } from "./Config";
+import { URI, SENSORTYPES, M3_SENSORTYPES, M3_UNITS, M3_QU, RDF_UNITS } from "./Config";
 import { v4 as uuidv4 } from 'uuid';
 
 export function Preprocess(data: any) {
@@ -35,12 +35,36 @@ export function Preprocess(data: any) {
                 d.header.sensorType = M3_SENSORTYPES.SOIL;
                 d.header.parentClass = "SensingDevice";
                 break;
+            case SENSORTYPES.DIASTOLIC_BLOOD_PRESSURE:
+                unit = M3_UNITS.MmHg;
+                quantityKind = M3_QU.DiastolicBloodPressure;
+                d.header.sensorType = M3_SENSORTYPES.BLOOD_PRESSURE;
+                d.header.parentClass = "SensingDevice";
+                break;
+            case SENSORTYPES.SYSTOLIC_BLOOD_PRESSURE:
+                unit = M3_UNITS.MmHg;
+                quantityKind = M3_QU.SystolicBloodPressure;
+                d.header.sensorType = M3_SENSORTYPES.BLOOD_PRESSURE;
+                d.header.parentClass = "SensingDevice";
+                break;            
             case SENSORTYPES.BLOOD_PRESSURE:
                 unit = M3_UNITS.MmHg;
                 quantityKind = M3_QU.BloodPressure;
                 d.header.sensorType = M3_SENSORTYPES.BLOOD_PRESSURE;
                 d.header.parentClass = "SensingDevice";
-                break;
+                break;                            
+            case SENSORTYPES.SWEATING:
+                unit = RDF_UNITS.boolean;
+                quantityKind = M3_QU.SkinConductance;
+                d.header.sensorType = M3_SENSORTYPES.SWEATING;
+                d.header.parentClass = "SensingDevice";
+                break;            
+            case SENSORTYPES.SHIVERING:
+                unit = RDF_UNITS.boolean;
+                quantityKind = M3_QU.Acceleration;
+                d.header.sensorType = M3_SENSORTYPES.SHIVERING;
+                d.header.parentClass = "SensingDevice";
+                break;   
             case SENSORTYPES.BODY_TEMPERATURE:
                 unit = M3_UNITS.DegreeCelsius;
                 quantityKind = M3_QU.BodyTemperature;

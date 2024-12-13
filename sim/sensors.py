@@ -26,7 +26,19 @@ def heartRateSensor ():
 	return random.randint (50, 200)
 
 def bloodPressureSensor ():
-	return random.randint (33, 41)
+	return random.randint (0, 200)
+
+def diastolicBloodPressureSensor ():
+	return random.randint (0, 200)
+
+def systolicBloodPressureSensor ():
+	return random.randint (0, 200)
+
+def sweatingSensor ():
+	return bool(random.randint(0, 1))
+
+def shiveringSensor ():
+	return bool(random.randint(0, 1))
 
 def bodyTemperatureSensor ():
 	return random.randint (33, 41)

@@ -29,11 +29,12 @@ const credentialFile = process.argv[3];
  */
 async function doService() {
 
-
+    
     // let user = await load_user_credential()
     let sim_user = await load_sim_credentials();
 
     let data = await parseDataFile(dataFile);
+    
     if (!(data instanceof Error)) {
         console.log('Step 1. Parse File Ok.');
 

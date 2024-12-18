@@ -31,10 +31,14 @@ export enum SensorType {
     BLOOD_PRESSURE = "BloodPressureSensor.ttl",
     BODY_TEMPERATURE = "BodyThermometer.ttl",
     ECG_MONITOR = "ECG.ttl",
-    ENV_TEMPERATURE = "AirThermometer.ttl",
     GLUCOMETER = "Glucometer.ttl",
     HUMIDITY = "HumiditySensor.ttl",
     OXYMETER = "PulseOxymeter.ttl",
+    SMOKE = "SmokeDetector.ttl",
+    ENV_TEMPERATURE = "AirThermometer.ttl",
+    SWEATING = "SkinConductanceSensor.ttl",
+    SHIVERING = "Accelerometer.ttl",
+    HEART_RATE = "HeartBeatSensor.ttl"
 }
 
 

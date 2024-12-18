@@ -6,14 +6,14 @@
 /**
  * Para execução local
  */
-export const RML_FILE = './src/rml/rml_lite.ttl';
-export const USERS_FILE = './test/users_.json';
+// export const RML_FILE = './src/rml/rml_lite.ttl';
+// export const USERS_FILE = './test/users_.json';
 
 /**
  * Receive file from Python script
  */
-// export const RML_FILE = '../solid-server/FotSolid/Sensor2Gateway/src/rml/rml_lite.ttl'; 
-// export const USERS_FILE =  '../solid-server/users_.json';
+export const RML_FILE = '../solid-server/FotSolid/Sensor2Gateway/src/rml/rml_lite.ttl'; 
+export const USERS_FILE =  '../solid-server/users_.json';
 
 
 export const RML_OPTIONS = {
@@ -92,7 +92,13 @@ export const M3_UNITS = {
      */
     "Percent": "Percent",
 
-    "PPM": "PPM"
+    "PPM": "PPM",
+
+    /**
+     * @description BeatPerMinute (bpm) is the unit to measure heart rate
+     */
+
+    "BPM":"BeatPerMinute"
 
 }
 
@@ -161,7 +167,12 @@ export const M3_QU = {
 
     "SkinConductance": "SkinConductance",
 
-    "Acceleration": "Acceleration"
+    "Acceleration": "Acceleration",
+
+    /**
+     * @description HeartBeat, heart rate
+     */
+    "HeartBeat": "HeartBeat"
 }
 
 

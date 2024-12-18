@@ -62,11 +62,18 @@ const getSensorType = (sensorTypeUrl: string): string => {
         case "SmokeDetector":
             sensorTypeName = "Smoke Detector";
             break;
+        case "SkinConductanceSensor":
+            sensorTypeName = "Sweating Sensor";
+            break;
+        case "Accelerometer":
+            sensorTypeName = "Shivering Sensor";
+            break;
         case "AirThermometer":
             sensorTypeName = "Air Thermometer";
             break;
-
-
+        case "HeartBeatSensor":
+            sensorTypeName = "Heart Rate";
+            break;
     }
     return sensorTypeName;
 }

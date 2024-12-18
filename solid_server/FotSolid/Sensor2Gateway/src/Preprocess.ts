@@ -95,6 +95,12 @@ export function Preprocess(data: any) {
                 d.header.sensorType = M3_SENSORTYPES.SMOKE;
                 d.header.parentClass = "SensingDevice";
                 break;
+            case SENSORTYPES.HEART_RATE:
+                unit = M3_UNITS.BPM;
+                quantityKind = M3_QU.HeartBeat;
+                d.header.sensorType = M3_SENSORTYPES.HEART_RATE;
+                d.header.parentClass = "SensingDevice";
+                break;
             default:
                 unit = "none";
                 quantityKind = "none";

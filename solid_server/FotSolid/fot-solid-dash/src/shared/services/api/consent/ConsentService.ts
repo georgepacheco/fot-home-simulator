@@ -1,4 +1,4 @@
-import { universalAccess } from "@inrupt/solid-client";
+import { universalAccess, overwriteFile } from "@inrupt/solid-client";
 import { getDefaultSession } from "@inrupt/solid-client-authn-browser";
 import { Environment } from "../../../environment";
 import { getBaseUrl } from "../../../hooks";
@@ -163,6 +163,28 @@ const grantAccess2Simulation = async (webId: string | undefined) => {
             } catch (error) {
                 return new Error('Failed while granting access to simulator.\n' + (error as { message: string }).message);
             }
+
+        
+        }
+        const metricsFilePath: string = `${baseUrl}/private/${Environment.METRICS_FILE}`;
+        try {
+                await overwriteFile(
+                    metricsFilePath,
+                    new File([JSON.stringify("")], Environment.METRICS_FILE, { type: "application/json" }),
+                    { fetch: getDefaultSession().fetch }
+                );
+            } catch (error) {
+                return new Error((error as { message: string }).message || 'Error saving metrics file.');
+            }
+        try {
+            await universalAccess.setAgentAccess(
+                metricsFilePath,         // Resource
+                Environment.SIM_WEBID,     // Simulator Agent
+                { read: true, write: true, append: true },          // Access object
+                { fetch: getDefaultSession().fetch }
+            );
+        } catch (error) {
+            return new Error('Failed while granting access to simulator.\n' + (error as { message: string }).message);
         }
 
         addWebId2Sim(getDefaultSession().info.webId);

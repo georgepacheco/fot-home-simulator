@@ -62,6 +62,7 @@ export const Environment = {
 
     CLOUD_PASSWORD: "1234",
 
-    CLOUD_PODNAME: "DefaultUser"
+    CLOUD_PODNAME: "DefaultUser",
 
+    METRICS_FILE: "metrics.json"
 };

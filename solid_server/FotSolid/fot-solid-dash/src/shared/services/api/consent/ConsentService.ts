@@ -8,7 +8,9 @@ import axios, { AxiosError } from "axios";
 
 
 export enum SensorType {
-    BLOOD_PRESSURE = "BloodPressureSensor.ttl",
+    // BLOOD_PRESSURE = "BloodPressureSensor.ttl",
+    SYSTOLIC_BLOOD_PRESSURE = "SystolicBloodPressure.ttl",
+    DIASTOLIC_BLOOD_PRESSURE = "DiastolicBloodPressure.ttl",
     BODY_TEMPERATURE = "BodyThermometer.ttl",
     ECG_MONITOR = "ECG.ttl",
     GLUCOMETER = "Glucometer.ttl",

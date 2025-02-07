@@ -12,6 +12,41 @@
         "pods": [
           { "name": "Health" }
         ]
-      }
+    },
+    {
+      "email": "joao@gmail.com",
+      "password": "1234",
+      "pods": [
+        { "name": "Joao" }
+      ]
+    },
+    {
+      "email": "pedro@gmail.com",
+      "password": "1234",
+      "pods": [
+        { "name": "Pedro" }
+      ]
+    },
+    {
+      "email": "miguel@gmail.com",
+      "password": "1234",
+      "pods": [
+        { "name": "Miguel" }
+      ]
+    },
+    {
+      "email": "judas@gmail.com",
+      "password": "1234",
+      "pods": [
+        { "name": "Judas" }
+      ]
+    },
+    {
+      "email": "simao@gmail.com",
+      "password": "1234",
+      "pods": [
+        { "name": "Simao" }
+      ]
+    }
   ]
   

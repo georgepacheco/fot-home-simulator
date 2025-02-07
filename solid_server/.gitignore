@@ -1,0 +1,14 @@
+
+*.log
+*.pyc
+*.log
+*.pyc
+FotSolid/backend/node_modules
+FotSolid/Sensor2Gateway/node_modules
+FotSolid/health-application/node_modules
+FotSolid/fot-solid-dash/node_modules
+
+FotSolid/backend/dist
+FotSolid/Sensor2Gateway/dist
+FotSolid/health-application/build
+/FotSolid/fot-solid-dash/build

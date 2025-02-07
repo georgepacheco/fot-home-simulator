@@ -41,8 +41,14 @@ const getSensorType = (sensorTypeUrl: string): string => {
     let sensorTypeName: string = '';
 
     switch (sensorType) {
-        case "BloodPressureSensor":
-            sensorTypeName = "Blood Pressure Sensor";
+        // case "BloodPressureSensor":
+        //     sensorTypeName = "Blood Pressure Sensor";
+        //     break;
+        case "SystolicBloodPressure":
+            sensorTypeName = "Systolic Blood Pressure";
+            break;
+        case "DiastolicBloodPressure":
+            sensorTypeName = "Diastolic Blood Pressure";
             break;
         case "BodyThermometer":
             sensorTypeName = "Body Thermometer";

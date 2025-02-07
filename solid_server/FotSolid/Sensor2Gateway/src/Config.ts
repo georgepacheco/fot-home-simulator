@@ -59,7 +59,9 @@ export const M3_SENSORTYPES = {
     OXYMETER: "PulseOxymeter",
     SMOKE: "SmokeDetector",
     SWEATING: "SkinConductanceSensor",
-    SHIVERING: "Accelerometer"
+    SHIVERING: "Accelerometer",
+    SYSTOLIC_BLOOD_PRESSURE: "SystolicBloodPressure",
+    DIASTOLIC_BLOOD_PRESSURE: "DiastolicBloodPressure"
 }
 
 /**

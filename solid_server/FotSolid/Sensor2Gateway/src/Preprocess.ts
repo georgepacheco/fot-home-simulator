@@ -38,13 +38,13 @@ export function Preprocess(data: any) {
             case SENSORTYPES.DIASTOLIC_BLOOD_PRESSURE:
                 unit = M3_UNITS.MmHg;
                 quantityKind = M3_QU.DiastolicBloodPressure;
-                d.header.sensorType = M3_SENSORTYPES.BLOOD_PRESSURE;
+                d.header.sensorType = M3_SENSORTYPES.DIASTOLIC_BLOOD_PRESSURE;
                 d.header.parentClass = "SensingDevice";
                 break;
             case SENSORTYPES.SYSTOLIC_BLOOD_PRESSURE:
                 unit = M3_UNITS.MmHg;
                 quantityKind = M3_QU.SystolicBloodPressure;
-                d.header.sensorType = M3_SENSORTYPES.BLOOD_PRESSURE;
+                d.header.sensorType = M3_SENSORTYPES.SYSTOLIC_BLOOD_PRESSURE;
                 d.header.parentClass = "SensingDevice";
                 break;            
             case SENSORTYPES.BLOOD_PRESSURE:

@@ -1,4 +1,0 @@
-[
-{"code": "post", "method": "flow", "header": {"sensor": "glucometerSensor", "device": "sc20", "time": {"collect": 30000, "publish": 30000}, "location": {"lat": -12.9999069368, "long": -38.5072608803}, "user_id": "48439", "data": ["79", "79"], "datetime_pub": "2024-12-13 15:01:29"}},
-{"code": "post", "method": "flow", "header": {"sensor": "glucometerSensor", "device": "sc20", "time": {"collect": 30000, "publish": 30000}, "location": {"lat": -12.9999069368, "long": -38.5072608803}, "user_id": "48439", "data": ["79", "79"], "datetime_pub": "2024-12-13 15:01:29"}}
-]

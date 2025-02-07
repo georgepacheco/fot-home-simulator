@@ -97,7 +97,11 @@ def save_to_solid(user):
         logging.info("ponto 4")
         logging.info("%s", js_file)    
 
-        data_file = "../community-server/" + user + ".json"
+        # data_file = "../community-server/" + user + ".json"
+        
+        # seed data test
+        data_file = "../solid-server/seedDataTest.json"
+        
         logging.info("Data_File - %s", data_file)    
         credential_file = "../community-server/" + user + "_cred.json"
         # result = subprocess.run(['node', js_file, data_file, credential_file], capture_output=True, text=True)

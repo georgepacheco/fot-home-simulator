@@ -15,6 +15,7 @@ import { AuthService } from '../shared/services/api/auth/AuthService';
 import { CheckedItems, CheckTreeView } from '../shared/components/tree-view/CheckTreeView';
 import { IObservation, ISensor, SensorServices, SensorType } from '../shared/services/api/sensors/SensorsService';
 import { SensorBoxView } from '../shared/components/sensor-view/SensorBoxView';
+import { MonitorRisk } from '../shared/components/monitor/Monitor';
 
 
 const style = {
@@ -27,6 +28,23 @@ const style = {
   border: '2px solid #000',
   boxShadow: 24,
   p: 4,
+};
+
+const styleRisk = {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: 'auto', // Ajuste automático da largura
+  maxWidth: 500, // Largura máxima
+  bgcolor: 'background.paper',
+  border: '2px solid #000',
+  boxShadow: 24,
+  p: 4,
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  gap: 1,
 };
 
 export const getBaseUrl = (webid: string, slice: number) => {
@@ -51,6 +69,11 @@ export default function Hero() {
 
   const handleOpenTerms = () => setOpenTerms(true);
   const handleCloseTerms = () => setOpenTerms(false);
+
+  const [openRisk, setOpenRisk] = useState(false);
+  const handleOpenRisk = () => setOpenRisk(true);
+  const handleCloseRisk = () => setOpenRisk(false);
+
 
   const initialCheckedItems: CheckedItems = {
     BloodPressureSensor: { checked: false, read: false, write: false, append: false },
@@ -307,11 +330,16 @@ export default function Hero() {
               Start now
             </Button>)}
 
+            <Button variant="contained" color="primary" onClick={handleOpenRisk}>
+              Teste Monitor
+            </Button>
+
             {/* <Button variant="contained" color="primary" onClick={loginteste}>
               Login
             </Button> */}
 
 
+            {/* Modal Grant Access */}
             <Modal
               open={open}
               onClose={handleClose}
@@ -339,6 +367,8 @@ export default function Hero() {
                 </Box>
               </Box>
             </Modal>
+
+
           </Stack>
 
 
@@ -357,6 +387,8 @@ export default function Hero() {
           </Typography>
 
 
+
+          {/* Modal Terms */}
           <Modal
             open={openTerms}
             onClose={handleCloseTerms}
@@ -412,6 +444,44 @@ export default function Hero() {
               <Button onClick={handleCloseTerms} variant="contained" color="primary" sx={{ mt: 2, display: 'flex', justifyContent: 'center' }}>
                 Fechar
               </Button>
+            </Box>
+          </Modal>
+
+          {/* Modal risk monitor */}
+          <Modal
+            open={openRisk}
+            onClose={handleCloseRisk}
+            aria-labelledby="modal-modal-title"
+            aria-describedby="modal-modal-description"
+          >
+            <Box sx={styleRisk}>
+              <Typography id="modal-modal-title" variant="h5" component="h2" sx={{ fontWeight: 'bold' }} align='center'>
+                Profiling Risk Level                
+              </Typography>
+              <Typography align='justify' variant="h6">
+              This information reflects the quality of the profile that can be generated from your available data.
+              </Typography>
+
+              <MonitorRisk></MonitorRisk>
+
+              <Box
+                display="flex"
+                justifyContent="flex-end"
+                gap={1}
+              >
+                {/* <Button variant='contained' color='info' onClick={handleConfirmRisk}>
+                    Confirm
+                  </Button>
+                  <Button variant='contained' color='error' onClick={handleCancelRisk}>
+                    Cancel
+                  </Button> */}
+                <Button variant='contained' color='info' >
+                  Confirm
+                </Button>
+                <Button variant='contained' color='error' >
+                  Cancel
+                </Button>
+              </Box>
             </Box>
           </Modal>
         </Stack>

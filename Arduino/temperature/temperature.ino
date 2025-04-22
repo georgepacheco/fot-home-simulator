@@ -1,8 +1,11 @@
+
 // https://www.blogdarobotica.com/2020/09/29/utilizando-o-sensor-de-luminosidade-ldr-no-arduino/
 // https://www-learningaboutelectronics-com.translate.goog/Articles/MQ-7-carbon-monoxide-sensor-circuit-with-arduino.php?_x_tr_sch=http&_x_tr_sl=en&_x_tr_tl=pt&_x_tr_hl=pt&_x_tr_pto=tc
 // https://www.instructables.com/Guide-to-Using-MAX30102-Heart-Rate-and-Oxygen-Sens/
 // https://www.blogdarobotica.com/2022/06/30/projeto-medir-a-umidade-e-temperatura-com-o-sensor-dht11/
 // https://blogmasterwalkershop.com.br/arduino/como-usar-com-arduino-sensor-microondas-rcwl-0516-detector-de-movimento
+// https://www.blogdarobotica.com/2023/08/21/como-utilizar-o-sensor-de-batimento-cardiaco-monitor-de-pulso-com-arduino/
+// https://www.instructables.com/How-to-Build-a-DIY-WiFi-Smart-Oximeter-Using-MAX30/
 
 #include <SPI.h>
 #include <Ethernet.h>
@@ -12,10 +15,11 @@
 #include <DHT.h>
 #include <DHT_U.h>
 
-
+// #include <Wire.h>
 // #include <MAX30105.h>
 // #include <heartRate.h>
 // #include <spo2_algorithm.h>
+
 
 // #define NTC_PIN A0  // Pino do sensor NTC - Temperatura
 #define LDR_PIN A1  // Pino do sensor LDR - Luminosidade
@@ -30,6 +34,7 @@
 
 DHT dht(DHTPIN, DHTTYPE);
 
+// MAX30105 particleSensor;
 
 // 📌 Configuração do Shield Ethernet W5100 (IP Fixo)
 byte mac[] = { 0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED };  // Endereço MAC fictício
@@ -50,14 +55,31 @@ const int timePublish = 15000;
 
 unsigned long lastCollectTime = 0;
 
-bool estadoAnterior = LOW; 
-unsigned long lastCheckTime = 0; // Tempo da última verificação
-const unsigned long checkInterval = 3000; // Tempo entre verificações
+bool estadoAnterior = LOW;
+unsigned long lastCheckTime = 0;           // Tempo da última verificação
+const unsigned long checkInterval = 3000;  // Tempo entre verificações
+
+
+// BPM
+// #define irThreshold 50000  // Valor IR mínimo para detectar o dedo
 
 
 void setup() {
   Serial.begin(9600);
-  // Serial.begin(115200);
+    
+  // if (!particleSensor.begin(Wire, I2C_SPEED_STANDARD)) {
+  //   Serial.println(F("Sensor MAX30102 não encontrado. Verifique conexões!"));
+  //   while (1);
+  // }
+
+  // particleSensor.setup(
+  //     60,   // LED brightness
+  //     4,    // Sample average
+  //     2,    // Mode: Red + IR
+  //     100,  // Sample rate
+  //     411,  // Pulse width
+  //     4096  // ADC range
+  //   );
 
   // Inicializa a Ethernet
   Ethernet.begin(mac, ip, gateway, gateway, subnet);
@@ -69,8 +91,8 @@ void setup() {
 
   // Aguarda a conexão com a rede
   delay(1000);
-  Serial.print("IP do Arduino: ");
-  Serial.println(Ethernet.localIP());
+  // Serial.print("IP do Arduino: ");
+  // Serial.println(Ethernet.localIP());
 
   // Configura o servidor MQTT
   client.setServer(mqttServer, mqttPort);
@@ -88,19 +110,22 @@ void loop() {
   // Processa as mensagens MQTT recebidas - Mantem o MQTT ativo
   client.loop();
 
+  // Monitoramento BPM
+  // sendBPM();
 
-  // 🚀 Monitoramento contínuo do sensor de presença
+  // Monitoramento contínuo do sensor de presença
   sendPresenca();
 
   // 🕒 Verifica se já passou o tempo para coletar outros sensores
   if (millis() - lastCollectTime >= timeCollect) {
     lastCollectTime = millis();  // Atualiza o tempo da última coleta
 
-    // sendTemperature();
-    // sendHumidity();
-    // sendLuminosidade();
-    // sendGas();
-    // sendPresenca();
+    sendTemperature();
+    sendHumidity();
+    sendLuminosidade();
+    sendGas();
+    
+    // // sendPresenca();
   }
 
 
@@ -111,9 +136,9 @@ void loop() {
 void connectToMQTT() {
   client.setBufferSize(512);
   while (!client.connected()) {
-    Serial.print("Conectando ao MQTT... ");
+    Serial.print(F("Conectando ao MQTT... "));
     if (client.connect("MeuClienteArduino")) {  // Nome personalizado
-      Serial.println("Conectado!");
+      Serial.println(F("Conectado!"));
     } else {
       Serial.print("Falha, código: ");
       Serial.println(client.state());
@@ -122,35 +147,94 @@ void connectToMQTT() {
   }
 }
 
+// void sendBPM() {
+//   int32_t spo2;
+//   int8_t validSPO2;
+//   int32_t heartRate;
+//   int8_t validHeartRate;
+//   uint16_t irBuffer[50];
+//   uint16_t redBuffer[50];
+
+//   while (particleSensor.getIR() < 50000) {
+//     Serial.print(".");
+//     delay(200);
+//   }
+
+//   Serial.println(F("\nDedo detectado. Iniciando medição de 20 segundos..."));
+
+//   // Coleta 50 amostras (com IR acima do threshold)
+//   for (int i = 0; i < 50; i++) {
+//     // Verifica se o dedo ainda está presente
+//     while (particleSensor.available() == false)
+//       particleSensor.check();
+
+//     uint32_t ir = particleSensor.getIR();
+//     uint32_t red = particleSensor.getRed();
+
+//     // Se o dedo foi removido, cancela a leitura
+//     if (ir < 50000) {
+//       Serial.println(F("Dedo removido antes do fim. Medição cancelada."));
+//       return;
+//     }
+
+//     irBuffer[i] = ir;
+//     redBuffer[i] = red;
+//     particleSensor.nextSample();
+
+//     delay(20); // ~100 Hz
+//   }
+//   Após coleta de 100 amostras (≈20s), calcula SpO2 e BPM
+//   maxim_heart_rate_and_oxygen_saturation(
+//     irBuffer, 50,
+//     redBuffer,
+//     &spo2, &validSPO2,
+//     &heartRate, &validHeartRate
+//   );
+//   Serial.print("BPM: "), Serial.println(heartRate);
+//   Serial.print("SpO2: "), Serial.println(spo2);
+
+//   Serial.println("\n--- RESULTADO ---");
+//   if (validHeartRate)
+//     Serial.print("BPM: "), Serial.println(heartRate);
+//   else
+//     Serial.println("BPM inválido");
+
+//   if (validSPO2)
+//     Serial.print("SpO2: "), Serial.println(spo2);
+//   else
+//     Serial.println("SpO2 inválido");
+
+// }
+
 void sendPresenca() {
 
-  // if (digitalRead(RCWL) == HIGH) {  // Quando detectar movimento
-  //   Serial.println("🔵 Movimento detectado!");
-
-  //   // Aguarda até que o movimento pare para evitar múltiplas mensagens
-  //   while (digitalRead(RCWL) == HIGH) {
-  //     delay(500);  // Pequena pausa para evitar leituras erradas
-  //   }
-  // }
-
   if (millis() - lastCheckTime >= checkInterval) {
-        lastCheckTime = millis(); // Atualiza o tempo da última verificação
+    lastCheckTime = millis();  // Atualiza o tempo da última verificação
 
-        bool estadoAtual = digitalRead(RCWL); // Lê o estado atual do sensor
+    bool estadoAtual = digitalRead(RCWL);  // Lê o estado atual do sensor
+    char jsonDataPresenca[512];
+    char deviceId[5] = "sc05";
 
-        if (estadoAtual != estadoAnterior) { // Se houve mudança de estado
-            if (estadoAtual == HIGH) {
-                Serial.println("🔵 Movimento detectado!");
-               
-            } else {
-                Serial.println("⚪ Movimento cessou.");
-               
-            }
-            
-            estadoAnterior = estadoAtual; // Atualiza o estado anterior
-        }
+    if (estadoAtual != estadoAnterior) {  // Se houve mudança de estado
+      if (estadoAtual == HIGH) {
+        Serial.println("🔵 Movimento detectado!");        
+      } else {
+        Serial.println("⚪ Movimento cessou.");
+      }
+      char stateStr[2];
+      dtostrf(estadoAtual, 1, 0, stateStr);
+
+      char topic[20];
+      snprintf(topic, 20, "dev/%s", deviceId);
+      Serial.println(topic);
+      buildFlowData(jsonDataPresenca, "presenceSensor", deviceId, "48439", stateStr);
+      
+      // Publicando no tópico MQTT
+      bool success = client.publish(topic, jsonDataPresenca);
+
+      estadoAnterior = estadoAtual;  // Atualiza o estado anterior
     }
-
+  }
 }
 
 void sendHumidity() {

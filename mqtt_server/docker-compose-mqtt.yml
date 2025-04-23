@@ -21,7 +21,7 @@ services:
         ipv4_address: 222.222.222.4 
         aliases:
           - server1.mqtt
-    entrypoint: bash -c "mosquitto -c code/mosquitto-no-auth.conf & sleep 5 && pip install paho-mqtt==1.6.1 && sleep 10 && python3 code/mqtt-client.py 222.222.222.4 222.222.222.9"
+    entrypoint: bash -c "mosquitto -c code/mosquitto-no-auth.conf & sleep 5 && pip install paho-mqtt==1.6.1 & sleep 5 && pip install pytz && sleep 10 && python3 code/mqtt-client.py 222.222.222.4 222.222.222.9"
     #entrypoint: bash -c "mosquitto -c code/mosquitto-no-auth.conf & sleep 5 && mosquitto_sub -t '#' > DATA.json"
     stdin_open: true 
       

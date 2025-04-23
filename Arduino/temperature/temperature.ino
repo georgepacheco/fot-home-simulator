@@ -24,6 +24,7 @@
 // #define NTC_PIN A0  // Pino do sensor NTC - Temperatura
 #define LDR_PIN A1  // Pino do sensor LDR - Luminosidade
 #define MQ7_PIN A2  // Pino do sensor MQ7 - Gas
+
 // #define BPM_PIN A3  // Pino do sensor MX30102 - BPM
 // #define SPO2_PIN A4  // Pino do sensor MX30102 - SPO2
 
@@ -48,8 +49,8 @@ const char* mqttServer = "192.168.0.111";  // Altere para o IP do seu broker MQT
 const int mqttPort = 1883;
 PubSubClient client(ethClient);
 
-const int timeCollect = 15000;
-const int timePublish = 15000;
+const int timeCollect = 1800000;
+const int timePublish = 1800000;
 // const float latitude = -12.999903872390929;
 // const float longitude = -38.50728049190718;
 
@@ -127,7 +128,6 @@ void loop() {
     
     // // sendPresenca();
   }
-
 
   // delay(timeCollect);  // Intervalo de envio em ms
 }
@@ -228,6 +228,8 @@ void sendPresenca() {
       snprintf(topic, 20, "dev/%s", deviceId);
       Serial.println(topic);
       buildFlowData(jsonDataPresenca, "presenceSensor", deviceId, "48439", stateStr);
+      Serial.print("Enviando JSON: ");
+      Serial.println(jsonDataPresenca);
       
       // Publicando no tópico MQTT
       bool success = client.publish(topic, jsonDataPresenca);

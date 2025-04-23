@@ -9,7 +9,10 @@ services:
     hostname: g01
     expose:
       - "1883"
-      - "9001"
+      - "9001"  
+    ports:
+      - "1883:1883"
+      - "9001:9001"
     networks:
       comm-mqtt:
         aliases:

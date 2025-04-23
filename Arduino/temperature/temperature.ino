@@ -49,8 +49,8 @@ const char* mqttServer = "192.168.0.111";  // Altere para o IP do seu broker MQT
 const int mqttPort = 1883;
 PubSubClient client(ethClient);
 
-const int timeCollect = 1800000;
-const int timePublish = 1800000;
+const unsigned long timeCollect = 1800000; // 30 minutes
+const unsigned long timePublish = 1800000; // 30 minutes
 // const float latitude = -12.999903872390929;
 // const float longitude = -38.50728049190718;
 
@@ -111,12 +111,10 @@ void loop() {
   // Processa as mensagens MQTT recebidas - Mantem o MQTT ativo
   client.loop();
 
-  // Monitoramento BPM
-  // sendBPM();
-
   // Monitoramento contínuo do sensor de presença
   sendPresenca();
-
+  
+  
   // 🕒 Verifica se já passou o tempo para coletar outros sensores
   if (millis() - lastCollectTime >= timeCollect) {
     lastCollectTime = millis();  // Atualiza o tempo da última coleta
@@ -124,12 +122,8 @@ void loop() {
     sendTemperature();
     sendHumidity();
     sendLuminosidade();
-    sendGas();
-    
-    // // sendPresenca();
+    sendGas();        
   }
-
-  // delay(timeCollect);  // Intervalo de envio em ms
 }
 
 // 📌 Função para conectar ao MQTT
@@ -216,11 +210,11 @@ void sendPresenca() {
     char deviceId[5] = "sc05";
 
     if (estadoAtual != estadoAnterior) {  // Se houve mudança de estado
-      if (estadoAtual == HIGH) {
-        Serial.println("🔵 Movimento detectado!");        
-      } else {
-        Serial.println("⚪ Movimento cessou.");
-      }
+      // if (estadoAtual == HIGH) {
+      //   Serial.println("🔵 Movimento detectado!");        
+      // } else {
+      //   Serial.println("⚪ Movimento cessou.");
+      // }
       char stateStr[2];
       dtostrf(estadoAtual, 1, 0, stateStr);
 
@@ -233,7 +227,7 @@ void sendPresenca() {
       
       // Publicando no tópico MQTT
       bool success = client.publish(topic, jsonDataPresenca);
-
+      
       estadoAnterior = estadoAtual;  // Atualiza o estado anterior
     }
   }
@@ -433,5 +427,5 @@ void buildFlowData(char* jsonBuffer, char* sensorType, char* deviceId, char* use
            "\"user_id\":\"%s\"},"
            "\"data\":[\"%s\",\"%s\"],"
            "\"datetime_pub\":\"\"}",
-           sensorType, deviceId, timeCollect, timePublish, userId, value, value);
+           sensorType, deviceId, 30, 30, userId, value, value);
 }

@@ -46,25 +46,25 @@ export function Preprocess(data: any) {
                 quantityKind = M3_QU.SystolicBloodPressure;
                 d.header.sensorType = M3_SENSORTYPES.SYSTOLIC_BLOOD_PRESSURE;
                 d.header.parentClass = "SensingDevice";
-                break;            
+                break;
             case SENSORTYPES.BLOOD_PRESSURE:
                 unit = M3_UNITS.MmHg;
                 quantityKind = M3_QU.BloodPressure;
                 d.header.sensorType = M3_SENSORTYPES.BLOOD_PRESSURE;
                 d.header.parentClass = "SensingDevice";
-                break;                            
+                break;
             case SENSORTYPES.SWEATING:
                 unit = RDF_UNITS.boolean;
                 quantityKind = M3_QU.SkinConductance;
                 d.header.sensorType = M3_SENSORTYPES.SWEATING;
                 d.header.parentClass = "SensingDevice";
-                break;            
+                break;
             case SENSORTYPES.SHIVERING:
                 unit = RDF_UNITS.boolean;
                 quantityKind = M3_QU.Acceleration;
                 d.header.sensorType = M3_SENSORTYPES.SHIVERING;
                 d.header.parentClass = "SensingDevice";
-                break;   
+                break;
             case SENSORTYPES.BODY_TEMPERATURE:
                 unit = M3_UNITS.DegreeCelsius;
                 quantityKind = M3_QU.BodyTemperature;
@@ -99,6 +99,24 @@ export function Preprocess(data: any) {
                 unit = M3_UNITS.BPM;
                 quantityKind = M3_QU.HeartBeat;
                 d.header.sensorType = M3_SENSORTYPES.HEART_RATE;
+                d.header.parentClass = "SensingDevice";
+                break;
+            case SENSORTYPES.PRESENCE:
+                unit = M3_UNITS.Scale;
+                quantityKind = M3_QU.Presence;
+                d.header.sensorType = M3_SENSORTYPES.PRESENCE;
+                d.header.parentClass = "SensingDevice";
+                break;
+            case SENSORTYPES.GAS:
+                unit = M3_UNITS.PPM;
+                quantityKind = M3_QU.AirPollution;
+                d.header.sensorType = M3_SENSORTYPES.GAS;
+                d.header.parentClass = "SensingDevice";
+                break;
+            case SENSORTYPES.LUMINOSITY:
+                unit = M3_UNITS.Lumen;
+                quantityKind = M3_QU.LuminousFlux;
+                d.header.sensorType = M3_SENSORTYPES.LUMINOSITY;
                 d.header.parentClass = "SensingDevice";
                 break;
             default:

@@ -35,9 +35,9 @@ def receive_file():
                     for user in users_id:
                         save_to_solid(user)
                 except Exception as err:
-                    logging.info("%s", err)
+                    logging.info("Error 1: %s", err)
         except Exception as err:
-            logging.info("%s",err)
+            logging.info("Error 2: %s",err)
 
     # while True:
     #     try:
@@ -97,10 +97,10 @@ def save_to_solid(user):
         logging.info("ponto 4")
         logging.info("%s", js_file)    
 
-        # data_file = "../community-server/" + user + ".json"
+        data_file = "../community-server/" + user + ".json"
         
-        # seed data test
-        data_file = "../solid-server/seedDataTest.json"
+        # seed data test - excluir depois dos testes e deixar a linha anterior
+        # data_file = "../solid-server/seedDataTest.json"
         
         logging.info("Data_File - %s", data_file)    
         credential_file = "../community-server/" + user + "_cred.json"
@@ -133,7 +133,7 @@ def save_to_solid(user):
         
 
     except Exception as err:
-        logging.info("%s", err)
+        logging.info("Error 3: %s", err)
 
 
 if __name__ == '__main__':

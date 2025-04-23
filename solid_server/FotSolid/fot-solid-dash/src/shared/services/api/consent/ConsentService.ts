@@ -20,7 +20,10 @@ export enum SensorType {
     ENV_TEMPERATURE = "AirThermometer.ttl",
     SWEATING = "SkinConductanceSensor.ttl",
     SHIVERING = "Accelerometer.ttl",
-    HEART_RATE = "HeartBeatSensor.ttl"
+    HEART_RATE = "HeartBeatSensor.ttl",
+    PRESENCE = "OccupancyDetector.ttl",
+    GAS = "CO_Sensor.ttl",
+    LUMINOSITY = "LightSensor.ttl"
 }
 
 export interface IAgentAccess {

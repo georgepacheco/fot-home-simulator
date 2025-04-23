@@ -12,8 +12,8 @@
 /**
  * Receive file from Python script
  */
-export const RML_FILE = '../solid-server/FotSolid/Sensor2Gateway/src/rml/rml_lite.ttl'; 
-export const USERS_FILE =  '../solid-server/users_.json';
+export const RML_FILE = '../solid-server/FotSolid/Sensor2Gateway/src/rml/rml_lite.ttl';
+export const USERS_FILE = '../solid-server/users_.json';
 
 
 export const RML_OPTIONS = {
@@ -42,6 +42,9 @@ export const SENSORTYPES = {
     GLUCOMETER: "glucometerSensor",
     OXYMETER: "oxymeterSensor",
     SMOKE: "smokeSensor",
+    PRESENCE: "presenceSensor",
+    GAS: "gasSensor",
+    LUMINOSITY: "luminositySensor",
 
 }
 
@@ -61,7 +64,11 @@ export const M3_SENSORTYPES = {
     SWEATING: "SkinConductanceSensor",
     SHIVERING: "Accelerometer",
     SYSTOLIC_BLOOD_PRESSURE: "SystolicBloodPressure",
-    DIASTOLIC_BLOOD_PRESSURE: "DiastolicBloodPressure"
+    DIASTOLIC_BLOOD_PRESSURE: "DiastolicBloodPressure",
+    PRESENCE: "OccupancyDetector",
+    GAS: "CO_Sensor",
+    LUMINOSITY: "LightSensor"
+
 }
 
 /**
@@ -100,12 +107,22 @@ export const M3_UNITS = {
      * @description BeatPerMinute (bpm) is the unit to measure heart rate
      */
 
-    "BPM":"BeatPerMinute"
+    "BPM": "BeatPerMinute",
+
+    /**
+    * @description Arbitrary indirect reference which should be translated into meaningful measurements by using the corresponding decoding algorithm detailed in the resource description. In this case the returned values are part of a continuous variable which can take any numeric value.
+    */
+    "Scale": "Scale",
+
+    /**
+     * @description The SI unit of luminous flux, equal to the amount of light emitted per second in a unit solid angle of one steradian from a uniform source of one candela." 
+     */
+    "Lumen": "Lumen"
 
 }
 
-export const RDF_UNITS= {
-    "boolean":"boolean"
+export const RDF_UNITS = {
+    "boolean": "boolean"
 }
 
 /**
@@ -121,7 +138,7 @@ export const M3_QU = {
     /**
      * @description BloodPressure
      */
-    "BloodPressure":"BloodPressure",
+    "BloodPressure": "BloodPressure",
 
     /**
      * @description BodyTemperature
@@ -163,9 +180,9 @@ export const M3_QU = {
     "ParticleConcentration": "ChemicalAgentAtmosphericConcentration",
 
 
-    "DiastolicBloodPressure":"DiastolicBloodPressure",
+    "DiastolicBloodPressure": "DiastolicBloodPressure",
 
-    "SystolicBloodPressure":"SystolicBloodPressure",
+    "SystolicBloodPressure": "SystolicBloodPressure",
 
     "SkinConductance": "SkinConductance",
 
@@ -174,7 +191,19 @@ export const M3_QU = {
     /**
      * @description HeartBeat, heart rate
      */
-    "HeartBeat": "HeartBeat"
+    "HeartBeat": "HeartBeat",
+
+    /**
+     * @description A person is in the room or not."@en 
+     */
+    "Presence": "Presence",
+
+    /**
+     * @description Luminous Flux is the measure of the perceived power of light."@en 
+     */
+    "LuminousFlux": "LuminousFlux",
+
+    "AirPollution": "AirPollution"
 }
 
 

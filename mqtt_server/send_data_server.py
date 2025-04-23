@@ -20,7 +20,7 @@ def send_file(server_ip, file_path):
         try:
             s.connect((server_ip, server_port))
 
-            remove_invalid_data(file_path)
+            #remove_invalid_data(file_path)
             try:
                 with open(file_path, 'rb') as file:
                     data = file.read()

@@ -27,6 +27,9 @@ export interface ISensor {
     observation?: IObservation[];
 };
 
+/**
+ * @description based on M3 sensor types
+ */
 export enum SensorType {
     // BLOOD_PRESSURE = "BloodPressureSensor.ttl",
     SYSTOLIC_BLOOD_PRESSURE = "SystolicBloodPressure.ttl",
@@ -40,7 +43,10 @@ export enum SensorType {
     ENV_TEMPERATURE = "AirThermometer.ttl",
     SWEATING = "SkinConductanceSensor.ttl",
     SHIVERING = "Accelerometer.ttl",
-    HEART_RATE = "HeartBeatSensor.ttl"
+    HEART_RATE = "HeartBeatSensor.ttl",
+    PRESENCE = "OccupancyDetector.ttl",
+    GAS = "CO_Sensor.ttl",
+    LUMINOSITY = "LightSensor.ttl"
 }
 
 
